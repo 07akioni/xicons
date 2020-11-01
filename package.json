@@ -1,6 +1,6 @@
 {
   "name": "vicons",
-  "version": "0.0.0",
+  "version": "0.0.1-alpha.0",
   "description": "SVG Vue components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons) and [`ionicons`](https://github.com/ionic-team/ionicons).",
   "main": "index.js",
   "scripts": {
@@ -27,6 +27,9 @@
   ],
   "author": "07akioni",
   "license": "MIT",
+  "dependencies": {
+    "vue": "^3.0.2"
+  },
   "devDependencies": {
     "css-render": "^0.11.1",
     "esbuild": "^0.8.1",
@@ -36,7 +39,6 @@
     "rollup": "^2.32.1",
     "rollup-plugin-vue": "^6.0.0-beta.10",
     "vite": "^1.0.0-rc.8",
-    "vue": "^3.0.2",
     "vueuc": "0.1.0-alpha.8"
   }
 }
