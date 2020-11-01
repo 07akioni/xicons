@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npm run clean && node scripts/generate.js && npm run lint",
-    "build:site": "npm run build && vite build",
+    "build:site": "rm -rf site && esbuild demo/index.js --bundle --splitting --outdir=site --format=esm --define:process.env.NODE_ENV='\"production\"' && cp index.html site/index.html",
     "lint": "npm run lint:ionicons-v4 && npm run lint:ionicons-v5 && npm run lint:fluent && node scripts/rollup.js",
     "lint:ionicons-v4": "prettier --write ionicons-v4 && prettier --parser html --write ionicons-v4/*.svg",
     "lint:ionicons-v5": "prettier --write ionicons-v5 && prettier --parser html --write ionicons-v5/*.svg",
@@ -27,6 +27,7 @@
   "license": "MIT",
   "devDependencies": {
     "css-render": "^0.11.1",
+    "esbuild": "^0.8.1",
     "lodash": "^4.17.20",
     "lodash-es": "^4.17.15",
     "prettier": "^2.1.2",

@@ -2,6 +2,7 @@ resources
 node_modules
 package-lock.json
 .vscode
+site
 
 ionicons-v4
 ionicons-v5
