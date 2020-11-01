@@ -3,16 +3,18 @@ import { VirtualList } from 'vueuc'
 import { CssRender } from 'css-render'
 import { debounce } from 'lodash-es'
 import * as fluentIcons from '../fluent/async-index'
-import * as ionV5Icons from '../ion-v5/async-index'
-import * as ionV4Icons from '../ion-v4/async-index'
+import * as ionV5Icons from '../ionicons-v5/async-index'
+import * as ionV4Icons from '../ionicons-v4/async-index'
 
 const { c } = CssRender()
 const style = c([
   c('body', {
-    margin: 0
+    margin: 0,
+    overflow: 'hidden',
+    fontFamily: 'system-ui'
   }),
   c('.icon', {
-    color: 'red',
+    color: '#303030',
     width: '1em',
     height: '1em',
     display: 'inline-flex'
@@ -49,11 +51,11 @@ function pack (list, size = 8) {
   return packs
 }
 
-const entries = createMergedEntries(
-  fluentIcons,
-  ionV5Icons,
-  ionV4Icons
-)
+const iconSets = {
+  fluent: createMergedEntries(fluentIcons),
+  'ionicons-v4': createMergedEntries(ionV4Icons),
+  'ionicons-v5': createMergedEntries(ionV5Icons)
+}
 
 export default {
   name: 'App',
@@ -65,16 +67,18 @@ export default {
       })
     })
     const patternRef = ref('')
+    const displayedSetKeyRef = ref(Object.keys(iconSets)[0])
     const handleInput = debounce(
       e => { patternRef.value = e.target.value },
-      200
+      800
     )
     return {
       handleInput,
       pattern: patternRef,
+      displayedSetKey: displayedSetKeyRef,
       filteredPacks: computed(() => {
-        return pack(entries.filter(([key]) => {
-          return key.includes(patternRef.value)
+        return pack(iconSets[displayedSetKeyRef.value].filter(([key]) => {
+          return key.toLowerCase().includes(patternRef.value.toLowerCase())
         }))
       })
     }
@@ -89,9 +93,20 @@ export default {
         h('input', {
           value: this.pattern,
           onInput: this.handleInput
-        })
+        }),
+        Object.keys(iconSets).map(key => h('label', [
+          h('input', {
+            type: 'radio',
+            checked: this.displayedSetKey === key,
+            name: 'icon-set',
+            onChange: () => {
+              this.displayedSetKey = key
+            }
+          }),
+          key
+        ]))
       ]),
-      h(VirtualList, {
+      this.filteredPacks.length ? h(VirtualList, {
         items: this.filteredPacks,
         itemSize: 30
       }, {
@@ -105,7 +120,8 @@ export default {
                   style: {
                     width: '12.5%',
                     display: 'inline-flex',
-                    alignItem: 'center'
+                    alignItems: 'center',
+                    fontSize: '12px'
                   }
                 }, [
                   h('div', {
@@ -122,7 +138,7 @@ export default {
             })
           ])
         }
-      })
+      }) : 'nothing matched'
     ])
   }
 }

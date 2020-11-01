@@ -1,11 +1,11 @@
-const { camelCase } = require("lodash")
+const { camelCase, upperFirst } = require("lodash")
 
 module.exports = [
   {
     name: 'fluent',
     src: 'assets',
     normalizeName: name => {
-      return camelCase(name.replace('ic_fluent_', ''))
+      return upperFirst(camelCase(name.replace('ic_fluent_', '')))
     },
     filter: info => {
       const { depth } = info
@@ -17,14 +17,14 @@ module.exports = [
     name: 'ionicons-v5',
     src: 'src/svg',
     normalizeName: name => {
-      return camelCase(name)
+      return upperFirst(camelCase(name))
     }
   },
   {
     name: 'ionicons-v4',
     src: 'src/svg',
     normalizeName: name => {
-      return camelCase(name)
+      return upperFirst(camelCase(name))
     }
   }
 ]
