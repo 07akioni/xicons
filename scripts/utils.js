@@ -3,7 +3,7 @@ const { ref } = require("vue")
 const attrRegex = {}
 
 function ensureAttrRegex (attr) {
-  return attrRegex[attr] || (attrRegex[attr] = new RegExp(`\s${attr}="([^"]*)"`, 'g'))
+  return attrRegex[attr] || (attrRegex[attr] = new RegExp(`\\s${attr}="([^"]*)"`, 'g'))
 }
 
 function removeComment (src) {

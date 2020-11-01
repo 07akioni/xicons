@@ -53,14 +53,14 @@ async function traverse (basePath, cb, depth = 0) {
         )
       }
     })
-    const importStmts = iconSetIconNames.map(n => `import ${n} from './${n}.vue'`).join('\n')
+    const importStmts = iconSetIconNames.map(n => `import ${n} from './${n}.js'`).join('\n')
     const exportStmts = 'export {\n' + iconSetIconNames.map(n => `  ${n}`).join(',\n') + '\n}\n'
     const indexFile = `${importStmts}\n${exportStmts}`
     await fs.writeFile(
       path.resolve(outPath, 'index.js'),
       indexFile
     )
-    const asyncImportStmts = iconSetIconNames.map(n => `const ${n} = () => import('./${n}.vue')`).join('\n')
+    const asyncImportStmts = iconSetIconNames.map(n => `const ${n} = () => import('./${n}.js')`).join('\n')
     const asyncExportStmts = 'export {\n' + iconSetIconNames.map(n => `  ${n}`).join(',\n') + '\n}\n'
     const asyncIndexFile = `${asyncImportStmts}\n${asyncExportStmts}`
     await fs.writeFile(

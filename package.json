@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "npm run clean && node scripts/generate.js && npm run lint",
     "build:site": "npm run build && vite build",
-    "lint": "npm run lint:ionicons-v4 && npm run lint:ionicons-v5 && npm run lint:fluent",
+    "lint": "npm run lint:ionicons-v4 && npm run lint:ionicons-v5 && npm run lint:fluent && node scripts/rollup.js",
     "lint:ionicons-v4": "prettier --write ionicons-v4 && prettier --parser html --write ionicons-v4/*.svg",
     "lint:ionicons-v5": "prettier --write ionicons-v5 && prettier --parser html --write ionicons-v5/*.svg",
     "lint:fluent": "prettier --write fluent && prettier --parser html --write fluent/*.svg",
@@ -30,6 +30,8 @@
     "lodash": "^4.17.20",
     "lodash-es": "^4.17.15",
     "prettier": "^2.1.2",
+    "rollup": "^2.32.1",
+    "rollup-plugin-vue": "^6.0.0-beta.10",
     "vite": "^1.0.0-rc.8",
     "vue": "^3.0.2",
     "vueuc": "0.1.0-alpha.8"
