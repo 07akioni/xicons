@@ -1,5 +1,3 @@
-const { ref } = require("vue")
-
 const attrRegex = {}
 
 function ensureAttrRegex (attr) {
@@ -30,10 +28,22 @@ function removeUselessTags (src) {
     )
 }
 
-function removeAttr (src, attr) {
+function removeSvgAttr (src, ...attrs) {
+  const svgRegex = /<svg[^>]*>/
+  let svgContent = src.match(svgRegex)[0]
+  attrs.forEach(attr => {
+    svgContent = svgContent.replace(ensureAttrRegex(attr), '')
+  })
   return src.replace(
-    ensureAttrRegex(attr),
-    ''
+    svgRegex,
+    svgContent
+  )
+}
+
+function removeAttr (src, ...attrs) {
+  return attrs.reduce(
+    (code, attr) => code.replace(ensureAttrRegex(attr), ''),
+    src
   )
 }
 
@@ -58,8 +68,11 @@ function refill (src) {
 }
 
 exports.naiveSvg = function naiveSvg (src) {
-  this.removeAttr = attr => {
-    src = removeAttr(src, attr)
+  this.removeAttr = (...attrs) => {
+    src = removeAttr(src, ...attrs)
+  }
+  this.removeSvgAttr = (...attrs) => {
+    src = removeSvgAttr(src, ...attrs)
   }
   this.removeComment = () => {
     src = removeComment(src)

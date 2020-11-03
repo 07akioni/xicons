@@ -38,8 +38,7 @@ async function traverse (basePath, cb, depth = 0) {
         nSvg.removeComment()
         nSvg.removeUselessTags()
         nSvg.removeAttr('id')
-        nSvg.removeAttr('width')
-        nSvg.removeAttr('height')
+        nSvg.removeSvgAttr('width', 'height')
         nSvg.refill()
 
         const svg = nSvg.getSvg()
