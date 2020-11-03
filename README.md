@@ -1,6 +1,9 @@
 # vicons
 SVG Vue components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons) and [`ionicons`](https://github.com/ionic-team/ionicons).
 
+## Icons
+https://vicons.vercel.app/
+
 ## Usage
 ```js
 import {
