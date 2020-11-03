@@ -1,6 +1,6 @@
 {
   "name": "vicons",
-  "version": "0.0.1-alpha.2",
+  "version": "0.0.1",
   "description": "SVG Vue components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons) and [`ionicons`](https://github.com/ionic-team/ionicons).",
   "scripts": {
     "dev": "vite",
