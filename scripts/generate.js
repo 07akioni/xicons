@@ -52,14 +52,29 @@ async function traverse (basePath, cb, depth = 0) {
         )
       }
     })
-    const importStmts = iconSetIconNames.map(n => `import ${n} from './${n}.js'`).join('\n')
-    const exportStmts = 'export {\n' + iconSetIconNames.map(n => `  ${n}`).join(',\n') + '\n}\n'
-    const indexFile = `${importStmts}\n${exportStmts}`
+    // generate snapshot
+    iconSetIconNames.sort()
+    const snapshot = iconSetIconNames.join('\n') + '\n'
     await fs.writeFile(
-      path.resolve(outPath, 'index.js'),
-      indexFile
+      path.resolve(__dirname, '..', 'snapshots', `${iconSetName}.snap.txt`),
+      snapshot
     )
-    const asyncImportStmts = iconSetIconNames.map(n => `const ${n} = () => import('./${n}.js')`).join('\n')
+
+    const importStmts = iconSetIconNames.map(n => `import ${n} from './${n}.js'`).join('\n') + '\n'
+    const exportStmts = 'export {\n' + iconSetIconNames.map(n => `  ${n}`).join(',\n') + '\n}\n'
+    const esmIndexFile = `${importStmts}\n${exportStmts}`
+    await fs.writeFile(
+      path.resolve(outPath, 'index.esm.js'),
+      esmIndexFile
+    )
+    const requireStmts = iconSetIconNames.map(n => `const ${n} = require('./${n}.js')`).join('\n') + '\n'
+    const cjsExportStmts = iconSetIconNames.map(n => `exports.${n} = ${n}`).join('\n') + '\n'
+    const cjsIndexFile = `${requireStmts}\n${cjsExportStmts}`
+    await fs.writeFile(
+      path.resolve(outPath, 'index.cjs.js'),
+      cjsIndexFile
+    )
+    const asyncImportStmts = iconSetIconNames.map(n => `const ${n} = () => import('./${n}.js')`).join('\n') + '\n'
     const asyncExportStmts = 'export {\n' + iconSetIconNames.map(n => `  ${n}`).join(',\n') + '\n}\n'
     const asyncIndexFile = `${asyncImportStmts}\n${asyncExportStmts}`
     await fs.writeFile(
