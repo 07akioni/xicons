@@ -4,7 +4,7 @@
   "description": "SVG Vue components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons) and [`ionicons`](https://github.com/ionic-team/ionicons).",
   "scripts": {
     "dev": "vite",
-    "release": "npm run build && npm publish",
+    "release": "npm run build && node scripts/release.js",
     "build": "npm run clean && node scripts/generate.js && npm run lint",
     "build:site": "rm -rf site && esbuild demo/index.js --bundle --splitting --outdir=site --format=esm --define:process.env.NODE_ENV='\"production\"' && cp index.html site/index.html",
     "build:vercel": "./init.sh && npm run build && npm run build:site",
@@ -32,6 +32,7 @@
   "devDependencies": {
     "css-render": "^0.11.1",
     "esbuild": "^0.8.1",
+    "execa": "^4.1.0",
     "lodash": "^4.17.20",
     "lodash-es": "^4.17.15",
     "prettier": "^2.1.2",
