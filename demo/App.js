@@ -2,6 +2,7 @@ import { h, onBeforeMount, ref, computed, defineAsyncComponent } from 'vue'
 import { VirtualList } from 'vueuc'
 import { CssRender } from 'css-render'
 import { debounce } from 'lodash-es'
+import Icon from './Icon'
 import * as fluentIcons from '../fluent/async-index'
 import * as ionV5Icons from '../ionicons-v5/async-index'
 import * as ionV4Icons from '../ionicons-v4/async-index'
@@ -115,26 +116,10 @@ export default {
             key: fragment[0][0],
           }, [
             fragment.map(item => {
-              return [
-                h('div', {
-                  style: {
-                    width: '12.5%',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    fontSize: '12px'
-                  }
-                }, [
-                  h('div', {
-                    class: 'icon',
-                    style: {
-                      fontSize: '30px'
-                    }
-                  }, [
-                    h(item[1]),
-                  ]),
-                  item[0]
-                ])
-              ]
+              return h(Icon, {
+                icon: item[1],
+                id: item[0]
+              })
             })
           ])
         }
