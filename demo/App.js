@@ -2,6 +2,7 @@ import { h, onBeforeMount, ref, computed, defineAsyncComponent } from 'vue'
 import { VirtualList } from 'vueuc'
 import { CssRender } from 'css-render'
 import { debounce } from 'lodash-es'
+import { useBreakpoints } from 'vooks'
 import Icon from './Icon'
 import * as fluentIcons from '../fluent/async-index'
 import * as ionV5Icons from '../ionicons-v5/async-index'
@@ -73,6 +74,14 @@ export default {
       e => { patternRef.value = e.target.value },
       800
     )
+    const breakpointsRef = useBreakpoints()
+    const packSizeRef = computed(() => {
+      const breakpoints = breakpointsRef.value
+      if (breakpoints.includes('l')) return 6
+      if (breakpoints.includes('m')) return 4
+      if (breakpoints.includes('s')) return 3
+      if (breakpoints.includes('xs')) return 2
+    })
     return {
       handleInput,
       pattern: patternRef,
@@ -80,7 +89,7 @@ export default {
       filteredPacks: computed(() => {
         return pack(iconSets[displayedSetKeyRef.value].filter(([key]) => {
           return key.toLowerCase().includes(patternRef.value.toLowerCase())
-        }))
+        }), packSizeRef.value)
       })
     }
   },
@@ -105,15 +114,29 @@ export default {
             }
           }),
           key
-        ]))
+        ])),
+        h('a', {
+          href: 'https://github.com/07akioni/vicons',
+          target: '_blank',
+          style: {
+            float: 'right'
+          }
+        }, [
+          'Github'
+        ])
       ]),
       this.filteredPacks.length ? h(VirtualList, {
+        key: this.displayedSetKey,
         items: this.filteredPacks,
         itemSize: 30
       }, {
         default ({ item: fragment }) {
           return h('div', {
             key: fragment[0][0],
+            style: {
+              display: 'flex',
+              flexWrap: 'nowrap'
+            }
           }, [
             fragment.map(item => {
               return h(Icon, {

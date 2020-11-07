@@ -19,10 +19,13 @@ export default {
     const iconRef = ref(null)
     return () => h('div', {
       style: {
-        width: '12.5%',
+        flexGrow: 1,
+        flexBasis: 0,
         display: 'inline-flex',
         alignItems: 'center',
-        fontSize: '12px',
+        fontSize: '10px',
+        fontFamily: 'Monaco',
+        overflow: 'hidden'
       }
     }, [
       h('div', {
