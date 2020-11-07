@@ -18,18 +18,18 @@ export default {
     }
     const iconRef = ref(null)
     return () => h('div', {
-      onClick: handleClick,
       style: {
         width: '12.5%',
         display: 'inline-flex',
         alignItems: 'center',
         fontSize: '12px',
-        cursor: 'pointer'
       }
     }, [
       h('div', {
         class: 'icon',
+        onClick: handleClick,
         style: {
+          cursor: 'pointer',
           fontSize: '30px'
         }
       }, [
