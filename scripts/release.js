@@ -16,7 +16,8 @@ const metaTemplate = {
   "license": "MIT",
   "dependencies": {
     "vue": "^3.0.2"
-  }
+  },
+  "sideEffects": false
 }
 
 
