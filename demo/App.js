@@ -46,8 +46,12 @@ function createMergedEntries (...objs) {
 function pack (list, size = 8) {
   const packs = []
   for (let i = 0; i < list.length; i += size) {
+    const row = list.slice(i, i + size)
+    for (let j = row.length; j < size; ++j) {
+      row.push([null, null])
+    }
     packs.push(
-      list.slice(i, i + size)
+      row
     )
   }
   return packs

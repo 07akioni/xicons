@@ -27,7 +27,7 @@ export default {
         fontFamily: 'Monaco',
         overflow: 'hidden'
       }
-    }, [
+    }, props.icon !== null ? [
       h('div', {
         class: 'icon',
         onClick: handleClick,
@@ -41,6 +41,6 @@ export default {
         }),
       ]),
       props.id
-    ])
+    ] : [])
   }
 }
