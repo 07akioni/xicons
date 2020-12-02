@@ -41,6 +41,6 @@
     "rollup-plugin-vue": "^6.0.0-beta.10",
     "vite": "^1.0.0-rc.8",
     "vooks": "^0.0.1-alpha.5",
-    "vueuc": "0.1.0-alpha.8"
+    "vueuc": "0.1.0-alpha.20"
   }
 }
