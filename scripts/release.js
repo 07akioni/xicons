@@ -11,7 +11,7 @@ const metaTemplate = {
     "svg",
     "icon"
   ],
-  "module": "index.esm.js",
+  "module": "index.js",
   "author": "07akioni",
   "license": "MIT",
   "dependencies": {

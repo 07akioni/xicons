@@ -64,7 +64,7 @@ async function traverse (basePath, cb, depth = 0) {
     const exportStmts = 'export {\n' + iconSetIconNames.map(n => `  ${n}`).join(',\n') + '\n}\n'
     const esmIndexFile = `${importStmts}\n${exportStmts}`
     await fs.writeFile(
-      path.resolve(outPath, 'index.esm.js'),
+      path.resolve(outPath, 'index.js'),
       esmIndexFile
     )
     // currently not support cjs
