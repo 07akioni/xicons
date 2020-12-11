@@ -1,7 +1,7 @@
 const fs = require('fs').promises
 const path = require('path')
 const rollup = require('rollup')
-const vuePlugin = require('rollup-plugin-vue')()
+const vuePlugin = require('rollup-plugin-vue')
 
 const config = require('./config')
 
@@ -15,7 +15,9 @@ async function build () {
         const bundle = await rollup.rollup({
           input: path.resolve(baseDir, file),
           plugins: [
-            vuePlugin
+            vuePlugin({
+              exposeFilename: false
+            })
           ],
           external: [
             'vue'
