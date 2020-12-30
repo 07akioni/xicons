@@ -120,7 +120,7 @@ export default {
           key
         ])),
         h('a', {
-          href: 'https://github.com/07akioni/vicons',
+          href: 'https://github.com/07akioni/xicons',
           target: '_blank',
           style: {
             float: 'right'

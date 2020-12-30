@@ -1,5 +1,5 @@
 {
-  "name": "vicons",
+  "name": "xicons",
   "version": "0.0.4",
   "description": "SVG Vue components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons) and [`ionicons`](https://github.com/ionic-team/ionicons).",
   "scripts": {
@@ -40,6 +40,6 @@
     "vueuc": "0.1.0-alpha.20"
   },
   "repository": {
-    "url": "https://github.com/07akioni/vicons"
+    "url": "https://github.com/07akioni/xicons"
   }
 }

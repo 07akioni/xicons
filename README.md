@@ -1,4 +1,7 @@
-# vicons · v2icons · ricons · [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# xicons [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+Include `vicons`, `ricons`, `sicons` & `v2icons`.
+
 SVG Vue/React components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons) and [`ionicons`](https://github.com/ionic-team/ionicons).
 
 ## Icons
@@ -19,6 +22,10 @@ npm install --save-dev @vicons/ionicons5
 npm install --save-dev @v2icons/fluent
 npm install --save-dev @v2icons/ionicons4
 npm install --save-dev @v2icons/ionicons5
+# For SVG file
+npm install --save-dev @sicons/fluent
+npm install --save-dev @sicons/ionicons4
+npm install --save-dev @sicons/ionicons5
 ```
 
 ## Usage
@@ -46,6 +53,11 @@ import {
 } from '@v2icons/fluent'
 ```
 
+For SVG
+```html
+<img src="@sicons/fluent/Money16Regular.svg" />
+```
+
 ## Packages
 
 Vue3
@@ -68,6 +80,13 @@ Vue2
 |@v2icons/fluent|[![npm version](https://badge.fury.io/js/%40v2icons%2Ffluent.svg)](https://badge.fury.io/js/%40v2icons%2Ffluent)|
 |@v2icons/ionicons4|[![npm version](https://badge.fury.io/js/%40v2icons%2Fionicons4.svg)](https://badge.fury.io/js/%40v2icons%2Fionicons4)|
 |@v2icons/ionicons5|[![npm version](https://badge.fury.io/js/%40v2icons%2Fionicons5.svg)](https://badge.fury.io/js/%40v2icons%2Fionicons5)|
+
+SVG
+|package|version|
+|-|-|
+|@sicons/fluent|[![npm version](https://badge.fury.io/js/%40sicons%2Ffluent.svg)](https://badge.fury.io/js/%40sicons%2Ffluent)|
+|@sicons/ionicons4|[![npm version](https://badge.fury.io/js/%40sicons%2Fionicons4.svg)](https://badge.fury.io/js/%40sicons%2Fionicons4)|
+|@sicons/ionicons5|[![npm version](https://badge.fury.io/js/%40sicons%2Fionicons5.svg)](https://badge.fury.io/js/%40sicons%2Fionicons5)|
 
 ## Credit
 - [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons)

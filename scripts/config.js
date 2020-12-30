@@ -4,7 +4,7 @@ module.exports = [
   {
     name: 'fluent',
     src: 'assets',
-    description: 'SVG Vue/React components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons)',
+    description: (prefix) => `${prefix} integrated from [\`fluentui-system-icons\`](https://github.com/microsoft/fluentui-system-icons)`,
     normalizeName: name => {
       return upperFirst(camelCase(name.replace('ic_fluent_', '')))
     },
@@ -12,22 +12,25 @@ module.exports = [
       const { depth } = info
       if (depth === 2) return true
       return false
-    }
+    },
+    keywords: ['fluent']
   },
   {
     name: 'ionicons5',
     src: 'src/svg',
-    description: 'SVG Vue/React components integrated from [`ionicons5`](https://ionicons.com/)',
+    description: (prefix) => `${prefix} integrated from [\`ionicons5\`](https://ionicons.com/)`,
     normalizeName: name => {
       return upperFirst(camelCase(name))
-    }
+    },
+    keywords: ['ionicons', 'ionicons5']
   },
   {
     name: 'ionicons4',
     src: 'src/svg',
-    description: 'SVG Vue/React components integrated from [`ionicons4`](https://ionicons.com/v4/)',
+    description: (prefix) => `${prefix} integrated from [\`ionicons4\`](https://ionicons.com/v4/)`,
     normalizeName: name => {
       return upperFirst(camelCase(name))
-    }
+    },
+    keywords: ['ionicons', 'ionicon4']
   }
 ]
