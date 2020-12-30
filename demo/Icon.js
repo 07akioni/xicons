@@ -18,29 +18,21 @@ export default {
     }
     const iconRef = ref(null)
     return () => h('div', {
-      style: {
-        flexGrow: 1,
-        flexBasis: 0,
-        display: 'inline-flex',
-        alignItems: 'center',
-        fontSize: '10px',
-        fontFamily: 'Monaco',
-        overflow: 'hidden'
-      }
+      class: 'icon-wrapper'
     }, props.icon !== null ? [
       h('div', {
         class: 'icon',
-        onClick: handleClick,
-        style: {
-          cursor: 'pointer',
-          fontSize: '30px'
-        }
+        onClick: handleClick
       }, [
         h(props.icon, {
           ref: inst => inst && (iconRef.value = inst.$el)
         }),
       ]),
-      props.id
+      h('div', {
+        class: 'icon-name'
+      }, [
+        props.id
+      ])
     ] : [])
   }
 }

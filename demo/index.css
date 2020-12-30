@@ -1,0 +1,146 @@
+body {
+  --nav-height: 52px;
+  --tab-height: 32px;
+  font-size: 14px;
+  margin: 0;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #808080;
+  background-color: #F8F8F8;
+}
+
+.logo {
+  height: 20px;
+}
+
+.nav-container {
+  background: #FFF;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, .08);
+}
+
+.nav-prefix {
+  padding: 0 24px;
+  min-width: 120px;
+}
+
+.nav-suffix {
+  padding: 0 24px;
+  min-width: 120px;
+}
+
+.nav-suffix a {
+  color: #303030;
+  text-decoration: none;
+}
+
+.nav-container .nav-main {
+  border-radius: 6px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100vw;
+  max-width: 680px;
+  padding: 12px;
+}
+
+.nav-container .nav-main .search {
+  width: 100%;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  line-height: 40px;
+  padding: 0 12px 0 24px;
+  font-size: 16px;
+  transition: box-shadow .3s cubic-bezier(.4, 0, .2, 1);
+  background: rgba(0, 0, 0, .06);
+}
+
+.nav-container .nav-main .search:focus {
+  box-shadow: inset 0 0 0 2px #606060;
+}
+
+.tab {
+  background: #FFF;
+  height: var(--tab-height);
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  border-bottom: 1px solid rgba(0, 0, 0, .08);
+}
+
+.tab .tab-item {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 3px solid transparent;
+  min-width: 80px;
+}
+
+.tab .tab-item:not(:last-child) {
+  margin-right: 36px;
+}
+
+.tab .tab-item.tab-item--active {
+  font-weight: 500;
+  color: #303030;
+  border-bottom: 2px solid #303030;
+}
+
+.icon-wrapper {
+  flex-grow: 1;
+  flex-basis: 0;
+  display: inline-flex;
+  align-items: center;
+  background-color: #FFF;
+  border-radius: 4px;
+  padding: 0 16px;
+  margin: 0 8px;
+  overflow: hidden;
+}
+
+.icon {
+  color: #303030;
+  width: 1em;
+  height: 1em;
+  display: inline-flex;
+  cursor: pointer;
+  font-size: 32px;
+}
+
+.icon-name {
+  flex-basis: 0;
+  flex-grow: 1;
+  overflow: hidden;
+  margin-left: 8px;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.icon svg {
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+}
+
+.v-vl {
+  height: calc(100vh - var(--nav-height) - var(--tab-height));
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 24px;
+  max-width: 1968px;
+  margin: auto;
+}
+
+.empty {
+  text-align: center;
+  font-size: 16px;
+  margin: auto;
+  margin-top: 36px;
+}
