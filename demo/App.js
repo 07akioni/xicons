@@ -1,7 +1,7 @@
 import { h, ref, computed, defineAsyncComponent } from 'vue'
 import { VirtualList } from 'vueuc'
 import { debounce } from 'lodash-es'
-import { useBreakpoints } from 'vooks'
+import { useBreakpoints, useMemo } from 'vooks'
 import Icon from './Icon'
 import Tab from './Tab'
 import Logo from './Logo'
@@ -49,14 +49,16 @@ export default {
       800
     )
     const breakpointsRef = useBreakpoints()
-    const packSizeRef = computed(() => {
+    const packSizeRef = useMemo(() => {
       const breakpoints = breakpointsRef.value
       if (breakpoints.includes('l')) return 5
       if (breakpoints.includes('m')) return 4
       if (breakpoints.includes('s')) return 3
       if (breakpoints.includes('xs')) return 2
     })
+    const showPrefixRef = useMemo(() => breakpointsRef.value.includes('m'))
     return {
+      showPrefix: showPrefixRef,
       handleInput,
       pattern: patternRef,
       displayedSetKey: displayedSetKeyRef,
@@ -72,13 +74,13 @@ export default {
       h('div', {
         class: 'nav-container'
       }, [
-        h('div', {
+        this.showPrefix ? h('div', {
           class: 'nav-prefix'
         }, [
           h(Logo, {
             class: 'logo'
           })
-        ]),
+        ]) : null,
         h('div', {
           class: 'nav-main'
         }, [
@@ -89,10 +91,31 @@ export default {
             onInput: this.handleInput
           })
         ]),
-        h('div', {
+        this.showPrefix ? h('div', {
           class: 'nav-suffix'
         }, [
           h('a', {
+            class: 'link',
+            href: 'https://github.com/07akioni/xicons',
+            target: '_blank',
+            style: {
+              float: 'right'
+            }
+          }, [
+            'Installation'
+          ]),
+          h('a', {
+            class: 'link',
+            href: 'https://github.com/07akioni/xicons',
+            target: '_blank',
+            style: {
+              float: 'right'
+            }
+          }, [
+            'Usage'
+          ]),
+          h('a', {
+            class: 'link',
             href: 'https://github.com/07akioni/xicons',
             target: '_blank',
             style: {
@@ -101,7 +124,7 @@ export default {
           }, [
             'Github'
           ])
-        ])
+        ]) : null
       ]),
       h(Tab, {
         value: this.displayedSetKey,

@@ -1,5 +1,5 @@
 body {
-  --nav-height: 52px;
+  --nav-height: 64px;
   --tab-height: 32px;
   font-size: 14px;
   margin: 0;
@@ -25,16 +25,20 @@ body {
 }
 
 .nav-prefix {
-  padding: 0 24px;
-  min-width: 120px;
+  padding-left: 24px;
+  min-width: 240px;
 }
 
 .nav-suffix {
-  padding: 0 24px;
-  min-width: 120px;
+  justify-content: flex-end;
+  display: flex;
+  padding-right: 24px;
+  min-width: 240px;
 }
 
-.nav-suffix a {
+.nav-suffix .link {
+  margin-left: 16px;
+  cursor: pointer;
   color: #303030;
   text-decoration: none;
 }
@@ -45,10 +49,11 @@ body {
   margin-right: auto;
   width: 100vw;
   max-width: 680px;
-  padding: 12px;
+  padding: 12px 24px;
 }
 
 .nav-container .nav-main .search {
+  box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
   outline: none;
