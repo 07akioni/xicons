@@ -100,8 +100,15 @@ body {
   background-color: #FFF;
   border-radius: 4px;
   padding: 0 16px;
-  margin: 0 8px;
   overflow: hidden;
+}
+
+.icon-wrapper:empty {
+  background-color: transparent;
+}
+
+.icon-wrapper:not(:first-child) {
+  margin-left: 16px;
 }
 
 .icon {
