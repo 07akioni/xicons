@@ -1,11 +1,11 @@
 # xicons [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Include `vicons`, `ricons`, `sicons` & `v2icons`.
+Include `vicons`(vue3), `ricons`(react), `sicons`(svg) & `v2icons`(vue2).
 
 SVG Vue/React components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons) and [`ionicons`](https://github.com/ionic-team/ionicons).
 
 ## Icons
-https://vicons.vercel.app/
+https://xicons.vercel.app/
 
 ## Install
 ```bash
