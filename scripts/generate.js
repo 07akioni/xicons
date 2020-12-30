@@ -52,14 +52,6 @@ async function traverse (basePath, cb, depth = 0) {
           svg: svgSanitizer.svg(),
           reactSvg: svgSanitizer.reactSvg()
         })
-        // await fs.writeFile(
-        //   path.resolve(outPath, normalizedName + '.svg'),
-        //   svg
-        // )
-        // await fs.writeFile(
-        //   path.resolve(outPath, normalizedName + '.vue'),
-        //   `<template>${svg}</template>\n<script></script>`
-        // )
       }
     })
     icons.sort((v1, v2) => {
@@ -144,12 +136,12 @@ async function generateReact (icons, names, basePath) {
   for (const { name, reactSvg } of icons) {
     await fs.writeFile(
       path.resolve(tempPath, `${name}.tsx`),
-      `import * as React from 'react'\n` +
-      `export default function ${name} (props: React.SVGAttributes<SVGSVGElement>) {\n` +
+      `import * as React from 'react'\n\n` +
+      `export default React.forwardRef<SVGSVGElement, React.SVGProps<SVGElement>>(function ${name} (props, ref) {\n` +
       '  return (\n' +
-      reactSvg.replace(/(<svg[^>]*)(>)/, '$1 {...props} $2') +
+      reactSvg.replace(/(<svg[^>]*)(>)/, '$1 {...props} ref={ref} $2') +
       '  )\n' +
-      '}\n'
+      '})\n'
     )
   }
   // generate index.ts
