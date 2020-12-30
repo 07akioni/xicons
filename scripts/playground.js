@@ -1,17 +1,17 @@
 const {
-  naiveSvg
+  createSvgSanitizer
 } = require('./utils')
 
-const nSvg = naiveSvg(`
+const svgSanitizer = createSvgSanitizer(`
   <svg width="100" height="900">
     <line width="1" height="1" id="10" />
   </svg>
 `)
 
-nSvg.removeComment()
-nSvg.removeUselessTags()
-nSvg.removeSvgAttr('width', 'height')
-nSvg.removeAttr('id')
-nSvg.refill()
+svgSanitizer.removeComment()
+svgSanitizer.removeUselessTags()
+svgSanitizer.removeSvgAttr('width', 'height')
+svgSanitizer.removeAttr('id')
+svgSanitizer.refill()
 
-console.log(nSvg.getSvg())
+console.log(svgSanitizer.svg())

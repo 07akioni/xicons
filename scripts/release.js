@@ -2,32 +2,35 @@ const path = require('path')
 const fs = require('fs')
 const execa = require('execa')
 const config = require('./config')
-const { name, version } = require('../package.json')
+const { name, version, repository } = require('../package.json')
 
 const metaTemplate = {
-  "description": "SVG Vue components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons) and [`ionicons`](https://github.com/ionic-team/ionicons).",
   "keywords": [
     "vue",
     "svg",
     "icon"
   ],
-  "module": "index.js",
+  "files": [
+    "react",
+    "vue2",
+    "vue3",
+    "svg"
+  ],
   "author": "07akioni",
   "license": "MIT",
-  "dependencies": {
-    "vue": "^3.0.2"
-  },
+  "dependencies": {},
   "sideEffects": false
 }
-
 
 ;(async () => {
   for (const iconSetConfig of config) {
     const scopedPackageName = `@${name}/${iconSetConfig.name}`
-    const scopedPackagePath = path.resolve(__dirname, '..', iconSetConfig.name)
+    const scopedPackagePath = path.resolve(__dirname, '..', 'dist', iconSetConfig.name)
     const meta = JSON.stringify({
       name: scopedPackageName,
       version,
+      description: iconSetConfig.description,
+      repository,
       ...metaTemplate
     }, 0, 2)
     fs.writeFileSync(path.resolve(scopedPackagePath, 'package.json'), meta)

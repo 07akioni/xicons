@@ -4,9 +4,9 @@ import { CssRender } from 'css-render'
 import { debounce } from 'lodash-es'
 import { useBreakpoints } from 'vooks'
 import Icon from './Icon'
-import * as fluentIcons from '../fluent/async-index'
-import * as ionV5Icons from '../ionicons-v5/async-index'
-import * as ionV4Icons from '../ionicons-v4/async-index'
+import * as fluentIcons from '../dist/fluent/vue3/async-index'
+import * as ionV5Icons from '../dist/ionicons5/vue3/async-index'
+import * as ionV4Icons from '../dist/ionicons4/vue3/async-index'
 
 const { c } = CssRender()
 const style = c([
@@ -59,8 +59,8 @@ function pack (list, size = 8) {
 
 const iconSets = {
   fluent: createMergedEntries(fluentIcons),
-  'ionicons-v4': createMergedEntries(ionV4Icons),
-  'ionicons-v5': createMergedEntries(ionV5Icons)
+  'ionicons4': createMergedEntries(ionV4Icons),
+  'ionicons5': createMergedEntries(ionV5Icons)
 }
 
 export default {
