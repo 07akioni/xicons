@@ -84,7 +84,7 @@ body {
   align-items: center;
   justify-content: center;
   border-bottom: 3px solid transparent;
-  min-width: 80px;
+  padding: 0 16px;
 }
 
 .tab .tab-item:not(:last-child) {

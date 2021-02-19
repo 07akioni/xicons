@@ -10,6 +10,7 @@ import * as ionV5Icons from '../dist/ionicons5/vue3/async-index'
 import * as ionV4Icons from '../dist/ionicons4/vue3/async-index'
 import * as antdIcons from '../dist/antd/vue3/async-index'
 import * as materialIcons from '../dist/material/vue3/async-index'
+import * as faIcons from '../dist/fa/vue3/async-index'
 
 function createMergedEntries (...objs) {
   const entries = []
@@ -40,6 +41,7 @@ const iconSets = {
   ionicons4: createMergedEntries(ionV4Icons),
   ionicons5: createMergedEntries(ionV5Icons),
   antd: createMergedEntries(antdIcons),
+  fa: createMergedEntries(faIcons),
   material: createMergedEntries(materialIcons)
 }
 
@@ -100,7 +102,7 @@ export default {
         }, [
           h('a', {
             class: 'link',
-            href: 'https://github.com/07akioni/xicons',
+            href: 'https://github.com/07akioni/xicons#installation',
             target: '_blank',
             style: {
               float: 'right'
@@ -110,7 +112,7 @@ export default {
           ]),
           h('a', {
             class: 'link',
-            href: 'https://github.com/07akioni/xicons',
+            href: 'https://github.com/07akioni/xicons#usage',
             target: '_blank',
             style: {
               float: 'right'

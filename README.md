@@ -2,12 +2,12 @@
 
 Include `vicons`(vue3), `ricons`(react), `sicons`(svg) & `v2icons`(vue2).
 
-SVG Vue/React components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons), [`ionicons`](https://github.com/ionic-team/ionicons), [`ant-design-icons`](https://github.com/ant-design/ant-design-icons) and [`material-design-icons`](https://github.com/google/material-design-icons).
+SVG Vue/React components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons), [`ionicons`](https://github.com/ionic-team/ionicons), [`ant-design-icons`](https://github.com/ant-design/ant-design-icons), [`material-design-icons`](https://github.com/google/material-design-icons) and [`Font-Awesome`](https://github.com/FortAwesome/Font-Awesome).
 
 ## Icons
 https://xicons.vercel.app/
 
-## Install
+## Installation
 ```bash
 # Install packages on your demand
 # For react
@@ -16,24 +16,28 @@ npm install --save-dev @ricons/ionicons4
 npm install --save-dev @ricons/ionicons5
 npm install --save-dev @ricons/antd
 npm install --save-dev @ricons/material
+npm install --save-dev @ricons/fa # font awesome
 # For vue3
 npm install --save-dev @vicons/fluent
 npm install --save-dev @vicons/ionicons4
 npm install --save-dev @vicons/ionicons5
 npm install --save-dev @vicons/antd
 npm install --save-dev @vicons/material
+npm install --save-dev @vicons/fa # font awesome
 # For vue2
 npm install --save-dev @v2icons/fluent
 npm install --save-dev @v2icons/ionicons4
 npm install --save-dev @v2icons/ionicons5
 npm install --save-dev @v2icons/antd
 npm install --save-dev @v2icons/material
+npm install --save-dev @v2icons/fa # font awesome
 # For SVG file
 npm install --save-dev @sicons/fluent
 npm install --save-dev @sicons/ionicons4
 npm install --save-dev @sicons/ionicons5
 npm install --save-dev @sicons/antd
 npm install --save-dev @sicons/material
+npm install --save-dev @sicons/fa # font awesome
 ```
 
 ## Usage
@@ -76,6 +80,7 @@ Vue3
 |@vicons/ionicons5|[![npm version](https://badge.fury.io/js/%40vicons%2Fionicons5.svg)](https://badge.fury.io/js/%40vicons%2Fionicons5)|
 |@vicons/antd|[![npm version](https://badge.fury.io/js/%40vicons%2Fantd.svg)](https://badge.fury.io/js/%40vicons%2Fantd)|
 |@vicons/material|[![npm version](https://badge.fury.io/js/%40vicons%2Fmaterial.svg)](https://badge.fury.io/js/%40vicons%2Fmaterial)|
+|@vicons/fa|[![npm version](https://badge.fury.io/js/%40vicons%2Ffa.svg)](https://badge.fury.io/js/%40vicons%2Ffa)|
 
 React
 |package|version|
@@ -85,6 +90,7 @@ React
 |@ricons/ionicons5|[![npm version](https://badge.fury.io/js/%40ricons%2Fionicons5.svg)](https://badge.fury.io/js/%40ricons%2Fionicons5)|
 |@ricons/antd|[![npm version](https://badge.fury.io/js/%40ricons%2Fantd.svg)](https://badge.fury.io/js/%40ricons%2Fantd)|
 |@ricons/material|[![npm version](https://badge.fury.io/js/%40ricons%2Fmaterial.svg)](https://badge.fury.io/js/%40ricons%2Fmaterial)|
+|@ricons/fa|[![npm version](https://badge.fury.io/js/%40ricons%2Ffa.svg)](https://badge.fury.io/js/%40ricons%2Ffa)|
 
 Vue2
 |package|version|
@@ -94,6 +100,7 @@ Vue2
 |@v2icons/ionicons5|[![npm version](https://badge.fury.io/js/%40v2icons%2Fionicons5.svg)](https://badge.fury.io/js/%40v2icons%2Fionicons5)|
 |@v2icons/antd|[![npm version](https://badge.fury.io/js/%40v2icons%2Fantd.svg)](https://badge.fury.io/js/%40v2icons%2Fantd)|
 |@v2icons/material|[![npm version](https://badge.fury.io/js/%40v2icons%2Fmaterial.svg)](https://badge.fury.io/js/%40v2icons%2Fmaterial)|
+|@v2icons/fa|[![npm version](https://badge.fury.io/js/%40v2icons%2Ffa.svg)](https://badge.fury.io/js/%40v2icons%2Ffa)|
 
 SVG
 |package|version|
@@ -103,7 +110,13 @@ SVG
 |@sicons/ionicons5|[![npm version](https://badge.fury.io/js/%40sicons%2Fionicons5.svg)](https://badge.fury.io/js/%40sicons%2Fionicons5)|
 |@sicons/antd|[![npm version](https://badge.fury.io/js/%40sicons%2Fantd.svg)](https://badge.fury.io/js/%40sicons%2Fantd)|
 |@sicons/material|[![npm version](https://badge.fury.io/js/%40sicons%2Fmaterial.svg)](https://badge.fury.io/js/%40sicons%2Fmaterial)|
+|@sicons/fa|[![npm version](https://badge.fury.io/js/%40sicons%2Ffa.svg)](https://badge.fury.io/js/%40sicons%2Ffa)|
 
 ## Credit
-- [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons)
-- [`ionicons`](https://github.com/ionic-team/ionicons)
+|Icon Set|License|
+|-|-|
+|[`ant-design-icons`](https://github.com/ant-design/ant-design-icons)|[MIT](https://opensource.org/licenses/MIT)|
+|[`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons)|[MIT](https://opensource.org/licenses/MIT)|
+|[`Font-Awesome`](https://github.com/FortAwesome/Font-Awesome)|[CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/)|
+|[`ionicons`](https://github.com/ionic-team/ionicons)|[MIT](https://opensource.org/licenses/MIT)|
+|[`material-design-icons`](https://github.com/google/material-design-icons)|[Apache 2](https://github.com/google/material-design-icons/blob/master/LICENSE)|

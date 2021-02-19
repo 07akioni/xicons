@@ -22,4 +22,9 @@ cd resources/material
 git fetch
 git checkout 4.0.0
 
+cd ../..
+cd resources/fa
+git fetch
+git checkout 5.15.2
+
 echo "checkout done"

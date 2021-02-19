@@ -22,6 +22,7 @@ export default {
     }, props.icon !== null ? [
       h('div', {
         class: 'icon',
+        title: 'Click to download SVG',
         onClick: handleClick
       }, [
         h(props.icon, {

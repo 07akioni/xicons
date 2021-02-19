@@ -36,10 +36,11 @@ async function traverse (basePath, cb, depth = 0) {
     await traverse(svgPath, async (name, filePath, depth) => {
       // depth starts from 0
       const dir = path.dirname(filePath)
-      if (filter && !filter({ depth, name, dir })) return
+      const baseName = name.replace('.svg', '')
+      if (filter && !filter({ depth, name: baseName, dir })) return
       if (name.endsWith('.svg')) {
         const normalizedName = normalizeName(
-          name.replace('.svg', ''),
+          baseName,
           dir
         )
         const svgSanitizer = createSvgSanitizer(

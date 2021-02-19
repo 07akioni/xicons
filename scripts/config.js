@@ -2,6 +2,26 @@ const { camelCase, upperFirst } = require("lodash")
 
 module.exports = [
   {
+    name: 'fa',
+    src: 'svgs',
+    description: (prefix) => `${prefix} integrated from [\`font-awesome\`](https://github.com/FortAwesome/Font-Awesome)`,
+    normalizeName: (name, dir) => {
+      const normalizedName = upperFirst(camelCase(name))
+      // for solid & brand, use its original name
+      if (dir.endsWith('/regular'))
+      if (dir.endsWith('/regular')) {
+        return normalizedName + 'Regular'
+      }
+      if (/^\d/.test(normalizedName)) return 'Fa' + normalizedName
+      return normalizedName
+    },
+    filter: ({ name }) => {
+      // filter the unregular-sized icon
+      if (name === 'font-awesome-logo-full') return false
+      return true
+    }
+  },
+  {
     name: 'material',
     src: 'src',
     description: (prefix) => `${prefix} integrated from [\`material-design-icons\`](https://github.com/google/material-design-icons)`,
@@ -23,7 +43,7 @@ module.exports = [
       const normalizedName = upperFirst(camelCase(iconName + size + type))
       return /^\d/.test(normalizedName) ? 'Md' + normalizedName : normalizedName
     },
-    filter: ({ name, dir }) => {
+    filter: ({ dir }) => {
       // corner case
       // material icons have duplicate icons for
       // - resources/material/src/action/addchart
