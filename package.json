@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "release": "npm run build && node scripts/release.js",
+    "release:no-build": "node scripts/release.js",
     "build": "npm run clean && node scripts/generate.js && npm run lint",
     "build:site": "rm -rf site && esbuild demo/index.js --bundle --splitting --minify --outdir=site --format=esm --define:process.env.NODE_ENV='\"production\"' && cp index.html site/index.html",
     "build:vercel": "./init.sh && npm run build && npm run build:site",

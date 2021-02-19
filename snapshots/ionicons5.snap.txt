@@ -100,6 +100,9 @@ BagRemove
 BagRemoveOutline
 BagRemoveSharp
 BagSharp
+Balloon
+BalloonOutline
+BalloonSharp
 Ban
 BanOutline
 BanSharp
@@ -169,6 +172,9 @@ BookmarkSharp
 Bookmarks
 BookmarksOutline
 BookmarksSharp
+BowlingBall
+BowlingBallOutline
+BowlingBallSharp
 Briefcase
 BriefcaseOutline
 BriefcaseSharp
@@ -203,6 +209,9 @@ Calendar
 CalendarClear
 CalendarClearOutline
 CalendarClearSharp
+CalendarNumber
+CalendarNumberOutline
+CalendarNumberSharp
 CalendarOutline
 CalendarSharp
 Call
@@ -400,6 +409,9 @@ CutSharp
 Desktop
 DesktopOutline
 DesktopSharp
+Diamond
+DiamondOutline
+DiamondSharp
 Dice
 DiceOutline
 DiceSharp
@@ -538,6 +550,9 @@ FolderSharp
 Football
 FootballOutline
 FootballSharp
+Footsteps
+FootstepsOutline
+FootstepsSharp
 Funnel
 FunnelOutline
 FunnelSharp
@@ -628,6 +643,9 @@ HourglassSharp
 IceCream
 IceCreamOutline
 IceCreamSharp
+IdCard
+IdCardOutline
+IdCardSharp
 Image
 ImageOutline
 ImageSharp
@@ -704,6 +722,7 @@ LogoAndroid
 LogoAngular
 LogoApple
 LogoAppleAppstore
+LogoAppleAr
 LogoBehance
 LogoBitbucket
 LogoBitcoin
@@ -743,6 +762,7 @@ LogoLinkedin
 LogoMarkdown
 LogoMastodon
 LogoMedium
+LogoMicrosoft
 LogoNoSmoking
 LogoNodejs
 LogoNpm
@@ -983,6 +1003,9 @@ PricetagsSharp
 Print
 PrintOutline
 PrintSharp
+Prism
+PrismOutline
+PrismSharp
 Pulse
 PulseOutline
 PulseSharp
@@ -1076,6 +1099,9 @@ SadSharp
 Save
 SaveOutline
 SaveSharp
+Scale
+ScaleOutline
+ScaleSharp
 Scan
 ScanCircle
 ScanCircleOutline
@@ -1113,6 +1139,9 @@ Shield
 ShieldCheckmark
 ShieldCheckmarkOutline
 ShieldCheckmarkSharp
+ShieldHalf
+ShieldHalfOutline
+ShieldHalfSharp
 ShieldOutline
 ShieldSharp
 Shirt
@@ -1127,6 +1156,9 @@ SkullSharp
 Snow
 SnowOutline
 SnowSharp
+Sparkles
+SparklesOutline
+SparklesSharp
 Speedometer
 SpeedometerOutline
 SpeedometerSharp
