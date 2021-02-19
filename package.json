@@ -9,7 +9,7 @@
     "build": "npm run clean && node scripts/generate.js && npm run format",
     "build:no-format": "npm run clean && node scripts/generate.js",
     "build:site": "rm -rf site && esbuild demo/index.js --bundle --splitting --minify --outdir=site --format=esm --define:process.env.NODE_ENV='\"production\"' && cp index.html site/index.html",
-    "build:vercel": "./init.sh && npm run build && npm run build:site",
+    "build:vercel": "./init.sh && npm run build:no-format && npm run build:site",
     "format": "prettier --write dist && prettier --parser html --write dist/**/*.svg",
     "clean": "rm -rf dist && rm -rf site",
     "init": "./init.sh && ./checkout.sh",
@@ -24,6 +24,7 @@
   "author": "07akioni",
   "license": "MIT",
   "devDependencies": {
+    "@mixer/parallel-prettier": "^2.0.1",
     "@types/fs-extra": "^9.0.6",
     "@types/react": "^17.0.0",
     "css-render": "^0.11.1",
