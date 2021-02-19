@@ -51,7 +51,9 @@ const metaTemplate = {
   "license": "MIT",
   "dependencies": {},
   "sideEffects": false,
-  "module": "index.js"
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts"
 }
 
 ;(async () => {

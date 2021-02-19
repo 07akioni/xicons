@@ -155,18 +155,40 @@ async function generateReact (icons, names, basePath) {
   // gererate async-index.ts
   await generateAsyncIndex(names, '.ts', '', tempPath)
   // tsc to react
-  console.log('  tsc to react')
+  console.log('  tsc to react (cjs)')
+  const compilerOptionsBase = {
+    forceConsistentCasingInFileNames: true,
+    jsx: 'react',
+    moduleResolution: 'node',
+    target: 'ES6',
+    lib: ['ESNext', 'DOM'],
+    declaration: true
+  }
   await tsc({
     include: ['_react/**/*'],
     compilerOptions: {
-      forceConsistentCasingInFileNames: true,
-      outDir: 'react',
-      jsx: 'react',
-      moduleResolution: 'node',
-      module: 'ESNext',
-      target: 'ES6',
-      lib: ['ESNext', 'DOM'],
-      declaration: true
+      ...compilerOptionsBase,
+      outDir: 'react/lib',
+      module: 'CommonJS'
+    }
+  }, basePath)
+  console.log('  copy cjs output to root')
+  const cjsDir = await fse.readdir(
+    path.resolve(basePath, 'react/lib')
+  )
+  for (const file of cjsDir) {
+    await fse.copy(
+      path.resolve(basePath, 'react/lib', file),
+      path.resolve(basePath, 'react', file)
+    )
+  }
+  console.log('  tsc to react (esm)')
+  await tsc({
+    include: ['_react/**/*'],
+    compilerOptions: {
+      ...compilerOptionsBase,
+      outDir: 'react/es',
+      module: 'ESNext'
     }
   }, basePath)
   console.log('  remove _react')
@@ -209,19 +231,41 @@ async function generateVue3 (icons, names, basePath) {
     deleteSource: true,
     refactor: true
   })
+  const compilerOptionsBase = {
+    forceConsistentCasingInFileNames: true,
+    moduleResolution: 'node',
+    target: 'ES6',
+    lib: ['ESNext', 'DOM'],
+    types: [], // ignore @types/react, which causes error
+    declaration: true
+  }
   // tsc to vue3
-  console.log('  tsc to vue3')
+  console.log('  tsc to vue3 (cjs)')
   await tsc({
     include: ['_vue3/**/*'],
     compilerOptions: {
-      forceConsistentCasingInFileNames: true,
-      outDir: 'vue3',
-      moduleResolution: 'node',
-      module: 'ESNext',
-      target: 'ES6',
-      lib: ['ESNext', 'DOM'],
-      types: [], // ignore @types/react, which causes error
-      declaration: true
+      ...compilerOptionsBase,
+      outDir: 'vue3/lib',
+      module: 'CommonJS'
+    }
+  }, basePath)
+  console.log('  copy cjs output to root')
+  const cjsDir = await fse.readdir(
+    path.resolve(basePath, 'vue3/lib')
+  )
+  for (const file of cjsDir) {
+    await fse.copy(
+      path.resolve(basePath, 'vue3/lib', file),
+      path.resolve(basePath, 'vue3', file)
+    )
+  }
+  console.log('  tsc to vue3 (esm)')
+  await tsc({
+    include: ['_vue3/**/*'],
+    compilerOptions: {
+      ...compilerOptionsBase,
+      outDir: 'vue3/es',
+      module: 'ESNext'
     }
   }, basePath)
   // remove _vue3
