@@ -233,7 +233,7 @@ async function generateVue3 (icons, names, basePath) {
   const paths = dir.map(fileName => path.resolve(tempPath, fileName))
   await v2s(paths, {
     deleteSource: true,
-    refactor: true
+    refactorVueImport: true
   })
   const compilerOptionsBase = {
     forceConsistentCasingInFileNames: true,
