@@ -2,6 +2,40 @@ const { camelCase, upperFirst } = require("lodash")
 
 module.exports = [
   {
+    name: 'material',
+    src: 'src',
+    description: (prefix) => `${prefix} integrated from [\`material-design-icons\`](https://github.com/google/material-design-icons)`,
+    normalizeName: (name, dir) => {
+      let type
+      if (dir.endsWith('materialicons')) {
+        type = 'Filled'
+      } else if (dir.endsWith('materialiconsoutlined')) {
+        type = 'Outlined'
+      } else if (dir.endsWith('materialiconsround')) {
+        type = 'Round'
+      } else if (dir.endsWith('materialiconssharp')) {
+        type = 'Sharp'
+      } else {
+        throw Error('invalid path for material icons', name, dir)
+      }
+      const size = name.match(/^\d+/)[0]
+      const iconName = dir.match(/\/([^/]+)\/[^/]+$/)[1]
+      const normalizedName = upperFirst(camelCase(iconName + size + type))
+      return /^\d/.test(normalizedName) ? 'Md' + normalizedName : normalizedName
+    },
+    filter: ({ name, dir }) => {
+      // corner case
+      // material icons have duplicate icons for
+      // - resources/material/src/action/addchart
+      // - resources/material/src/editor/add_chart
+      // just ignore the later one since it lacks different types
+      if (dir.includes('/add_chart/')) return false
+      if (dir.endsWith('/materialiconstwotone')) return false
+      return true
+    },
+    keywords: ['material']
+  },
+  {
     name: 'antd',
     src: 'packages/icons-svg/svg',
     description: (prefix) => `${prefix} integrated from [\`ant-design-icons\`](https://github.com/ant-design/ant-design-icons)`,

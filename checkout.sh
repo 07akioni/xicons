@@ -17,4 +17,9 @@ cd resources/antd
 git fetch
 git checkout ae122d05ac94c20e484517ce839f763edde0a009 # react 4.3.0
 
+cd ../..
+cd resources/material
+git fetch
+git checkout 4.0.0
+
 echo "checkout done"

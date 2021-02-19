@@ -54,8 +54,8 @@ function removeUselessTags (src) {
     )
     // for corner case
     .replace(
-      /style="enable-background:new 0 0 512 512;"/g, // ionicons4
-      'enable-background="new 0 0 512 512"'
+      /style="enable-background:([^;]+);"/g, // ionicons4, material
+      'enable-background="$1"'
     )
     .replace(
       /<svg t="[^"]+"/g, // antd

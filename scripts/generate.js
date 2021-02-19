@@ -36,7 +36,7 @@ async function traverse (basePath, cb, depth = 0) {
     await traverse(svgPath, async (name, filePath, depth) => {
       // depth starts from 0
       const dir = path.dirname(filePath)
-      if (filter && !filter({ depth, dir })) return
+      if (filter && !filter({ depth, name, dir })) return
       if (name.endsWith('.svg')) {
         const normalizedName = normalizeName(
           name.replace('.svg', ''),
@@ -158,6 +158,7 @@ async function generateReact (icons, names, basePath) {
   await tsc({
     include: ['_react/**/*'],
     compilerOptions: {
+      forceConsistentCasingInFileNames: true,
       outDir: 'react',
       jsx: 'react',
       moduleResolution: 'node',
@@ -212,6 +213,7 @@ async function generateVue3 (icons, names, basePath) {
   await tsc({
     include: ['_vue3/**/*'],
     compilerOptions: {
+      forceConsistentCasingInFileNames: true,
       outDir: 'vue3',
       moduleResolution: 'node',
       module: 'ESNext',
