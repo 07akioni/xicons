@@ -46,6 +46,8 @@ For Vue3
 import {
   Money16Regular
 } from '@vicons/fluent'
+// or
+import Money16Regular from '@vicons/fluent/Money16Regular'
 
 // use it in any form you like
 // remember it is a SVG component
@@ -56,13 +58,17 @@ For React
 import {
   Money16Regular
 } from '@ricons/fluent'
+// or
+import Money16Regular from '@ricons/fluent/Money16Regular'
 ```
 
-For Vue2 (you need `vue-loader`)
+For Vue2 (you need `vue-loader`, the source is not compiled)
 ```js
 import {
   Money16Regular
 } from '@v2icons/fluent'
+// or
+import Money16Regular from '@v2icons/fluent/Money16Regular.vue'
 ```
 
 For SVG
