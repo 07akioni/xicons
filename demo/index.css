@@ -72,7 +72,8 @@ body {
 .tab {
   background: #FFF;
   height: var(--tab-height);
-  display: flex;
+  display: inline-flex;
+  min-width: 100%;
   align-items: stretch;
   justify-content: center;
   border-bottom: 1px solid rgba(0, 0, 0, .08);
@@ -84,6 +85,7 @@ body {
   align-items: center;
   justify-content: center;
   border-bottom: 3px solid transparent;
+  flex-shrink: 0;
   padding: 0 16px;
 }
 

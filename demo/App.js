@@ -1,16 +1,16 @@
 import { h, ref, computed, defineAsyncComponent } from 'vue'
-import { VirtualList } from 'vueuc'
+import { VirtualList, VXScroll } from 'vueuc'
 import { debounce } from 'lodash-es'
 import { useBreakpoints, useMemo } from 'vooks'
 import Icon from './Icon'
 import Tab from './Tab'
 import Logo from './Logo'
-import * as fluentIcons from '../dist/fluent/vue3/async-index'
-import * as ionV5Icons from '../dist/ionicons5/vue3/async-index'
-import * as ionV4Icons from '../dist/ionicons4/vue3/async-index'
-import * as antdIcons from '../dist/antd/vue3/async-index'
-import * as materialIcons from '../dist/material/vue3/async-index'
-import * as faIcons from '../dist/fa/vue3/async-index'
+import * as fluentIcons from '../dist/fluent/vue3/es/async-index'
+import * as ionV5Icons from '../dist/ionicons5/vue3/es/async-index'
+import * as ionV4Icons from '../dist/ionicons4/vue3/es/async-index'
+import * as antdIcons from '../dist/antd/vue3/es/async-index'
+import * as materialIcons from '../dist/material/vue3/es/async-index'
+import * as faIcons from '../dist/fa/vue3/es/async-index'
 
 function createMergedEntries (...objs) {
   const entries = []
@@ -132,12 +132,14 @@ export default {
           ])
         ]) : null
       ]),
-      h(Tab, {
-        value: this.displayedSetKey,
-        options: Object.keys(iconSets),
-        onValueChange: value => {
-          this.displayedSetKey = value
-        }
+      h(VXScroll, null, {
+        default: () => h(Tab, {
+          value: this.displayedSetKey,
+          options: Object.keys(iconSets),
+          onValueChange: value => {
+            this.displayedSetKey = value
+          }
+        })
       }),
       h(VirtualList, {
         paddingTop: 16,

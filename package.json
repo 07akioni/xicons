@@ -41,7 +41,7 @@
     "vite": "^2.0.1",
     "vooks": "^0.0.6",
     "vue": "^3.0.4",
-    "vueuc": "0.0.5"
+    "vueuc": "^0.2.2"
   },
   "repository": {
     "url": "https://github.com/07akioni/xicons"
