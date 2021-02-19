@@ -6,10 +6,11 @@
     "dev": "vite",
     "release": "npm run build && node scripts/release.js",
     "release:no-build": "node scripts/release.js",
-    "build": "npm run clean && node scripts/generate.js && npm run lint",
+    "build": "npm run clean && node scripts/generate.js && npm run format",
+    "build:no-format": "npm run clean && node scripts/generate.js",
     "build:site": "rm -rf site && esbuild demo/index.js --bundle --splitting --minify --outdir=site --format=esm --define:process.env.NODE_ENV='\"production\"' && cp index.html site/index.html",
     "build:vercel": "./init.sh && npm run build && npm run build:site",
-    "lint": "prettier --write dist && prettier --parser html --write dist/**/*.svg",
+    "format": "prettier --write dist && prettier --parser html --write dist/**/*.svg",
     "clean": "rm -rf dist && rm -rf site",
     "init": "./init.sh && ./checkout.sh",
     "checkout": "./checkout.sh"

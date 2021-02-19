@@ -34,9 +34,14 @@ async function traverse (basePath, cb, depth = 0) {
     console.log(`${iconSetName}.svgPath: ${svgPath}`)
     const icons = []
     await traverse(svgPath, async (name, filePath, depth) => {
-      if (filter && !filter({ depth })) return
+      // depth starts from 0
+      const dir = path.dirname(filePath)
+      if (filter && !filter({ depth, dir })) return
       if (name.endsWith('.svg')) {
-        const normalizedName = normalizeName(name.replace('.svg', ''))
+        const normalizedName = normalizeName(
+          name.replace('.svg', ''),
+          dir
+        )
         const svgSanitizer = createSvgSanitizer(
           (await fs.readFile(filePath) ).toString()
         )

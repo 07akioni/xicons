@@ -12,4 +12,9 @@ cd resources/fluent
 git fetch
 git checkout 1.1.98
 
+cd ../..
+cd resources/antd
+git fetch
+git checkout ae122d05ac94c20e484517ce839f763edde0a009 # react 4.3.0
+
 echo "checkout done"

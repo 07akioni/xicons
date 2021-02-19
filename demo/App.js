@@ -8,6 +8,7 @@ import Logo from './Logo'
 import * as fluentIcons from '../dist/fluent/vue3/async-index'
 import * as ionV5Icons from '../dist/ionicons5/vue3/async-index'
 import * as ionV4Icons from '../dist/ionicons4/vue3/async-index'
+import * as antdIcons from '../dist/antd/vue3/async-index'
 
 function createMergedEntries (...objs) {
   const entries = []
@@ -36,7 +37,8 @@ function pack (list, size = 8) {
 const iconSets = {
   fluent: createMergedEntries(fluentIcons),
   ionicons4: createMergedEntries(ionV4Icons),
-  ionicons5: createMergedEntries(ionV5Icons)
+  ionicons5: createMergedEntries(ionV5Icons),
+  antd: createMergedEntries(antdIcons)
 }
 
 export default {
