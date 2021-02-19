@@ -10,7 +10,7 @@
     "build:no-format": "npm run clean && node scripts/generate.js",
     "build:site": "rm -rf site && esbuild demo/index.js --bundle --splitting --minify --outdir=site --format=esm --define:process.env.NODE_ENV='\"production\"' && cp index.html site/index.html",
     "build:vercel": "./init.sh && npm run build:no-format && npm run build:site",
-    "format": "prettier --write dist && prettier --parser html --write dist/**/*.svg",
+    "format": "pprettier --write dist/**/*.{js,vue} && prettier --parser html --write dist/**/*.svg",
     "clean": "rm -rf dist && rm -rf site",
     "init": "./init.sh && ./checkout.sh",
     "checkout": "./checkout.sh"
@@ -33,7 +33,6 @@
     "fs-extra": "^9.0.1",
     "lodash": "^4.17.20",
     "lodash-es": "^4.17.15",
-    "prettier": "^2.1.2",
     "react": "^17.0.1",
     "typescript": "^4.1.3",
     "v2s": "^0.1.4",
