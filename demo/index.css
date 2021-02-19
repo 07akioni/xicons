@@ -88,7 +88,7 @@ body {
 }
 
 .tab .tab-item:not(:last-child) {
-  margin-right: 24px;
+  margin-right: 12px;
 }
 
 .tab .tab-item.tab-item--active {
