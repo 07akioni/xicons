@@ -9,7 +9,9 @@
     "build:site": "rm -rf site && esbuild demo/index.js --bundle --splitting --minify --outdir=site --format=esm --define:process.env.NODE_ENV='\"production\"' && cp index.html site/index.html",
     "build:vercel": "./init.sh && npm run build && npm run build:site",
     "lint": "prettier --write dist && prettier --parser html --write dist/**/*.svg",
-    "clean": "rm -rf dist && rm -rf site"
+    "clean": "rm -rf dist && rm -rf site",
+    "init": "./init.sh && ./checkout.sh",
+    "checkout": "./checkout.sh"
   },
   "keywords": [
     "vue",
