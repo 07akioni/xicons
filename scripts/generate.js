@@ -1,6 +1,6 @@
 const fs = require('fs').promises
 const fse = require('fs-extra')
-const execa = require('execa');
+const execa = require('execa')
 const v2s = require('v2s')
 const path = require('path')
 const config = require('./config')
@@ -73,10 +73,14 @@ async function traverse (basePath, cb, depth = 0) {
       snapshot
     )
     
-    await generateSvg(icons, outPath)
-    await generateVue2(icons, iconNames, outPath)
-    await generateVue3(icons, iconNames, outPath)
-    await generateReact(icons, iconNames, outPath)    
+    if (process.argv[2] === '--vue3-only') {
+      await generateVue3(icons, iconNames, outPath)
+    } else {
+      await generateSvg(icons, outPath)
+      await generateVue2(icons, iconNames, outPath)
+      await generateVue3(icons, iconNames, outPath)
+      await generateReact(icons, iconNames, outPath)    
+    }
   }
 })()
 

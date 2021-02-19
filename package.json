@@ -7,9 +7,10 @@
     "release": "npm run build && node scripts/release.js",
     "release:no-build": "node scripts/release.js",
     "build": "npm run clean && node scripts/generate.js && npm run format",
+    "build:for-site": "npm run clean && node scripts/generate.js --vue3-only",
     "build:no-format": "npm run clean && node scripts/generate.js",
-    "build:site": "rm -rf site && esbuild demo/index.js --bundle --splitting --minify --outdir=site --format=esm --define:process.env.NODE_ENV='\"production\"' && cp index.html site/index.html",
-    "build:vercel": "./init.sh && npm run build:no-format && npm run build:site",
+    "build:site": "npm run build:for-site && esbuild demo/index.js --bundle --splitting --minify --outdir=site --format=esm --define:process.env.NODE_ENV='\"production\"' && cp index.html site/index.html",
+    "build:vercel": "npm run init && npm run build:site",
     "format": "pprettier --write dist/**/*.{js,vue} && prettier --parser html --write dist/**/*.svg",
     "clean": "rm -rf dist && rm -rf site",
     "init": "./init.sh && ./checkout.sh",
@@ -40,7 +41,7 @@
     "vite": "^2.0.1",
     "vooks": "^0.0.6",
     "vue": "^3.0.4",
-    "vueuc": "^0.2.2"
+    "vueuc": "^0.2.5"
   },
   "repository": {
     "url": "https://github.com/07akioni/xicons"
