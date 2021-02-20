@@ -1,3 +1,3 @@
-const Icon = require('../Icon.vue')
+const Icon = require('../src/Icon.vue')
 
 exports.Icon = Icon
