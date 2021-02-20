@@ -5,7 +5,5 @@ package-lock.json
 site
 dist
 
-components/react/es
-components/vue3/es
-components/react/lib
-components/vue3/lib
+es
+lib

@@ -1,11 +1,4 @@
-<template>
-  <component :is="tag" class="xicon" :style="mergedStyle">
-    <slot />
-  </component>
-</template>
-
-<script>
-import { mountStyle } from './style.js'
+import { mountStyle } from './style'
 
 export default {
   name: 'Icon',
@@ -33,6 +26,12 @@ export default {
   },
   beforeMount () {
     mountStyle()
+  },
+  render (h) {
+    const { tag, mergedStyle } = this.$props
+    return h(tag, {
+      class: 'xicon',
+      style: mergedStyle
+    }, this.$slots.default)
   }
 }
-</script>
