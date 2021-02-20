@@ -281,10 +281,11 @@ async function generateVue3 (icons, names, basePath) {
 // index + async-index
 async function generateVue2 (icons, names, outPath) {
   console.log('make vue2')
-  // create vue2
-  const distPath = path.resolve(outPath, 'vue2')
-  await fse.mkdir(distPath)
-  // generate .vue (lang = js)
+  console.log(' make .vue')
+  // create _vue3
+  const tempPath = path.resolve(basePath, '_vue2')
+  await fse.mkdir(tempPath)
+  // generate .vue (lang = js, vue2)
   for (const { name, svg } of icons) {
     await fse.writeFile(
       path.resolve(distPath, `${name}.vue`),
@@ -299,8 +300,56 @@ async function generateVue2 (icons, names, outPath) {
     )
   }
   // generate index.js
-  await generateIndex(names, '.js', '.vue', distPath)
+  await generateIndex(names, '.js', '.vue', tempPath)
   // generate async-index.js
-  await generateAsyncIndex(names, '.js', '.vue', distPath)
+  await generateAsyncIndex(names, '.js', '.vue', tempPath)
+  // v2s
+  console.log('  transform .vue to .js')
+  const dir = await fse.readdir(tempPath)
+  const paths = dir.map(fileName => path.resolve(tempPath, fileName))
+  await v2s(paths, {
+    deleteSource: true,
+    refactorVueImport: true,
+    vue2: true
+  })
+  const compilerOptionsBase = {
+    forceConsistentCasingInFileNames: true,
+    moduleResolution: 'node',
+    target: 'ES6',
+    lib: ['ESNext', 'DOM'],
+    allowJs: true,
+    checkJs: false
+  }
+  console.log('  tsc to vue2 (cjs)')
+  await tsc({
+    include: ['_vue2/**/*'],
+    compilerOptions: {
+      ...compilerOptionsBase,
+      outDir: 'vue2/lib',
+      module: 'CommonJS'
+    }
+  }, basePath)
+  console.log('  copy cjs output to root')
+  const cjsDir = await fse.readdir(
+    path.resolve(basePath, 'vue2/lib')
+  )
+  for (const file of cjsDir) {
+    await fse.copy(
+      path.resolve(basePath, 'vue2/lib', file),
+      path.resolve(basePath, 'vue2', file)
+    )
+  }
+  console.log('  tsc to vue2 (esm)')
+  await tsc({
+    include: ['_vue2/**/*'],
+    compilerOptions: {
+      ...compilerOptionsBase,
+      outDir: 'vue2/es',
+      module: 'ESNext'
+    }
+  }, basePath)
+  // remove _vue2
+  console.log('  remove _vue2')
+  await fse.remove(tempPath)
 }
 
