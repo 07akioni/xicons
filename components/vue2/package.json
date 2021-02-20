@@ -1,0 +1,14 @@
+{
+  "name": "@v2icons/utils",
+  "version": "0.1.0",
+  "dependencies": {
+    "css-render": "^0.12.0"
+  },
+  "module": "es/index.js",
+  "main": "lib/index.js",
+  "author": "07akioni",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/07akioni/xicons"
+  }
+}

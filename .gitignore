@@ -4,3 +4,8 @@ package-lock.json
 .vscode
 site
 dist
+
+components/react/es
+components/vue3/es
+components/react/lib
+components/vue3/lib

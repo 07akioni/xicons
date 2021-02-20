@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "target": "ES2015",
+    "lib": ["ESNext", "DOM"],
+    "jsx": "react-jsx"
+  }
+}
