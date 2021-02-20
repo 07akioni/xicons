@@ -70,6 +70,18 @@ const metaTemplate = {
         ...metaTemplate,
         keywords: metaTemplate.keywords.concat(keywords).concat(iconSetConfig.keywords)
       }, 0, 2)
+
+      if (frameworkDir === 'vue2') {
+        delete meta.types
+      }
+
+      if (frameworkDir === 'SVG') {
+        delete meta.types
+        delete meta.main
+        delete meta.module
+        delete meta.sideEffects
+      }
+
       await fse.writeFile(path.resolve(scopedPackagePath, 'package.json'), meta)
       await fse.writeFile(path.resolve(scopedPackagePath, 'README.md'), 
         `# ${scopedPackageName}\n\n` +
