@@ -1,6 +1,6 @@
 {
   "name": "@v2icons/utils",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {
     "css-render": "^0.12.0"
   },
