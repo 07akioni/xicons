@@ -1,3 +1,6 @@
+// make sure vue template compiler do not throw error
+require('vue').version = null
+
 const fs = require('fs').promises
 const fse = require('fs-extra')
 const execa = require('execa')
@@ -76,10 +79,10 @@ async function traverse (basePath, cb, depth = 0) {
     if (process.argv[2] === '--vue3-only') {
       await generateVue3(icons, iconNames, outPath)
     } else {
-      await generateSvg(icons, outPath)
+      // await generateSvg(icons, outPath)
       await generateVue2(icons, iconNames, outPath)
-      await generateVue3(icons, iconNames, outPath)
-      await generateReact(icons, iconNames, outPath)    
+      // await generateVue3(icons, iconNames, outPath)
+      // await generateReact(icons, iconNames, outPath)    
     }
   }
 })()
@@ -279,7 +282,7 @@ async function generateVue3 (icons, names, basePath) {
 
 // vue => js
 // index + async-index
-async function generateVue2 (icons, names, outPath) {
+async function generateVue2 (icons, names, basePath) {
   console.log('make vue2')
   console.log(' make .vue')
   // create _vue3
@@ -288,7 +291,7 @@ async function generateVue2 (icons, names, outPath) {
   // generate .vue (lang = js, vue2)
   for (const { name, svg } of icons) {
     await fse.writeFile(
-      path.resolve(distPath, `${name}.vue`),
+      path.resolve(tempPath, `${name}.vue`),
       '<template>\n' +
       svg + '\n' +
       '</template>\n' +

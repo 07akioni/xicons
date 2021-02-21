@@ -1,6 +1,6 @@
 import { mountStyle } from './style'
 
-export default {
+export const Icon = {
   name: 'Icon',
   props: {
     size: [String, Number],
@@ -20,7 +20,7 @@ export default {
     mergedStyle () {
       return {
         color: this.color,
-        fontSize: this.mergedStyle
+        fontSize: this.mergedSize
       }
     }
   },
@@ -28,7 +28,7 @@ export default {
     mountStyle()
   },
   render (h) {
-    const { tag, mergedStyle } = this.$props
+    const { tag, mergedStyle } = this
     return h(tag, {
       class: 'xicon',
       style: mergedStyle
