@@ -8,6 +8,7 @@ const style = c('.xicon', {
   display: 'inline-flex'
 }, [
   c('svg', {
+    fill: 'currentColor',
     width: '1em',
     height: '1em'
   })
