@@ -4,6 +4,8 @@ Include `vicons`(vue3), `ricons`(react), `sicons`(svg) & `v2icons`(vue2).
 
 SVG Vue/React components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons), [`ionicons`](https://github.com/ionic-team/ionicons), [`ant-design-icons`](https://github.com/ant-design/ant-design-icons), [`material-design-icons`](https://github.com/google/material-design-icons) and [`Font-Awesome`](https://github.com/FortAwesome/Font-Awesome).
 
+Util icon component for customizing color & size is also provided.
+
 ## Icons Preview
 
 https://xicons.vercel.app/
