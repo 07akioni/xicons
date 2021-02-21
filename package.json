@@ -1,6 +1,6 @@
 {
   "name": "xicons",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "SVG Vue components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons) and [`ionicons`](https://github.com/ionic-team/ionicons).",
   "scripts": {
     "dev": "vite",
