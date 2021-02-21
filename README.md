@@ -5,9 +5,13 @@ Include `vicons`(vue3), `ricons`(react), `sicons`(svg) & `v2icons`(vue2).
 SVG Vue/React components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons), [`ionicons`](https://github.com/ionic-team/ionicons), [`ant-design-icons`](https://github.com/ant-design/ant-design-icons), [`material-design-icons`](https://github.com/google/material-design-icons) and [`Font-Awesome`](https://github.com/FortAwesome/Font-Awesome).
 
 ## Icons
+
 https://xicons.vercel.app/
 
 ## Installation
+
+### Icons Installation
+
 ```bash
 # Install packages on your demand
 # For react
@@ -40,43 +44,130 @@ npm install --save-dev @sicons/material
 npm install --save-dev @sicons/fa # font awesome
 ```
 
-## Usage
-For Vue3
-```ts
-import {
-  Money16Regular
-} from '@vicons/fluent'
-// or
-import Money16Regular from '@vicons/fluent/Money16Regular'
-
-// use it in any form you like
-// remember it is a SVG component
+### Icon Utils Installation
+Icon utils provide a icon wrapper component for customizing color & size of the inner SVG icon.
+```bash
+npm i -D @ricons/utils  # react
+npm i -D @vicons/utils  # vue3
+npm i -D @v2icons/utils # vue2
 ```
 
-For React
-```ts
-import {
-  Money16Regular
-} from '@ricons/fluent'
+## Usage
+
+### For Vue3
+
+```html
+<script>
+  import { Money16Regular } from '@vicons/fluent'
+  // or
+  import Money16Regular from '@vicons/fluent/Money16Regular'
+
+  // You can directly use the SVG component
+  // or wrap it in an Icon component from @vicons/utils
+
+  import { Icon } from '@vicons/utils'
+
+  export default {
+    components: {
+      Icon,
+      Money16Regular
+    }
+  }
+</script>
+
+<template>
+  <Icon>
+    <Money16Regular />
+  </Icon>
+</template>
+```
+
+## For React
+
+```tsx
+import { Money16Regular } from '@ricons/fluent'
 // or
 import Money16Regular from '@ricons/fluent/Money16Regular'
+
+// You can directly use the SVG component
+// or wrap it in an Icon component from @ricons/utils
+import { Icon } from '@ricons/utils'
+
+function App() {
+  return (
+    <Icon>
+      <Money16Regular />
+    </Icon>
+  )
+}
 ```
 
-For Vue2 (you need `vue-loader`, the source is not compiled)
-```js
-import {
-  Money16Regular
-} from '@v2icons/fluent'
-// or
-import Money16Regular from '@v2icons/fluent/Money16Regular.vue'
+## For Vue2
+
+```html
+<script>
+  import { Money16Regular } from '@v2icons/fluent'
+  // or
+  import Money16Regular from '@v2icons/fluent/Money16Regular'
+
+  // You can directly use the SVG component
+  // or wrap it in an Icon component from @v2icons/utils
+
+  import { Icon } from '@v2icons/utils'
+
+  export default {
+    components: {
+      Icon,
+      Money16Regular
+    }
+  }
+</script>
+
+<template>
+  <Icon>
+    <Money16Regular />
+  </Icon>
+</template>
 ```
 
 For SVG
+
 ```html
 <img src="@sicons/fluent/Money16Regular.svg" />
 ```
 
-## Packages
+## API
+
+An icon component (in `@vicons/utils`, `@ricons/utils`, `@v2icons/utils`) is provided for customizing color & size of the inner SVG icon.
+
+### Icon API
+
+| prop  | type               | description        |
+| ----- | ------------------ | ------------------ |
+| size  | `string \| number` | Size of the icon.  |
+| color | `string`           | Color of the icon. |
+
+For example:
+
+```tsx
+import { Icon } from '@vicons/utils' // vue3
+import { Icon } from '@v2icons/utils' // vue3
+import { Icon } from '@ricons/utils' // vue3
+
+;<Icon color="green" size="48">
+  <SomeIcon />
+</Icon>
+```
+
+## Icon Utils Packages
+
+| package        | version | description                     |
+| -------------- | ------- | ------------------------------- |
+| @ricons/utils  |         | Util icon components for react. |
+| @vicons/utils  |         | Util icon components for vue3.  |
+| @v2icons/utils |         | Util icon components for vue2.  |
+
+## Icon Packages
 
 Vue3
 |package|version|
@@ -119,10 +210,11 @@ SVG
 |@sicons/fa|[![npm version](https://badge.fury.io/js/%40sicons%2Ffa.svg)](https://badge.fury.io/js/%40sicons%2Ffa)|
 
 ## Credit
-|Icon Set|License|
-|-|-|
-|[`ant-design-icons`](https://github.com/ant-design/ant-design-icons)|[MIT](https://opensource.org/licenses/MIT)|
-|[`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons)|[MIT](https://opensource.org/licenses/MIT)|
-|[`Font-Awesome`](https://github.com/FortAwesome/Font-Awesome)|[CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/)|
-|[`ionicons`](https://github.com/ionic-team/ionicons)|[MIT](https://opensource.org/licenses/MIT)|
-|[`material-design-icons`](https://github.com/google/material-design-icons)|[Apache 2](https://github.com/google/material-design-icons/blob/master/LICENSE)|
+
+| Icon Set                                                                      | License                                                                         |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| [`ant-design-icons`](https://github.com/ant-design/ant-design-icons)          | [MIT](https://opensource.org/licenses/MIT)                                      |
+| [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons) | [MIT](https://opensource.org/licenses/MIT)                                      |
+| [`Font-Awesome`](https://github.com/FortAwesome/Font-Awesome)                 | [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/)               |
+| [`ionicons`](https://github.com/ionic-team/ionicons)                          | [MIT](https://opensource.org/licenses/MIT)                                      |
+| [`material-design-icons`](https://github.com/google/material-design-icons)    | [Apache 2](https://github.com/google/material-design-icons/blob/master/LICENSE) |
