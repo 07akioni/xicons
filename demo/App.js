@@ -12,11 +12,21 @@ import * as antdIcons from '../dist/antd/vue3/es/async-index'
 import * as materialIcons from '../dist/material/vue3/es/async-index'
 import * as faIcons from '../dist/fa/vue3/es/async-index'
 
+const nsMap = new Map()
+nsMap.set(fluentIcons, 'fluent')
+nsMap.set(ionV5Icons, 'ionicons5')
+nsMap.set(ionV4Icons, 'ionicons4')
+nsMap.set(antdIcons, 'antd')
+nsMap.set(materialIcons, 'material')
+nsMap.set(faIcons, 'fa')
+
 function createMergedEntries (...objs) {
   const entries = []
   objs.forEach(obj => {
+    const ns = nsMap.get(obj)
+    const nsPrefix = ns + '-'
     Object.keys(obj).forEach(key => {
-      entries.push([key, defineAsyncComponent(obj[key])])
+      entries.push([nsPrefix + key, ns, key, defineAsyncComponent(obj[key])])
     })
   })
   return entries
@@ -37,6 +47,18 @@ function pack (list, size = 8) {
 }
 
 const iconSets = {
+  all: createMergedEntries(
+    fluentIcons,
+    ionV4Icons,
+    ionV5Icons,
+    antdIcons,
+    faIcons,
+    materialIcons
+  ).sort((v1, v2) => {
+    if (v1[2] > v2[2]) return 1
+    if (v1[2] < v2[2]) return -1
+    return 0
+  }),
   fluent: createMergedEntries(fluentIcons),
   ionicons4: createMergedEntries(ionV4Icons),
   ionicons5: createMergedEntries(ionV5Icons),
@@ -50,6 +72,7 @@ export default {
   setup () {
     const patternRef = ref('')
     const displayedSetKeyRef = ref(Object.keys(iconSets)[0])
+    const showNsRef = computed(() => displayedSetKeyRef.value === 'all')
     const handleInput = debounce(
       e => { patternRef.value = e.target.value },
       800
@@ -68,9 +91,10 @@ export default {
       handleInput,
       pattern: patternRef,
       displayedSetKey: displayedSetKeyRef,
+      showNs: showNsRef,
       filteredPacks: computed(() => {
-        return pack(iconSets[displayedSetKeyRef.value].filter(([key]) => {
-          return key.toLowerCase().includes(patternRef.value.toLowerCase())
+        return pack(iconSets[displayedSetKeyRef.value].filter((iconInfo) => {
+          return iconInfo[2].toLowerCase().includes(patternRef.value.toLowerCase())
         }), packSizeRef.value)
       })
     }
@@ -148,7 +172,8 @@ export default {
         items: this.filteredPacks,
         itemSize: 80
       }, {
-        default ({ item: fragment }) {
+        default: ({ item: fragment }) => {
+          const { showNs } = this
           return h('div', {
             key: fragment[0][0],
             style: {
@@ -158,10 +183,17 @@ export default {
               paddingBottom: '16px'
             }
           }, [
+            // 0 key
+            // 1 ns
+            // 2 id
+            // 3 component
             fragment.map(item => {
               return h(Icon, {
-                icon: item[1],
-                id: item[0]
+                key: item[0],
+                showNs,
+                ns: item[1],
+                id: item[2],
+                icon: item[3],
               })
             })
           ])

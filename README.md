@@ -17,33 +17,33 @@ https://xicons.vercel.app/
 ```bash
 # Install packages on your demand
 # For react
-npm install --save-dev @ricons/fluent
-npm install --save-dev @ricons/ionicons4
-npm install --save-dev @ricons/ionicons5
-npm install --save-dev @ricons/antd
-npm install --save-dev @ricons/material
-npm install --save-dev @ricons/fa # font awesome
+npm i -D @ricons/fluent
+npm i -D @ricons/ionicons4
+npm i -D @ricons/ionicons5
+npm i -D @ricons/antd
+npm i -D @ricons/material
+npm i -D @ricons/fa # font awesome
 # For vue3
-npm install --save-dev @vicons/fluent
-npm install --save-dev @vicons/ionicons4
-npm install --save-dev @vicons/ionicons5
-npm install --save-dev @vicons/antd
-npm install --save-dev @vicons/material
-npm install --save-dev @vicons/fa # font awesome
+npm i -D @vicons/fluent
+npm i -D @vicons/ionicons4
+npm i -D @vicons/ionicons5
+npm i -D @vicons/antd
+npm i -D @vicons/material
+npm i -D @vicons/fa # font awesome
 # For vue2
-npm install --save-dev @v2icons/fluent
-npm install --save-dev @v2icons/ionicons4
-npm install --save-dev @v2icons/ionicons5
-npm install --save-dev @v2icons/antd
-npm install --save-dev @v2icons/material
-npm install --save-dev @v2icons/fa # font awesome
+npm i -D @v2icons/fluent
+npm i -D @v2icons/ionicons4
+npm i -D @v2icons/ionicons5
+npm i -D @v2icons/antd
+npm i -D @v2icons/material
+npm i -D @v2icons/fa # font awesome
 # For SVG file
-npm install --save-dev @sicons/fluent
-npm install --save-dev @sicons/ionicons4
-npm install --save-dev @sicons/ionicons5
-npm install --save-dev @sicons/antd
-npm install --save-dev @sicons/material
-npm install --save-dev @sicons/fa # font awesome
+npm i -D @sicons/fluent
+npm i -D @sicons/ionicons4
+npm i -D @sicons/ionicons5
+npm i -D @sicons/antd
+npm i -D @sicons/material
+npm i -D @sicons/fa # font awesome
 ```
 
 ### Icon Utils Installation
