@@ -28,7 +28,7 @@ git fetch
 git checkout 5.15.2
 
 cd ../..
-cs resources/tabler
+cd resources/tabler
 git fetch
 git checkout v1.39.1
 
