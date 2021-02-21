@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>xicon - react utils</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import { createApp, h } from 'vue'
+      import { Icon } from './src/index'
+      import TestIcon from '../../dist/ionicons4/vue3/es/IosAdd.js'
+
+      createApp({
+        render () {
+          return h(Icon, {
+            color: 'red',
+            size: '48'
+          }, {
+            default: () => h(TestIcon)
+          })
+        }
+      }).mount('#app')
+    </script>
+  </body>
+</html>

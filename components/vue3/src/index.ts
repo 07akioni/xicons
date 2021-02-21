@@ -1,5 +1,5 @@
 import { defineComponent, renderSlot, computed, h, onBeforeMount, PropType} from 'vue'
-import { mountStyle } from '../react/style'
+import { mountStyle } from './style'
 
 export const Icon = defineComponent({
   name: 'Icon',
