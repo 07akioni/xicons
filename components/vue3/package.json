@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "build": "cp ../style.ts src && rm -rf es lib && tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json",
-    "release": "npm run build && npm publish",
+    "release": "npm run build && npm publish --access public",
     "dev": "cp ../style.ts src && vite"
   },
   "devDependencies": {
