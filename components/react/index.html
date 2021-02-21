@@ -5,10 +5,11 @@
   </head>
   <body>
     <div id="app"></div>
+    <div id="app2"></div>
     <script type="module">
       import { createElement } from 'react'
       import ReactDOM from 'react-dom'
-      import { Icon } from './src/index'
+      import { Icon, IconConfigProvider } from './src/index'
       import TestIcon from '../../dist/ionicons4/react/es/IosAdd.js'
 
       ReactDOM.render(
@@ -17,6 +18,14 @@
           size: '48'
         }, createElement(TestIcon)),
         document.getElementById('app')
+      )
+
+      ReactDOM.render(
+        createElement(IconConfigProvider, {
+          color: 'red',
+          size: '48'
+        }, createElement(Icon, null, createElement(TestIcon))),
+        document.getElementById('app2')
       )
     </script>
   </body>

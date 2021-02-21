@@ -5,9 +5,10 @@
   </head>
   <body>
     <div id="app"></div>
+    <div id="app2"></div>
     <script type="module">
       import { createApp, h } from 'vue'
-      import { Icon } from './src/index'
+      import { Icon, IconConfigProvider } from './src/index'
       import TestIcon from '../../dist/ionicons4/vue3/es/IosAdd.js'
 
       createApp({
@@ -20,6 +21,19 @@
           })
         }
       }).mount('#app')
+
+      createApp({
+        render () {
+          return h(IconConfigProvider, {
+            color: 'red',
+            size: '48'
+          }, {
+            default: () => h(Icon, null, {
+              default: () => h(TestIcon)
+            })
+          })
+        }
+      }).mount('#app2')
     </script>
   </body>
 </html>

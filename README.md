@@ -140,28 +140,56 @@ function App() {
 <img src="@sicons/fluent/Money16Regular.svg" />
 ```
 
-## API
-
-An icon component (in `@vicons/utils`, `@ricons/utils`, `@v2icons/utils`) is provided for customizing color & size of the inner SVG icon.
+## Utils API
 
 ### Icon API
 
-| prop  | type               | description        |
-| ----- | ------------------ | ------------------ |
-| size  | `string \| number` | Size of the icon.  |
-| color | `string`           | Color of the icon. |
+An icon component (in `@vicons/utils`, `@ricons/utils`, `@v2icons/utils`) is provided for customizing color & size of the inner SVG icon.
+
+| prop  | type               | default | description            |
+| ----- | ------------------ | ------- | ---------------------- |
+| size  | `string \| number` | -       | Size of the icon.      |
+| color | `string`           | -       | Color of the icon.     |
+| tag   | `string`           | `span`  | Tag to be rendered as. |
 
 For example:
 
 ```tsx
-import { Icon } from '@ricons/utils' // react
-import { Icon } from '@vicons/utils' // vue3
+import { Icon } from '@ricons/utils'  // react
+import { Icon } from '@vicons/utils'  // vue3
 import { Icon } from '@v2icons/utils' // vue2
 
 // render it
 ;<Icon color="green" size="48">
   <SomeIcon />
 </Icon>
+```
+
+### IconConfigProvider API
+
+IconConfigProvider will affect all the descendant Icons' default prop value.
+
+| prop  | type               | default | description            |
+| ----- | ------------------ | ------- | ---------------------- |
+| size  | `string \| number` | -       | Size of the icon.      |
+| color | `string`           | -       | Color of the icon.     |
+| tag   | `string`           | `span`  | Tag to be rendered as. |
+
+For example:
+
+```tsx
+import { IconConfigProvider, Icon } from '@ricons/utils'  // react
+import { IconConfigProvider, Icon } from '@vicons/utils'  // vue3
+import { IconConfigProvider, Icon } from '@v2icons/utils' // vue2
+
+// render it
+;<IconConfigProvider color="green" size="48">
+  <App>
+    <Icon>
+      <SomeIcon />
+    </Icon>
+  <App/>
+</IconConfigProvider>
 ```
 
 ## Icon Utils Packages
