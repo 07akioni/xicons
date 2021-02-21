@@ -79,10 +79,10 @@ async function traverse (basePath, cb, depth = 0) {
     if (process.argv[2] === '--vue3-only') {
       await generateVue3(icons, iconNames, outPath)
     } else {
-      // await generateSvg(icons, outPath)
+      await generateSvg(icons, outPath)
       await generateVue2(icons, iconNames, outPath)
-      // await generateVue3(icons, iconNames, outPath)
-      // await generateReact(icons, iconNames, outPath)    
+      await generateVue3(icons, iconNames, outPath)
+      await generateReact(icons, iconNames, outPath)    
     }
   }
 })()
