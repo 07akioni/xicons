@@ -4,7 +4,7 @@ Include `vicons`(vue3), `ricons`(react), `sicons`(svg) & `v2icons`(vue2).
 
 SVG Vue/React components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons), [`ionicons`](https://github.com/ionic-team/ionicons), [`ant-design-icons`](https://github.com/ant-design/ant-design-icons), [`material-design-icons`](https://github.com/google/material-design-icons) and [`Font-Awesome`](https://github.com/FortAwesome/Font-Awesome).
 
-## Icons
+## Icons Preview
 
 https://xicons.vercel.app/
 
@@ -45,7 +45,9 @@ npm install --save-dev @sicons/fa # font awesome
 ```
 
 ### Icon Utils Installation
+
 Icon utils provide a icon wrapper component for customizing color & size of the inner SVG icon.
+
 ```bash
 npm i -D @ricons/utils  # react
 npm i -D @vicons/utils  # vue3
@@ -82,7 +84,7 @@ npm i -D @v2icons/utils # vue2
 </template>
 ```
 
-## For React
+### For React
 
 ```tsx
 import { Money16Regular } from '@ricons/fluent'
@@ -102,7 +104,7 @@ function App() {
 }
 ```
 
-## For Vue2
+### For Vue2
 
 ```html
 <script>
@@ -130,7 +132,7 @@ function App() {
 </template>
 ```
 
-For SVG
+### For SVG
 
 ```html
 <img src="@sicons/fluent/Money16Regular.svg" />
@@ -150,10 +152,11 @@ An icon component (in `@vicons/utils`, `@ricons/utils`, `@v2icons/utils`) is pro
 For example:
 
 ```tsx
+import { Icon } from '@ricons/utils' // react
 import { Icon } from '@vicons/utils' // vue3
-import { Icon } from '@v2icons/utils' // vue3
-import { Icon } from '@ricons/utils' // vue3
+import { Icon } from '@v2icons/utils' // vue2
 
+// render it
 ;<Icon color="green" size="48">
   <SomeIcon />
 </Icon>
@@ -161,53 +164,57 @@ import { Icon } from '@ricons/utils' // vue3
 
 ## Icon Utils Packages
 
-| package        | version | description                     |
-| -------------- | ------- | ------------------------------- |
-| @ricons/utils  |         | Util icon components for react. |
-| @vicons/utils  |         | Util icon components for vue3.  |
-| @v2icons/utils |         | Util icon components for vue2.  |
+| package        | version                                                                                                        | description                     |
+| -------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| @ricons/utils  | [![npm version](https://badge.fury.io/js/%40ricons%2Futils.svg)](https://badge.fury.io/js/%40ricons%2Futils)   | Util icon components for react. |
+| @vicons/utils  | [![npm version](https://badge.fury.io/js/%40vicons%2Futils.svg)](https://badge.fury.io/js/%40vicons%2Futils)   | Util icon components for vue3.  |
+| @v2icons/utils | [![npm version](https://badge.fury.io/js/%40v2icons%2Futils.svg)](https://badge.fury.io/js/%40v2icons%2Futils) | Util icon components for vue2.  |
 
 ## Icon Packages
 
-Vue3
-|package|version|
-|-|-|
-|@vicons/fluent|[![npm version](https://badge.fury.io/js/%40vicons%2Ffluent.svg)](https://badge.fury.io/js/%40vicons%2Ffluent)|
-|@vicons/ionicons4|[![npm version](https://badge.fury.io/js/%40vicons%2Fionicons4.svg)](https://badge.fury.io/js/%40vicons%2Fionicons4)|
-|@vicons/ionicons5|[![npm version](https://badge.fury.io/js/%40vicons%2Fionicons5.svg)](https://badge.fury.io/js/%40vicons%2Fionicons5)|
-|@vicons/antd|[![npm version](https://badge.fury.io/js/%40vicons%2Fantd.svg)](https://badge.fury.io/js/%40vicons%2Fantd)|
-|@vicons/material|[![npm version](https://badge.fury.io/js/%40vicons%2Fmaterial.svg)](https://badge.fury.io/js/%40vicons%2Fmaterial)|
-|@vicons/fa|[![npm version](https://badge.fury.io/js/%40vicons%2Ffa.svg)](https://badge.fury.io/js/%40vicons%2Ffa)|
+### Vue3
 
-React
-|package|version|
-|-|-|
-|@ricons/fluent|[![npm version](https://badge.fury.io/js/%40ricons%2Ffluent.svg)](https://badge.fury.io/js/%40ricons%2Ffluent)|
-|@ricons/ionicons4|[![npm version](https://badge.fury.io/js/%40ricons%2Fionicons4.svg)](https://badge.fury.io/js/%40ricons%2Fionicons4)|
-|@ricons/ionicons5|[![npm version](https://badge.fury.io/js/%40ricons%2Fionicons5.svg)](https://badge.fury.io/js/%40ricons%2Fionicons5)|
-|@ricons/antd|[![npm version](https://badge.fury.io/js/%40ricons%2Fantd.svg)](https://badge.fury.io/js/%40ricons%2Fantd)|
-|@ricons/material|[![npm version](https://badge.fury.io/js/%40ricons%2Fmaterial.svg)](https://badge.fury.io/js/%40ricons%2Fmaterial)|
-|@ricons/fa|[![npm version](https://badge.fury.io/js/%40ricons%2Ffa.svg)](https://badge.fury.io/js/%40ricons%2Ffa)|
+| package           | version                                                                                                              |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------- |
+| @vicons/fluent    | [![npm version](https://badge.fury.io/js/%40vicons%2Ffluent.svg)](https://badge.fury.io/js/%40vicons%2Ffluent)       |
+| @vicons/ionicons4 | [![npm version](https://badge.fury.io/js/%40vicons%2Fionicons4.svg)](https://badge.fury.io/js/%40vicons%2Fionicons4) |
+| @vicons/ionicons5 | [![npm version](https://badge.fury.io/js/%40vicons%2Fionicons5.svg)](https://badge.fury.io/js/%40vicons%2Fionicons5) |
+| @vicons/antd      | [![npm version](https://badge.fury.io/js/%40vicons%2Fantd.svg)](https://badge.fury.io/js/%40vicons%2Fantd)           |
+| @vicons/material  | [![npm version](https://badge.fury.io/js/%40vicons%2Fmaterial.svg)](https://badge.fury.io/js/%40vicons%2Fmaterial)   |
+| @vicons/fa        | [![npm version](https://badge.fury.io/js/%40vicons%2Ffa.svg)](https://badge.fury.io/js/%40vicons%2Ffa)               |
 
-Vue2
-|package|version|
-|-|-|
-|@v2icons/fluent|[![npm version](https://badge.fury.io/js/%40v2icons%2Ffluent.svg)](https://badge.fury.io/js/%40v2icons%2Ffluent)|
-|@v2icons/ionicons4|[![npm version](https://badge.fury.io/js/%40v2icons%2Fionicons4.svg)](https://badge.fury.io/js/%40v2icons%2Fionicons4)|
-|@v2icons/ionicons5|[![npm version](https://badge.fury.io/js/%40v2icons%2Fionicons5.svg)](https://badge.fury.io/js/%40v2icons%2Fionicons5)|
-|@v2icons/antd|[![npm version](https://badge.fury.io/js/%40v2icons%2Fantd.svg)](https://badge.fury.io/js/%40v2icons%2Fantd)|
-|@v2icons/material|[![npm version](https://badge.fury.io/js/%40v2icons%2Fmaterial.svg)](https://badge.fury.io/js/%40v2icons%2Fmaterial)|
-|@v2icons/fa|[![npm version](https://badge.fury.io/js/%40v2icons%2Ffa.svg)](https://badge.fury.io/js/%40v2icons%2Ffa)|
+### React
 
-SVG
-|package|version|
-|-|-|
-|@sicons/fluent|[![npm version](https://badge.fury.io/js/%40sicons%2Ffluent.svg)](https://badge.fury.io/js/%40sicons%2Ffluent)|
-|@sicons/ionicons4|[![npm version](https://badge.fury.io/js/%40sicons%2Fionicons4.svg)](https://badge.fury.io/js/%40sicons%2Fionicons4)|
-|@sicons/ionicons5|[![npm version](https://badge.fury.io/js/%40sicons%2Fionicons5.svg)](https://badge.fury.io/js/%40sicons%2Fionicons5)|
-|@sicons/antd|[![npm version](https://badge.fury.io/js/%40sicons%2Fantd.svg)](https://badge.fury.io/js/%40sicons%2Fantd)|
-|@sicons/material|[![npm version](https://badge.fury.io/js/%40sicons%2Fmaterial.svg)](https://badge.fury.io/js/%40sicons%2Fmaterial)|
-|@sicons/fa|[![npm version](https://badge.fury.io/js/%40sicons%2Ffa.svg)](https://badge.fury.io/js/%40sicons%2Ffa)|
+| package           | version                                                                                                              |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------- |
+| @ricons/fluent    | [![npm version](https://badge.fury.io/js/%40ricons%2Ffluent.svg)](https://badge.fury.io/js/%40ricons%2Ffluent)       |
+| @ricons/ionicons4 | [![npm version](https://badge.fury.io/js/%40ricons%2Fionicons4.svg)](https://badge.fury.io/js/%40ricons%2Fionicons4) |
+| @ricons/ionicons5 | [![npm version](https://badge.fury.io/js/%40ricons%2Fionicons5.svg)](https://badge.fury.io/js/%40ricons%2Fionicons5) |
+| @ricons/antd      | [![npm version](https://badge.fury.io/js/%40ricons%2Fantd.svg)](https://badge.fury.io/js/%40ricons%2Fantd)           |
+| @ricons/material  | [![npm version](https://badge.fury.io/js/%40ricons%2Fmaterial.svg)](https://badge.fury.io/js/%40ricons%2Fmaterial)   |
+| @ricons/fa        | [![npm version](https://badge.fury.io/js/%40ricons%2Ffa.svg)](https://badge.fury.io/js/%40ricons%2Ffa)               |
+
+### Vue2
+
+| package            | version                                                                                                                |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| @v2icons/fluent    | [![npm version](https://badge.fury.io/js/%40v2icons%2Ffluent.svg)](https://badge.fury.io/js/%40v2icons%2Ffluent)       |
+| @v2icons/ionicons4 | [![npm version](https://badge.fury.io/js/%40v2icons%2Fionicons4.svg)](https://badge.fury.io/js/%40v2icons%2Fionicons4) |
+| @v2icons/ionicons5 | [![npm version](https://badge.fury.io/js/%40v2icons%2Fionicons5.svg)](https://badge.fury.io/js/%40v2icons%2Fionicons5) |
+| @v2icons/antd      | [![npm version](https://badge.fury.io/js/%40v2icons%2Fantd.svg)](https://badge.fury.io/js/%40v2icons%2Fantd)           |
+| @v2icons/material  | [![npm version](https://badge.fury.io/js/%40v2icons%2Fmaterial.svg)](https://badge.fury.io/js/%40v2icons%2Fmaterial)   |
+| @v2icons/fa        | [![npm version](https://badge.fury.io/js/%40v2icons%2Ffa.svg)](https://badge.fury.io/js/%40v2icons%2Ffa)               |
+
+### SVG
+
+| package           | version                                                                                                              |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------- |
+| @sicons/fluent    | [![npm version](https://badge.fury.io/js/%40sicons%2Ffluent.svg)](https://badge.fury.io/js/%40sicons%2Ffluent)       |
+| @sicons/ionicons4 | [![npm version](https://badge.fury.io/js/%40sicons%2Fionicons4.svg)](https://badge.fury.io/js/%40sicons%2Fionicons4) |
+| @sicons/ionicons5 | [![npm version](https://badge.fury.io/js/%40sicons%2Fionicons5.svg)](https://badge.fury.io/js/%40sicons%2Fionicons5) |
+| @sicons/antd      | [![npm version](https://badge.fury.io/js/%40sicons%2Fantd.svg)](https://badge.fury.io/js/%40sicons%2Fantd)           |
+| @sicons/material  | [![npm version](https://badge.fury.io/js/%40sicons%2Fmaterial.svg)](https://badge.fury.io/js/%40sicons%2Fmaterial)   |
+| @sicons/fa        | [![npm version](https://badge.fury.io/js/%40sicons%2Ffa.svg)](https://badge.fury.io/js/%40sicons%2Ffa)               |
 
 ## Credit
 
