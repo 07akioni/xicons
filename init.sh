@@ -5,5 +5,6 @@
 [ ! -d resources/antd ] && git clone https://github.com/ant-design/ant-design-icons.git resources/antd
 [ ! -d resources/material ] && git clone https://github.com/google/material-design-icons.git resources/material
 [ ! -d resources/fa ] && git clone https://github.com/FortAwesome/Font-Awesome.git resources/fa
+[ ! -d resources/tabler ] && git clone https://github.com/tabler/tabler-icons.git resources/tabler
 
 echo "init done"

@@ -27,4 +27,9 @@ cd resources/fa
 git fetch
 git checkout 5.15.2
 
+cd ../..
+cs resources/tabler
+git fetch
+git checkout v1.39.1
+
 echo "checkout done"

@@ -201,9 +201,12 @@ body {
 }
 
 .icon svg {
-  fill: currentColor;
   width: 1em;
   height: 1em;
+}
+
+.icon svg:not([fill]) {
+  fill: currentColor;
 }
 
 .v-vl {

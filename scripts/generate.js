@@ -1,6 +1,9 @@
 // make sure vue template compiler do not throw error
 require('vue').version = null
 
+// only build vue3 esm
+const FOR_SITE = process.argv[2] === '--for-site'
+
 const fs = require('fs').promises
 const fse = require('fs-extra')
 const execa = require('execa')
@@ -76,7 +79,7 @@ async function traverse (basePath, cb, depth = 0) {
       snapshot
     )
     
-    if (process.argv[2] === '--vue3-only') {
+    if (FOR_SITE) {
       await generateVue3(icons, iconNames, outPath)
     } else {
       await generateSvg(icons, outPath)
@@ -247,24 +250,26 @@ async function generateVue3 (icons, names, basePath) {
     declaration: true
   }
   // tsc to vue3
-  console.log('  tsc to vue3 (cjs)')
-  await tsc({
-    include: ['_vue3/**/*'],
-    compilerOptions: {
-      ...compilerOptionsBase,
-      outDir: 'vue3/lib',
-      module: 'CommonJS'
-    }
-  }, basePath)
-  console.log('  copy cjs output to root')
-  const cjsDir = await fse.readdir(
-    path.resolve(basePath, 'vue3/lib')
-  )
-  for (const file of cjsDir) {
-    await fse.copy(
-      path.resolve(basePath, 'vue3/lib', file),
-      path.resolve(basePath, 'vue3', file)
+  if (!FOR_SITE) {
+    console.log('  tsc to vue3 (cjs)')
+    await tsc({
+      include: ['_vue3/**/*'],
+      compilerOptions: {
+        ...compilerOptionsBase,
+        outDir: 'vue3/lib',
+        module: 'CommonJS'
+      }
+    }, basePath)
+    console.log('  copy cjs output to root')
+    const cjsDir = await fse.readdir(
+      path.resolve(basePath, 'vue3/lib')
     )
+    for (const file of cjsDir) {
+      await fse.copy(
+        path.resolve(basePath, 'vue3/lib', file),
+        path.resolve(basePath, 'vue3', file)
+      )
+    }
   }
   console.log('  tsc to vue3 (esm)')
   await tsc({

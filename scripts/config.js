@@ -105,5 +105,16 @@ module.exports = [
       return upperFirst(camelCase(name))
     },
     keywords: ['ionicons', 'ionicon4']
+  },
+  {
+    name: 'tabler',
+    src: 'icons',
+    description: (prefix) => `${prefix} integrated from [\`tabler\`](https://github.com/tabler/tabler-icons)`,
+    normalizeName: name => {
+      const normalizedName = upperFirst(camelCase(name))
+      if (/^\d/.test(normalizedName)) return 'Tabler' + normalizedName
+      return normalizedName
+    },
+    keywords: ['tabler-icons']
   }
 ]
