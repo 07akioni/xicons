@@ -1,24 +1,24 @@
 # xicons [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-English · [中文](https://github.com/07akioni/xicons/blob/main/README.zh-CN.md)
+[English](https://github.com/07akioni/xicons) · 中文
 
-Include `vicons`(vue3), `ricons`(react), `sicons`(svg) & `v2icons`(vue2).
+包含 `vicons`（vue3），`ricons`（react），`sicons`（svg）和 `v2icons`(vue2)。
 
-SVG Vue/React components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons), [`ionicons`](https://github.com/ionic-team/ionicons), [`ant-design-icons`](https://github.com/ant-design/ant-design-icons), [`material-design-icons`](https://github.com/google/material-design-icons), [`Font-Awesome`](https://github.com/FortAwesome/Font-Awesome) and [`tabler-icons`](https://github.com/tabler/tabler-icons).
+整合自 [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons)、[`ionicons`](https://github.com/ionic-team/ionicons)、[`ant-design-icons`](https://github.com/ant-design/ant-design-icons)、[`material-design-icons`](https://github.com/google/material-design-icons)、[`Font-Awesome`](https://github.com/FortAwesome/Font-Awesome) 和 [`tabler-icons`](https://github.com/tabler/tabler-icons) 的 SVG Vue/React 组件。
 
-Util icon component for customizing color & size is also provided.
+同时 xicons 提供了一些图标工具组件来自定义图标的颜色和尺寸。
 
-## Icons Preview
+## 图标预览 & 查询
 
 https://www.xicons.org
 
-## Installation
+## 安装
 
-### Icons Installation
+### 安装图标组件
 
 ```bash
-# Install packages on your demand
-# For react
+# 安装你需要的包
+# 适用于 react
 npm i -D @ricons/fluent
 npm i -D @ricons/ionicons4
 npm i -D @ricons/ionicons5
@@ -26,7 +26,7 @@ npm i -D @ricons/antd
 npm i -D @ricons/material
 npm i -D @ricons/fa # font awesome
 npm i -D @ricons/tabler
-# For vue3
+# 适用于 vue3
 npm i -D @vicons/fluent
 npm i -D @vicons/ionicons4
 npm i -D @vicons/ionicons5
@@ -34,7 +34,7 @@ npm i -D @vicons/antd
 npm i -D @vicons/material
 npm i -D @vicons/fa # font awesome
 npm i -D @vicons/tabler
-# For vue2
+# 适用于 vue2
 npm i -D @v2icons/fluent
 npm i -D @v2icons/ionicons4
 npm i -D @v2icons/ionicons5
@@ -42,7 +42,7 @@ npm i -D @v2icons/antd
 npm i -D @v2icons/material
 npm i -D @v2icons/fa # font awesome
 npm i -D @v2icons/tabler
-# For SVG file
+# 使用 SVG
 npm i -D @sicons/fluent
 npm i -D @sicons/ionicons4
 npm i -D @sicons/ionicons5
@@ -52,9 +52,9 @@ npm i -D @sicons/fa # font awesome
 npm i -D @sicons/tabler
 ```
 
-### Icon Utils Installation
+### 安装图标工具组件
 
-Icon utils provide a icon wrapper component for customizing color & size of the inner SVG icon.
+xicons 提供一些 Icon 组件来帮助调整内部 SVG 图标的颜色和尺寸。
 
 ```bash
 npm i -D @ricons/utils  # react
@@ -64,9 +64,9 @@ npm i -D @v2icons/utils # vue2
 
 ## Usage
 
-### For Vue3
+### 使用 Vue3
 
-[vue3 demo](https://codesandbox.io/s/vicons-demo-sfzk9?file=/src/App.vue)
+[vue3 例子](https://codesandbox.io/s/vicons-demo-sfzk9?file=/src/App.vue)
 
 ```html
 <script>
@@ -74,8 +74,8 @@ npm i -D @v2icons/utils # vue2
   // or
   import Money16Regular from '@vicons/fluent/Money16Regular'
 
-  // You can directly use the SVG component
-  // or wrap it in an Icon component from @vicons/utils
+  // 你可以直接使用渲染为 SVG 的组件
+  // 或者把它包裹在 @vicons/utils 提供的 Icon 组件中
 
   import { Icon } from '@vicons/utils'
 
@@ -94,17 +94,17 @@ npm i -D @v2icons/utils # vue2
 </template>
 ```
 
-### For React
+### 使用 React
 
-[react demo](https://codesandbox.io/s/ricons-demo-05dug?file=/src/App.tsx)
+[react 例子](https://codesandbox.io/s/ricons-demo-05dug?file=/src/App.tsx)
 
 ```tsx
 import { Money16Regular } from '@ricons/fluent'
 // or
 import Money16Regular from '@ricons/fluent/Money16Regular'
 
-// You can directly use the SVG component
-// or wrap it in an Icon component from @ricons/utils
+// 你可以直接使用渲染为 SVG 的组件
+// 或者把它包裹在 @ricons/utils 提供的 Icon 组件中
 import { Icon } from '@ricons/utils'
 
 function App() {
@@ -116,9 +116,9 @@ function App() {
 }
 ```
 
-### For Vue2
+### 使用 Vue2
 
-[vue2 demo](https://codesandbox.io/s/v2icons-demo-xoeme?file=/src/App.vue)
+[vue2 例子](https://codesandbox.io/s/v2icons-demo-xoeme?file=/src/App.vue)
 
 ```html
 <script>
@@ -126,8 +126,8 @@ function App() {
   // or
   import Money16Regular from '@v2icons/fluent/Money16Regular'
 
-  // You can directly use the SVG component
-  // or wrap it in an Icon component from @v2icons/utils
+  // 你可以直接使用渲染为 SVG 的组件
+  // 或者把它包裹在 @v2icons/utils 提供的 Icon 组件中
 
   import { Icon } from '@v2icons/utils'
 
@@ -146,32 +146,32 @@ function App() {
 </template>
 ```
 
-### For SVG
+### 使用 SVG
 
 ```html
 <img src="@sicons/fluent/Money16Regular.svg" />
 ```
 
-## Utils API
+## 工具组件 API
 
 ### Icon API
 
-An icon component (in `@vicons/utils`, `@ricons/utils`, `@v2icons/utils`) is provided for customizing color & size of the inner SVG icon.
+一个（在 `@vicons/utils`、`@ricons/utils`、`@v2icons/utils` 的）Icon 组件，可以调整内部 SVG 组件的颜色和尺寸。
 
-| prop  | type               | default | description            |
-| ----- | ------------------ | ------- | ---------------------- |
-| size  | `string \| number` | -       | Size of the icon.      |
-| color | `string`           | -       | Color of the icon.     |
-| tag   | `string`           | `span`  | Tag to be rendered as. |
+| prop  | 类型               | 默认值 | 描述                   |
+| ----- | ------------------ | ------ | ---------------------- |
+| size  | `string \| number` | -      | 图标的尺寸             |
+| color | `string`           | -      | 图标的颜色             |
+| tag   | `string`           | `span` | 要渲染为何种 HTML 标签 |
 
-For example:
+使用方式：
 
 ```tsx
 import { Icon } from '@ricons/utils' // react
 import { Icon } from '@vicons/utils' // vue3
 import { Icon } from '@v2icons/utils' // vue2
 
-// render it
+// 渲染节点
 ;<Icon color="green" size="48">
   <SomeIcon />
 </Icon>
@@ -179,22 +179,22 @@ import { Icon } from '@v2icons/utils' // vue2
 
 ### IconConfigProvider API
 
-IconConfigProvider will affect all the descendant Icons' default prop value.
+IconConfigProvider 会影响所有内部 Icon 组件的 prop 默认值。
 
-| prop  | type               | default | description            |
-| ----- | ------------------ | ------- | ---------------------- |
-| size  | `string \| number` | -       | Size of the icon.      |
-| color | `string`           | -       | Color of the icon.     |
-| tag   | `string`           | `span`  | Tag to be rendered as. |
+| prop  | 类型               | 默认值 | 描述                   |
+| ----- | ------------------ | ------ | ---------------------- |
+| size  | `string \| number` | -      | 图标的尺寸             |
+| color | `string`           | -      | 图标的颜色             |
+| tag   | `string`           | `span` | 要渲染为何种 HTML 标签 |
 
-For example:
+使用方式：
 
 ```tsx
 import { IconConfigProvider, Icon } from '@ricons/utils'  // react
 import { IconConfigProvider, Icon } from '@vicons/utils'  // vue3
 import { IconConfigProvider, Icon } from '@v2icons/utils' // vue2
 
-// render it
+// 渲染节点
 ;<IconConfigProvider color="green" size="48">
   <App>
     <Icon>
@@ -204,7 +204,7 @@ import { IconConfigProvider, Icon } from '@v2icons/utils' // vue2
 </IconConfigProvider>
 ```
 
-## Icon Utils Packages
+## 图标工具包
 
 | package        | version                                                                                                        | description                     |
 | -------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------- |
@@ -212,7 +212,7 @@ import { IconConfigProvider, Icon } from '@v2icons/utils' // vue2
 | @vicons/utils  | [![npm version](https://badge.fury.io/js/%40vicons%2Futils.svg)](https://badge.fury.io/js/%40vicons%2Futils)   | Util icon components for vue3.  |
 | @v2icons/utils | [![npm version](https://badge.fury.io/js/%40v2icons%2Futils.svg)](https://badge.fury.io/js/%40v2icons%2Futils) | Util icon components for vue2.  |
 
-## Icon Packages
+## 图标包
 
 ### Vue3
 
@@ -264,7 +264,7 @@ import { IconConfigProvider, Icon } from '@v2icons/utils' // vue2
 
 ## Credit
 
-| Icon Set                                                                      | License                                                                         |
+| 图标库                                                                      | License                                                                         |
 | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | [`ant-design-icons`](https://github.com/ant-design/ant-design-icons)          | [MIT](https://opensource.org/licenses/MIT)                                      |
 | [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons) | [MIT](https://opensource.org/licenses/MIT)                                      |
