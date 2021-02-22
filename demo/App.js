@@ -39,7 +39,7 @@ function pack (list, size = 8) {
   for (let i = 0; i < list.length; i += size) {
     const row = list.slice(i, i + size)
     for (let j = row.length; j < size; ++j) {
-      row.push([null, null])
+      row.push([null, null, null, null])
     }
     packs.push(
       row
