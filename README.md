@@ -8,7 +8,7 @@ SVG Vue/React components integrated from [`fluentui-system-icons`](https://githu
 
 Util icon component for customizing color & size is also provided.
 
-## Icons Preview
+## Icons Preview & Search
 
 https://www.xicons.org
 

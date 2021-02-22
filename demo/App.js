@@ -1,4 +1,5 @@
-import { h, ref, computed, defineAsyncComponent } from 'vue'
+import { h, ref, computed, defineAsyncComponent, provide, reactive } from 'vue'
+import { useRoute, useRouter, RouterLink } from 'vue-router'
 import { VirtualList, VXScroll } from 'vueuc'
 import { debounce } from 'lodash-es'
 import { useBreakpoints, useMemo } from 'vooks'
@@ -74,6 +75,18 @@ const iconSets = {
 export default {
   name: 'App',
   setup () {
+    const router = useRouter()
+    const route = useRoute()
+
+    const isZhRef = computed(() => {
+      console.log(route.path)
+      return route.path === '/zh-CN'
+    })
+
+    provide('locale', reactive({
+      isZh: isZhRef
+    }))
+
     const patternRef = ref('')
     const displayedSetKeyRef = ref(Object.keys(iconSets)[0])
     const showNsRef = computed(() => displayedSetKeyRef.value === 'all')
@@ -91,6 +104,7 @@ export default {
     })
     const showPrefixRef = useMemo(() => breakpointsRef.value.includes('m'))
     return {
+      isZh: isZhRef,
       showPrefix: showPrefixRef,
       handleInput,
       pattern: patternRef,
@@ -119,7 +133,7 @@ export default {
           class: 'nav-main'
         }, [
           h('input', {
-            placeholder: 'Search Icons',
+            placeholder: this.isZh ? '搜索图标' : 'Search Icons',
             class: 'search',
             value: this.pattern,
             onInput: this.handleInput
@@ -128,25 +142,35 @@ export default {
         this.showPrefix ? h('div', {
           class: 'nav-suffix'
         }, [
+          h(RouterLink, {
+            class: 'link',
+            to:  this.isZh ? '/' : '/zh-CN'
+          }, {
+            default: () => this.isZh ? 'English' : '中文'
+          }),
           h('a', {
             class: 'link',
-            href: 'https://github.com/07akioni/xicons#installation',
+            href: this.isZh
+              ? 'https://github.com/07akioni/xicons/blob/main/README.zh-CN.md#%E5%AE%89%E8%A3%85'
+              : 'https://github.com/07akioni/xicons#installation',
             target: '_blank',
             style: {
               float: 'right'
             }
           }, [
-            'Installation'
+            this.isZh ? '安装' : 'Installation'
           ]),
           h('a', {
             class: 'link',
-            href: 'https://github.com/07akioni/xicons#usage',
+            href: this.isZh 
+              ? 'https://github.com/07akioni/xicons/blob/main/README.zh-CN.md#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F'
+              : 'https://github.com/07akioni/xicons#usage',
             target: '_blank',
             style: {
               float: 'right'
             }
           }, [
-            'Usage'
+            this.isZh ? '使用教程' : 'Usage'
           ]),
           h('a', {
             class: 'link',
@@ -202,11 +226,11 @@ export default {
             })
           ])
         },
-        empty () {
+        empty: () => {
           return h('div', {
             class: 'empty'
           }, [
-            'No Icon Matched'
+            this.isZh ? '无匹配图标' : 'No Icon Matched'
           ])
         }
       })

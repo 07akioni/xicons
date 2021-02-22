@@ -1,4 +1,4 @@
-import { h, ref } from 'vue'
+import { h, ref, inject, computed } from 'vue'
 
 export default {
   name: 'Icon',
@@ -11,6 +11,24 @@ export default {
   setup (props) {
     const svgCopiedRef = ref(false)
     const nameCopiedRef = ref(false)
+    const locale = inject('locale')
+    const translationRef = computed(() => {
+      if (locale.isZh) {
+        return {
+          svgCopied: '复制完成！',
+          nameCopied: '复制完成！',
+          copySvg: '复制 SVG',
+          copyName: '复制名称'
+        }
+      } else {
+        return {
+          svgCopied: 'SVG Copied!',
+          nameCopied: 'Name Copied!',
+          copySvg: 'Copy SVG',
+          copyName: 'Copy Name'
+        }
+      }
+    })
 
     const handleClick = () => {
       const a = document.createElement('a')
@@ -74,13 +92,13 @@ export default {
             class: 'icon-action-button',
             onClick: handleCopySvgClick
           }, [
-            svgCopiedRef.value ? 'SVG Copied!' : 'Copy SVG'
+            svgCopiedRef.value ? translationRef.value.svgCopied : translationRef.value.copySvg
           ]),
           h('div', {
             class: 'icon-action-button',
             onClick: handleCopyNameClick
           }, [
-            nameCopiedRef.value ? 'Name Copied!' : 'Copy Name'
+            nameCopiedRef.value ? translationRef.value.nameCopied : translationRef.value.copyName
           ])
         ])
       ])

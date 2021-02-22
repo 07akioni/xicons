@@ -1,4 +1,4 @@
-import { h } from 'vue'
+import { h, inject } from 'vue'
 
 export default {
   name: 'Tab',
@@ -14,6 +14,12 @@ export default {
     onValueChange: {
       type: Function,
       required: true  
+    }
+  },
+  setup () {
+    const locale = inject('locale')
+    return {
+      locale
     }
   },
   render () {
@@ -33,7 +39,7 @@ export default {
           }
         }
       }, [
-        value
+        (this.locale.isZh && value === 'all') ? '全部图标' : value
       ])
     }))
   }

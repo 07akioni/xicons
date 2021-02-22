@@ -42,6 +42,7 @@
     "vite": "^2.0.1",
     "vooks": "^0.0.8",
     "vue": "^3.0.4",
+    "vue-router": "^4.0.4",
     "vueuc": "^0.2.5"
   },
   "repository": {
