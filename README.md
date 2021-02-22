@@ -8,7 +8,7 @@ Util icon component for customizing color & size is also provided.
 
 ## Icons Preview
 
-https://xicons.vercel.app/
+https://www.xicons.org
 
 ## Installation
 
