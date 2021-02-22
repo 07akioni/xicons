@@ -62,7 +62,7 @@ npm i -D @vicons/utils  # vue3
 npm i -D @v2icons/utils # vue2
 ```
 
-## Usage
+## 使用方式
 
 ### 使用 Vue3
 
