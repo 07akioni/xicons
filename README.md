@@ -64,6 +64,8 @@ npm i -D @v2icons/utils # vue2
 
 ### For Vue3
 
+[vue3 demo](https://codesandbox.io/s/vicons-demo-sfzk9?file=/src/App.vue)
+
 ```html
 <script>
   import { Money16Regular } from '@vicons/fluent'
@@ -92,6 +94,8 @@ npm i -D @v2icons/utils # vue2
 
 ### For React
 
+[react demo](https://codesandbox.io/s/ricons-demo-05dug?file=/src/App.tsx)
+
 ```tsx
 import { Money16Regular } from '@ricons/fluent'
 // or
@@ -111,6 +115,8 @@ function App() {
 ```
 
 ### For Vue2
+
+[vue2 demo](https://codesandbox.io/s/v2icons-demo-xoeme?file=/src/App.vue)
 
 ```html
 <script>
