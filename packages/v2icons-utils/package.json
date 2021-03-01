@@ -20,8 +20,7 @@
     "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json"
   },
   "peerDependencies": {
-    "react": "^2.6.12",
-    "react-dom": "^2.6.12"
+    "vue": "^2.6.12"
   },
   "devDependencies": {
     "typescript": "^4.2.2",
