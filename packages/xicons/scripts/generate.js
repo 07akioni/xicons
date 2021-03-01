@@ -1,7 +1,5 @@
 // make sure vue template compiler do not throw error
-try {
-  require('vue').version = null
-} catch {}
+require('vue').version = null
 
 // only build vue3 esm
 const FOR_SITE = process.argv[2] === '--for-site'

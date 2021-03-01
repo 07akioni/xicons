@@ -2,6 +2,7 @@ lerna-debug.log
 packages/xicons/resources
 node_modules
 package-lock.json
+yarn.lock
 .vscode
 site
 dist
