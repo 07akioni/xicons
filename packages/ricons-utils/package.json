@@ -31,6 +31,6 @@
     "xicons": "^0.0.0"
   },
   "dependencies": {
-    "@xicons/utils": "^1.0.0"
+    "@xicons/utils": "^0.1.2"
   }
 }
