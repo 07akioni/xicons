@@ -2,5 +2,9 @@
   "packages": [
     "packages/*"
   ],
+  "ingoreChanges": [
+    "packages/xicons",
+    "packages/xicons-site"
+  ],
   "version": "independent"
 }
