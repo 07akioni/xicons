@@ -2,7 +2,8 @@
   "name": "xicons-workspace",
   "private": true,
   "scripts": {
-    "setup": "lerna bootstrap"
+    "setup": "lerna bootstrap && lerna run init --scope=xicons",
+    "build:vercel": "lerna run build --scope=xicons-site"
   },
   "author": "07akioni",
   "license": "MIT",

@@ -12,9 +12,6 @@
     "build": "npm run clean && node scripts/generate.js && npm run format",
     "build:for-site": "npm run clean && node scripts/generate.js --for-site",
     "build:no-format": "npm run clean && node scripts/generate.js",
-    "build:vercel": "npm run init && npm run build:site",
-    "build:site": "npm run build:for-site && npm run build:site:no-dist",
-    "build:site:no-dist": "esbuild demo/index.js --bundle --splitting --minify --outdir=site --format=esm --define:process.env.NODE_ENV='\"production\"' && cp index.html site && cp favicon.svg site",
     "format": "pprettier --write dist/**/*.{js,vue} && prettier --parser html --write dist/**/*.svg",
     "release": "npm run build && node scripts/release.js",
     "release:no-build": "node scripts/release.js"
