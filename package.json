@@ -1,49 +1,15 @@
 {
-  "name": "xicons",
-  "version": "0.7.0",
-  "description": "SVG Vue components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons) and [`ionicons`](https://github.com/ionic-team/ionicons).",
+  "name": "xicons-workspace",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "release": "npm run build && node scripts/release.js",
-    "release:no-build": "node scripts/release.js",
-    "build": "npm run clean && node scripts/generate.js && npm run format",
-    "build:for-site": "npm run clean && node scripts/generate.js --for-site",
-    "build:no-format": "npm run clean && node scripts/generate.js",
-    "build:site": "npm run build:for-site && npm run build:site:no-dist",
-    "build:site:no-dist": "esbuild demo/index.js --bundle --splitting --minify --outdir=site --format=esm --define:process.env.NODE_ENV='\"production\"' && cp index.html site && cp favicon.svg site",
-    "build:vercel": "npm run init && npm run build:site",
-    "format": "pprettier --write dist/**/*.{js,vue} && prettier --parser html --write dist/**/*.svg",
-    "clean": "rm -rf dist && rm -rf site",
-    "init": "./init.sh && ./checkout.sh",
-    "checkout": "./checkout.sh"
+    "setup": "lerna bootstrap"
   },
-  "keywords": [
-    "vue",
-    "react",
-    "svg",
-    "icon"
-  ],
   "author": "07akioni",
   "license": "MIT",
   "devDependencies": {
-    "@mixer/parallel-prettier": "^2.0.1",
-    "@types/fs-extra": "^9.0.6",
-    "@types/react": "^17.0.0",
-    "css-render": "^0.12.0",
-    "esbuild": "^0.8.27",
-    "execa": "^4.1.0",
-    "fs-extra": "^9.0.1",
-    "lodash": "^4.17.20",
-    "lodash-es": "^4.17.15",
-    "react": "^17.0.1",
-    "typescript": "^4.1.3",
-    "v2s": "^0.2.2",
-    "vfonts": "0.0.2",
-    "vite": "^2.0.1",
-    "vooks": "^0.0.8",
-    "vue": "^3.0.4",
-    "vue-router": "^4.0.4",
-    "vueuc": "^0.2.5"
+    "eslint": "^7.21.0",
+    "lerna": "^3.22.1",
+    "prettier": "^2.2.1"
   },
   "repository": {
     "url": "https://github.com/07akioni/xicons"

@@ -1,0 +1,27 @@
+{
+  "name": "@xicons/utils",
+  "version": "1.0.0",
+  "description": "Common utils for xicons series icons.",
+  "author": "07akioni <07akioni2@gmail.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "files": [
+    "lib",
+    "es"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.2"
+  },
+  "dependencies": {
+    "css-render": "^0.13.2"
+  }
+}

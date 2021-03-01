@@ -1,7 +1,0 @@
-{
-  "include": ["src/*"],
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "types": []
-  }
-}

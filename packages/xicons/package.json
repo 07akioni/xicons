@@ -1,0 +1,34 @@
+{
+  "name": "xicons",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "07akioni <07akioni2@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf dist",
+    "init": "./init.sh && ./checkout.sh",
+    "checkout": "./checkout.sh",
+    "build": "npm run clean && node scripts/generate.js && npm run format",
+    "build:for-site": "npm run clean && node scripts/generate.js --for-site",
+    "build:no-format": "npm run clean && node scripts/generate.js",
+    "build:vercel": "npm run init && npm run build:site",
+    "build:site": "npm run build:for-site && npm run build:site:no-dist",
+    "build:site:no-dist": "esbuild demo/index.js --bundle --splitting --minify --outdir=site --format=esm --define:process.env.NODE_ENV='\"production\"' && cp index.html site && cp favicon.svg site",
+    "format": "pprettier --write dist/**/*.{js,vue} && prettier --parser html --write dist/**/*.svg",
+    "release": "npm run build && node scripts/release.js",
+    "release:no-build": "node scripts/release.js"
+  },
+  "devDependencies": {
+    "@mixer/parallel-prettier": "^2.0.1",
+    "@types/fs-extra": "^9.0.7",
+    "@types/react": "^17.0.2",
+    "execa": "^5.0.0",
+    "lodash": "^4.17.21",
+    "prettier": "^2.2.1",
+    "react": "^17.0.1",
+    "typescript": "^4.2.2",
+    "v2s": "^0.2.2",
+    "vite": "^2.0.4"
+  }
+}
