@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "setup": "lerna bootstrap && lerna run init --scope=xicons --stream",
-    "build:vercel": "lerna run build:for-site --scope=xicons --stream && lerna run build --scope=xicons-site --stream"
+    "build:vercel": "lerna run build:for-site --scope=xicons --stream && lerna run build --scope=xicons-site --stream",
+    "release:utils": "lerna version --force-publish=@ricons/utils,@vicons/utils,@xicons/utils,@v2icons/utils && lerna run build --scope=@vicons/utils --scope=@ricons/utils --scope=@v2icons/utils --scope=@xicons/utils && lerna publish from-git"
   },
   "author": "07akioni",
   "license": "MIT",
@@ -14,5 +15,8 @@
   },
   "repository": {
     "url": "https://github.com/07akioni/xicons"
+  },
+  "dependencies": {
+    "@ricons/utils": "^0.1.3"
   }
 }
