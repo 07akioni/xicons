@@ -1,6 +1,6 @@
 {
   "name": "@ricons/utils",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "React utils component for xicons",
   "author": "07akioni <07akioni2@gmail.com>",
   "homepage": "",
@@ -25,9 +25,9 @@
   },
   "devDependencies": {
     "@types/react": "^17.0.2",
+    "react": "^17.0.1",
     "typescript": "^4.2.2",
     "vite": "^2.0.4",
-    "react": "^17.0.1",
     "xicons": "^0.0.0"
   },
   "dependencies": {

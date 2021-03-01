@@ -1,6 +1,6 @@
 {
   "name": "@vicons/utils",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Vue3 utils component for xicons",
   "author": "07akioni <07akioni2@gmail.com>",
   "homepage": "",
@@ -25,8 +25,8 @@
   "devDependencies": {
     "typescript": "^4.2.2",
     "vite": "^2.0.4",
-    "xicons": "^0.0.0",
-    "vue": "^3.0.6"
+    "vue": "^3.0.6",
+    "xicons": "^0.0.0"
   },
   "dependencies": {
     "@xicons/utils": "^1.0.0"
