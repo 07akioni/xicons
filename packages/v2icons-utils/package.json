@@ -1,0 +1,34 @@
+{
+  "name": "@v2icons/utils",
+  "version": "0.1.1",
+  "description": "Vue2 utils component for xicons",
+  "author": "07akioni <07akioni2@gmail.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "files": [
+    "lib",
+    "es"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json"
+  },
+  "peerDependencies": {
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.2",
+    "vite": "^2.0.4",
+    "vue": "^2.6.12",
+    "xicons": "^0.0.0"
+  },
+  "dependencies": {
+    "@xicons/utils": "^1.0.0"
+  }
+}

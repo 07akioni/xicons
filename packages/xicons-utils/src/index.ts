@@ -1,0 +1,1 @@
+export { mountStyle } from './style'

@@ -1,7 +1,32 @@
 version: 2
 updates:
 - package-ecosystem: npm
-  directory: "/"
+  directory: "/packages/ricons-utils"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+- package-ecosystem: npm
+  directory: "/packages/vicons-utils"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+- package-ecosystem: npm
+  directory: "/packages/v2icons-utils"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+- package-ecosystem: npm
+  directory: "/packages/xicons"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+- package-ecosystem: npm
+  directory: "/packages/xicons-site"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+- package-ecosystem: npm
+  directory: "/packages/xicons-utils"
   schedule:
     interval: daily
   open-pull-requests-limit: 10

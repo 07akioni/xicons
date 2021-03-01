@@ -1,0 +1,36 @@
+{
+  "name": "@ricons/utils",
+  "version": "0.1.1",
+  "description": "React utils component for xicons",
+  "author": "07akioni <07akioni2@gmail.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "files": [
+    "lib",
+    "es"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.2",
+    "typescript": "^4.2.2",
+    "vite": "^2.0.4",
+    "react": "^17.0.1",
+    "xicons": "^0.0.0"
+  },
+  "dependencies": {
+    "@xicons/utils": "^1.0.0"
+  }
+}

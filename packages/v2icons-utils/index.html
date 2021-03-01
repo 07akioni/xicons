@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>xicon - vue2 utils</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="app2"></div>
+    <script type="module">
+      import Vue from 'vue'
+      import { Icon, IconConfigProvider } from './src/index'
+      import TestIcon from 'xicons/dist/ionicons4/vue2/es/IosAdd.js'
+
+      ;(new Vue({
+        render (h) {
+          return h(Icon, {
+            props: {
+              color: 'red',
+              size: '48'
+            }
+          }, [
+            h(TestIcon)
+          ])
+        }
+      })).$mount('#app')
+
+      ;(new Vue({
+        render (h) {
+          return h(
+            IconConfigProvider, {
+              props: {
+                color: 'red',
+                size: '48'
+              }
+            }, [
+            h(Icon, null, [
+              h(TestIcon)
+            ])
+          ])
+        }
+      })).$mount('#app2')
+    </script>
+  </body>
+</html>
