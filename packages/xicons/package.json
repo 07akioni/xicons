@@ -20,7 +20,7 @@
     "@mixer/parallel-prettier": "^2.0.1",
     "@types/fs-extra": "^9.0.7",
     "@types/react": "^17.0.2",
-    "execa": "^5.0.0",
+    "execa": "^5.0.1",
     "lodash": "^4.17.21",
     "prettier": "^2.2.1",
     "react": "^17.0.1",
