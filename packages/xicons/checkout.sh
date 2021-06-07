@@ -10,7 +10,7 @@ git checkout v5.5.0
 cd ../..
 cd resources/fluent
 git fetch
-git checkout 1.1.98
+git checkout 1.1.128
 
 cd ../..
 cd resources/antd
