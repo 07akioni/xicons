@@ -34,6 +34,7 @@ body {
   display: flex;
   padding-right: 24px;
   min-width: 240px;
+  line-height: 1;
 }
 
 .nav-suffix .link {
