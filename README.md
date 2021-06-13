@@ -94,6 +94,18 @@ npm i -D @v2icons/utils # vue2
 </template>
 ```
 
+#### Q & A
+
+- (Vue3) How to create a function that accepts an icon component as input in TypeScript?
+
+```ts
+import type { Component } from 'vue'
+
+function f(iconComponent: Component) {
+  // ...
+}
+```
+
 ### For React
 
 [react demo](https://codesandbox.io/s/ricons-demo-05dug?file=/src/App.tsx)

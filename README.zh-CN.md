@@ -94,6 +94,18 @@ npm i -D @v2icons/utils # vue2
 </template>
 ```
 
+#### Q & A
+
+- (Vue3) 如何在 TypeScript 中创建一个接受图标组件作为输入的函数？
+
+```ts
+import type { Component } from 'vue'
+
+function f(iconComponent: Component) {
+  // ...
+}
+```
+
 ### 使用 React
 
 [react 例子](https://codesandbox.io/s/ricons-demo-05dug?file=/src/App.tsx)
@@ -264,7 +276,7 @@ import { IconConfigProvider, Icon } from '@v2icons/utils' // vue2
 
 ## Credit
 
-| 图标库                                                                      | License                                                                         |
+| 图标库                                                                        | License                                                                         |
 | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | [`ant-design-icons`](https://github.com/ant-design/ant-design-icons)          | [MIT](https://opensource.org/licenses/MIT)                                      |
 | [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons) | [MIT](https://opensource.org/licenses/MIT)                                      |
