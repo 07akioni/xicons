@@ -22,6 +22,6 @@
     "typescript": "^4.2.2"
   },
   "dependencies": {
-    "css-render": "^0.13.2"
+    "css-render": "^0.15.4"
   }
 }
