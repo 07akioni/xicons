@@ -66,6 +66,12 @@ async function traverse(basePath, cb, depth = 0) {
         }
         let mergedWidth = width ?? generalWidth
         let mergedHeight = height ?? generalHeight
+        if (mergedWidth === undefined) {
+          console.log('error width', iconSetName, iconKey)
+        }
+        if (mergedHeight === undefined) {
+          console.log('error width', iconSetName, iconKey)
+        }
         icons.push({
           name: normalizedName,
           svg: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${mergedWidth} ${mergedHeight}">${body}</svg>`,

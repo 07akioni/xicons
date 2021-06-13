@@ -29,7 +29,7 @@ module.exports = [
           mockedIconify.icons[key + '-regular'] = regularIconify.icons[key]
           return mockedIconify
         },
-        { icons: {} }
+        { ...regularIconify, icons: {} }
       )
       const solid = require(locate('fa-brands'))
       const brands = require(locate('fa-solid'))
