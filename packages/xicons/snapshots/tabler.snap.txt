@@ -4,6 +4,7 @@ AccessPointOff
 Accessible
 Activity
 Ad
+Ad2
 Adjustments
 AdjustmentsAlt
 AdjustmentsHorizontal
@@ -20,12 +21,14 @@ AlignLeft
 AlignRight
 Ambulance
 Anchor
+Angle
 AntennaBars1
 AntennaBars2
 AntennaBars3
 AntennaBars4
 AntennaBars5
 Aperture
+Apple
 Apps
 Archive
 ArrowBack
@@ -173,11 +176,14 @@ BorderOuter
 BorderRadius
 BorderRight
 BorderStyle
+BorderStyle2
 BorderTop
 BorderVertical
+Bottle
 Box
 BoxMargin
 BoxModel
+BoxModel2
 BoxMultiple
 BoxMultiple0
 BoxMultiple1
@@ -228,6 +234,7 @@ BrandGravatar
 BrandHipchat
 BrandHtml5
 BrandInstagram
+BrandJavascript
 BrandKickstarter
 BrandKotlin
 BrandLinkedin
@@ -266,6 +273,7 @@ BrandTumblr
 BrandTwitch
 BrandTwitter
 BrandUnsplash
+BrandVercel
 BrandVimeo
 BrandVk
 BrandWhatsapp
@@ -321,8 +329,10 @@ CameraOff
 CameraPlus
 CameraRotate
 CameraSelfie
+Candy
 Capture
 Car
+CarCrane
 Caravan
 Cardboards
 CaretDown
@@ -361,6 +371,7 @@ ChartRadar
 Check
 Checkbox
 Checks
+Cheese
 ChevronDown
 ChevronDownLeft
 ChevronDownRight
@@ -419,6 +430,7 @@ CloudUpload
 Code
 CodeMinus
 CodePlus
+Coffee
 Coin
 ColorPicker
 ColorSwatch
@@ -431,6 +443,7 @@ Compass
 Confetti
 Container
 Contrast
+Cookie
 Copy
 Copyleft
 Copyright
@@ -450,12 +463,14 @@ CornerUpLeft
 CornerUpLeftDouble
 CornerUpRight
 CornerUpRightDouble
+Crane
 CreditCard
 CreditCardOff
 Crop
 Crosshair
 Crown
 CrownOff
+Cup
 CurlyLoop
 CurrencyBahraini
 CurrencyBath
@@ -535,6 +550,7 @@ Discount
 Discount2
 Divide
 Dna
+DogBowl
 Dots
 DotsCircleHorizontal
 DotsDiagonal
@@ -571,6 +587,7 @@ Eyeglass2
 FaceId
 Fall
 Feather
+Fence
 File
 FileAlert
 FileAnalytics
@@ -606,6 +623,7 @@ Filter
 FilterOff
 Fingerprint
 Firetruck
+Fish
 Flag
 Flag2
 Flag3
@@ -736,6 +754,7 @@ LayoutSidebar
 LayoutSidebarRight
 Leaf
 Lego
+Lemon
 LetterA
 LetterB
 LetterC
@@ -777,6 +796,7 @@ LineHeight
 Link
 List
 ListCheck
+ListNumbers
 ListSearch
 LivePhoto
 LiveView
@@ -813,6 +833,7 @@ Math
 MathFunction
 MathSymbols
 Maximize
+Meat
 Medal
 MedicalCross
 Menu
@@ -829,7 +850,9 @@ MessageReport
 Messages
 MessagesOff
 Microphone
+Microphone2
 MicrophoneOff
+Milk
 Minimize
 Minus
 MinusVertical
@@ -854,6 +877,7 @@ Motorbike
 Mouse
 Movie
 Mug
+Mushroom
 Music
 NewSection
 News
@@ -893,6 +917,7 @@ Parking
 Peace
 Pencil
 Pennant
+Pepper
 Percentage
 Perspective
 Phone
@@ -949,6 +974,7 @@ Puzzle
 Pyramid
 Qrcode
 QuestionMark
+Radio
 Radioactive
 RadiusBottomLeft
 RadiusBottomRight
@@ -996,7 +1022,9 @@ Ruler
 Ruler2
 Run
 Sailboat
+Salt
 Satellite
+Sausage
 Scale
 Scan
 School
@@ -1052,8 +1080,13 @@ Social
 Sock
 SortAscending
 SortAscending2
+SortAscendingLetters
+SortAscendingNumbers
 SortDescending
 SortDescending2
+SortDescendingLetters
+SortDescendingNumbers
+Soup
 Space
 Speakerphone
 Speedboat
@@ -1106,8 +1139,8 @@ Subtask
 Sum
 Sun
 SunOff
+Sunrise
 Sunset
-Sunshine
 Superscript
 Swimming
 Switch
@@ -1162,6 +1195,8 @@ Trademark
 TrafficCone
 TrafficLights
 Train
+TransferIn
+TransferOut
 Trash
 TrashOff
 Tree
@@ -1198,8 +1233,8 @@ Users
 Vaccine
 Variable
 Vector
-VectorBeizer
 VectorBeizer2
+VectorBezier
 VectorTriangle
 Venus
 Versions
@@ -1214,6 +1249,7 @@ ViewportWide
 Virus
 VirusOff
 VirusSearch
+Vocabulary
 Volume
 Volume2
 Volume3

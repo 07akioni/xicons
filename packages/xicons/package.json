@@ -17,6 +17,7 @@
     "release:no-build": "node scripts/release.js"
   },
   "devDependencies": {
+    "@iconify/json": "1.1.355",
     "@mixer/parallel-prettier": "^2.0.1",
     "@types/fs-extra": "^9.0.7",
     "@types/react": "^17.0.2",

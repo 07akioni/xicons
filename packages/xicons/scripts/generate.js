@@ -10,111 +10,149 @@ const execa = require('execa')
 const v2s = require('v2s')
 const path = require('path')
 const config = require('./config')
-const {
-  createSvgSanitizer
-} = require('./utils')
+const { createSvgSanitizer } = require('./utils')
 
 const projectDir = path.resolve(__dirname, '..')
 
-async function traverse (basePath, cb, depth = 0) {
+async function traverse(basePath, cb, depth = 0) {
   const files = await fs.opendir(basePath)
   for await (const file of files) {
     const maybeFilePath = path.resolve(basePath, file.name)
     if (file.isDirectory()) {
       await traverse(maybeFilePath, cb, depth + 1)
-    } if (file.isFile()) {
+    }
+    if (file.isFile()) {
       await cb(file.name, maybeFilePath, depth)
     }
   }
 }
 
 ;(async () => {
-  await fs.mkdir(path.resolve(__dirname, '..', 'dist'))
-  for (const { name: iconSetName, src, normalizeName, filter } of config) {
-    const svgPath = path.resolve(__dirname, '..', 'resources', iconSetName, src)
+  const distDir = path.resolve(__dirname, '..', 'dist')
+  if (!(await fs.stat(distDir).catch(() => false))) {
+    await fs.mkdir(distDir)
+  }
+  for (const {
+    name: iconSetName,
+    src,
+    normalizeName,
+    filter,
+    iconify
+  } of config) {
     const outPath = path.resolve(__dirname, '..', 'dist', iconSetName)
     if (!(await fs.stat(outPath).catch(() => false))) {
       await fs.mkdir(outPath)
     }
-    console.log(`${iconSetName}`)
-    console.log(`${iconSetName}.svgPath: ${svgPath}`)
     const icons = []
-    await traverse(svgPath, async (name, filePath, depth) => {
-      // depth starts from 0
-      const dir = path.dirname(filePath)
-      const baseName = name.replace('.svg', '')
-      if (filter && !filter({ depth, name: baseName, dir })) return
-      if (name.endsWith('.svg')) {
-        const normalizedName = normalizeName(
-          baseName,
-          dir
-        )
-        const svgSanitizer = createSvgSanitizer(
-          (await fs.readFile(filePath) ).toString()
-        )
-        svgSanitizer
-          .removeComment()
-          .removeUselessTags()
-          .removeAttr('id')
-          .removeSvgAttr('width', 'height')
-          .refill()
-
+    console.log(`${iconSetName}`)
+    const nameSet = new Set()
+    if (iconify) {
+      console.log('use iconify source')
+      const {
+        icons: iconifyIcons,
+        width: generalWidth,
+        height: generalHeight
+      } = iconify
+      Object.keys(iconifyIcons).forEach((iconKey) => {
+        const { body, width, height, hidden } = iconifyIcons[iconKey]
+        if (hidden) return
+        const normalizedName = normalizeName(iconKey)
+        const lowerName = normalizedName.toLowerCase()
+        if (nameSet.has(lowerName)) {
+          // avoid errors in non-case-sensitive os
+          return
+        } else {
+          nameSet.add(lowerName)
+        }
+        let mergedWidth = width ?? generalWidth
+        let mergedHeight = height ?? generalHeight
         icons.push({
           name: normalizedName,
-          svg: svgSanitizer.svg(),
-          reactSvg: svgSanitizer.reactSvg()
+          svg: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${mergedWidth} ${mergedHeight}">${body}</svg>`,
+          reactSvg: `<svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${mergedWidth} ${mergedHeight}">${body}</svg>`
         })
-      }
-    })
+      })
+    } else {
+      const svgPath = path.resolve(
+        __dirname,
+        '..',
+        'resources',
+        iconSetName,
+        src
+      )
+      console.log(`${iconSetName}.svgPath: ${svgPath}`)
+      await traverse(svgPath, async (name, filePath, depth) => {
+        // depth starts from 0
+        const dir = path.dirname(filePath)
+        const baseName = name.replace('.svg', '')
+        if (filter && !filter({ depth, name: baseName, dir })) return
+        if (name.endsWith('.svg')) {
+          const normalizedName = normalizeName(baseName, dir)
+          const svgSanitizer = createSvgSanitizer(
+            (await fs.readFile(filePath)).toString()
+          )
+          svgSanitizer
+            .removeComment()
+            .removeUselessTags()
+            .removeAttr('id')
+            .removeSvgAttr('width', 'height')
+            .refill()
+
+          icons.push({
+            name: normalizedName,
+            svg: svgSanitizer.svg(),
+            reactSvg: svgSanitizer.reactSvg()
+          })
+        }
+      })
+    }
     icons.sort((v1, v2) => {
       if (v1.name < v2.name) return -1
       if (v1.name > v2.name) return 1
       return 0
     })
-    const iconNames = icons.map(v => v.name)
+    const iconNames = icons.map((v) => v.name)
     // generate snapshot
     const snapshot = iconNames.join('\n') + '\n'
     await fs.writeFile(
       path.resolve(__dirname, '..', 'snapshots', `${iconSetName}.snap.txt`),
       snapshot
     )
-    
+
     if (FOR_SITE) {
       await generateVue3(icons, iconNames, outPath)
     } else {
       await generateSvg(icons, outPath)
       await generateVue2(icons, iconNames, outPath)
       await generateVue3(icons, iconNames, outPath)
-      await generateReact(icons, iconNames, outPath)    
+      await generateReact(icons, iconNames, outPath)
     }
   }
 })()
 
-async function generateIndex (names, indexExt, componentExt, outPath) {
-  const exportStmts = names.map(n => `export { default as ${n} } from './${n}${componentExt}'`).join('\n') + '\n'
-  await fs.writeFile(
-    path.resolve(outPath, `index${indexExt}`),
-    exportStmts
-  )
+async function generateIndex(names, indexExt, componentExt, outPath) {
+  const exportStmts =
+    names
+      .map((n) => `export { default as ${n} } from './${n}${componentExt}'`)
+      .join('\n') + '\n'
+  await fs.writeFile(path.resolve(outPath, `index${indexExt}`), exportStmts)
 }
 
-async function generateAsyncIndex (names, indexExt, componentExt, outPath) {
-  const asyncExportStmts = names.map(n => `export const ${n} = () => import('./${n}${componentExt}')`).join('\n') + '\n'
+async function generateAsyncIndex(names, indexExt, componentExt, outPath) {
+  const asyncExportStmts =
+    names
+      .map((n) => `export const ${n} = () => import('./${n}${componentExt}')`)
+      .join('\n') + '\n'
   await fs.writeFile(
     path.resolve(outPath, `async-index${indexExt}`),
     asyncExportStmts
   )
 }
 
-async function tsc (config, outPath) {
+async function tsc(config, outPath) {
   const tsConfigPath = path.resolve(outPath, 'tsconfig.json')
-  await fse.writeFile(
-    tsConfigPath,
-    JSON.stringify(config, 0, 2)
-  )
-  const { stdout, stderr } = await execa('npx', [
-    'tsc', '-p', tsConfigPath
-  ], {
+  await fse.writeFile(tsConfigPath, JSON.stringify(config, 0, 2))
+  const { stdout, stderr } = await execa('npx', ['tsc', '-p', tsConfigPath], {
     cwd: projectDir
   })
   console.log(stdout)
@@ -125,24 +163,21 @@ async function tsc (config, outPath) {
 }
 
 // svg
-async function generateSvg (icons, basePath) {
+async function generateSvg(icons, basePath) {
   console.log('make svg')
   // create svg
   const outPath = path.resolve(basePath, 'svg')
   await fs.mkdir(outPath)
   // svg
   for (const { name, svg } of icons) {
-    await fs.writeFile(
-      path.resolve(outPath, `${name}.svg`),
-      svg
-    )
+    await fs.writeFile(path.resolve(outPath, `${name}.svg`), svg)
   }
 }
 
 // tsx => js + d.ts
 // index + async-index
 // +devDeps @types/react
-async function generateReact (icons, names, basePath) {
+async function generateReact(icons, names, basePath) {
   console.log('make react')
   console.log('  make .tsx')
   // create _react
@@ -153,11 +188,11 @@ async function generateReact (icons, names, basePath) {
     await fs.writeFile(
       path.resolve(tempPath, `${name}.tsx`),
       `import * as React from 'react'\n\n` +
-      `export default React.forwardRef<SVGSVGElement, React.SVGProps<SVGElement>>(function ${name} (props, ref) {\n` +
-      '  return (\n' +
-      reactSvg.replace(/(<svg[^>]*)(>)/, '$1 {...props} ref={ref} $2') +
-      '  )\n' +
-      '})\n'
+        `export default React.forwardRef<SVGSVGElement, React.SVGProps<SVGElement>>(function ${name} (props, ref) {\n` +
+        '  return (\n' +
+        reactSvg.replace(/(<svg[^>]*)(>)/, '$1 {...props} ref={ref} $2') +
+        '  )\n' +
+        '})\n'
     )
   }
   // generate index.ts
@@ -174,18 +209,19 @@ async function generateReact (icons, names, basePath) {
     lib: ['ESNext', 'DOM'],
     declaration: true
   }
-  await tsc({
-    include: ['_react/**/*'],
-    compilerOptions: {
-      ...compilerOptionsBase,
-      outDir: 'react/lib',
-      module: 'CommonJS'
-    }
-  }, basePath)
-  console.log('  copy cjs output to root')
-  const cjsDir = await fse.readdir(
-    path.resolve(basePath, 'react/lib')
+  await tsc(
+    {
+      include: ['_react/**/*'],
+      compilerOptions: {
+        ...compilerOptionsBase,
+        outDir: 'react/lib',
+        module: 'CommonJS'
+      }
+    },
+    basePath
   )
+  console.log('  copy cjs output to root')
+  const cjsDir = await fse.readdir(path.resolve(basePath, 'react/lib'))
   for (const file of cjsDir) {
     await fse.copy(
       path.resolve(basePath, 'react/lib', file),
@@ -193,14 +229,17 @@ async function generateReact (icons, names, basePath) {
     )
   }
   console.log('  tsc to react (esm)')
-  await tsc({
-    include: ['_react/**/*'],
-    compilerOptions: {
-      ...compilerOptionsBase,
-      outDir: 'react/es',
-      module: 'ESNext'
-    }
-  }, basePath)
+  await tsc(
+    {
+      include: ['_react/**/*'],
+      compilerOptions: {
+        ...compilerOptionsBase,
+        outDir: 'react/es',
+        module: 'ESNext'
+      }
+    },
+    basePath
+  )
   console.log('  remove _react')
   await fse.remove(tempPath)
 }
@@ -208,7 +247,7 @@ async function generateReact (icons, names, basePath) {
 // vue => ts => js + d.ts
 // index + async-index
 // TODO: SSR?
-async function generateVue3 (icons, names, basePath) {
+async function generateVue3(icons, names, basePath) {
   console.log('make vue3')
   console.log(' make .vue')
   // create _vue3
@@ -219,14 +258,15 @@ async function generateVue3 (icons, names, basePath) {
     await fse.writeFile(
       path.resolve(tempPath, `${name}.vue`),
       '<template>\n' +
-      svg + '\n' +
-      '</template>\n' +
-      '<script lang="ts">\n' +
-      `import { defineComponent } from 'vue'\n` +
-      'export default defineComponent({\n' +
-      `  name: '${name}'\n` +
-      '})\n' +
-      '</script>'
+        svg +
+        '\n' +
+        '</template>\n' +
+        '<script lang="ts">\n' +
+        `import { defineComponent } from 'vue'\n` +
+        'export default defineComponent({\n' +
+        `  name: '${name}'\n` +
+        '})\n' +
+        '</script>'
     )
   }
   // generate index.ts
@@ -236,7 +276,7 @@ async function generateVue3 (icons, names, basePath) {
   // v2s
   console.log('  transform to .ts')
   const dir = await fse.readdir(tempPath)
-  const paths = dir.map(fileName => path.resolve(tempPath, fileName))
+  const paths = dir.map((fileName) => path.resolve(tempPath, fileName))
   await v2s(paths, {
     deleteSource: true,
     refactorVueImport: true
@@ -252,18 +292,19 @@ async function generateVue3 (icons, names, basePath) {
   // tsc to vue3
   if (!FOR_SITE) {
     console.log('  tsc to vue3 (cjs)')
-    await tsc({
-      include: ['_vue3/**/*'],
-      compilerOptions: {
-        ...compilerOptionsBase,
-        outDir: 'vue3/lib',
-        module: 'CommonJS'
-      }
-    }, basePath)
-    console.log('  copy cjs output to root')
-    const cjsDir = await fse.readdir(
-      path.resolve(basePath, 'vue3/lib')
+    await tsc(
+      {
+        include: ['_vue3/**/*'],
+        compilerOptions: {
+          ...compilerOptionsBase,
+          outDir: 'vue3/lib',
+          module: 'CommonJS'
+        }
+      },
+      basePath
     )
+    console.log('  copy cjs output to root')
+    const cjsDir = await fse.readdir(path.resolve(basePath, 'vue3/lib'))
     for (const file of cjsDir) {
       await fse.copy(
         path.resolve(basePath, 'vue3/lib', file),
@@ -272,14 +313,17 @@ async function generateVue3 (icons, names, basePath) {
     }
   }
   console.log('  tsc to vue3 (esm)')
-  await tsc({
-    include: ['_vue3/**/*'],
-    compilerOptions: {
-      ...compilerOptionsBase,
-      outDir: 'vue3/es',
-      module: 'ESNext'
-    }
-  }, basePath)
+  await tsc(
+    {
+      include: ['_vue3/**/*'],
+      compilerOptions: {
+        ...compilerOptionsBase,
+        outDir: 'vue3/es',
+        module: 'ESNext'
+      }
+    },
+    basePath
+  )
   // remove _vue3
   console.log('  remove _vue3')
   await fse.remove(tempPath)
@@ -287,7 +331,7 @@ async function generateVue3 (icons, names, basePath) {
 
 // vue => js
 // index + async-index
-async function generateVue2 (icons, names, basePath) {
+async function generateVue2(icons, names, basePath) {
   console.log('make vue2')
   console.log(' make .vue')
   // create _vue3
@@ -298,13 +342,14 @@ async function generateVue2 (icons, names, basePath) {
     await fse.writeFile(
       path.resolve(tempPath, `${name}.vue`),
       '<template>\n' +
-      svg + '\n' +
-      '</template>\n' +
-      '<script>\n' +
-      'export default {\n' +
-      `  name: '${name}'\n` +
-      '}\n' +
-      '</script>'
+        svg +
+        '\n' +
+        '</template>\n' +
+        '<script>\n' +
+        'export default {\n' +
+        `  name: '${name}'\n` +
+        '}\n' +
+        '</script>'
     )
   }
   // generate index.js
@@ -314,7 +359,7 @@ async function generateVue2 (icons, names, basePath) {
   // v2s
   console.log('  transform .vue to .js')
   const dir = await fse.readdir(tempPath)
-  const paths = dir.map(fileName => path.resolve(tempPath, fileName))
+  const paths = dir.map((fileName) => path.resolve(tempPath, fileName))
   await v2s(paths, {
     deleteSource: true,
     refactorVueImport: true,
@@ -329,18 +374,19 @@ async function generateVue2 (icons, names, basePath) {
     checkJs: false
   }
   console.log('  tsc to vue2 (cjs)')
-  await tsc({
-    include: ['_vue2/**/*'],
-    compilerOptions: {
-      ...compilerOptionsBase,
-      outDir: 'vue2/lib',
-      module: 'CommonJS'
-    }
-  }, basePath)
-  console.log('  copy cjs output to root')
-  const cjsDir = await fse.readdir(
-    path.resolve(basePath, 'vue2/lib')
+  await tsc(
+    {
+      include: ['_vue2/**/*'],
+      compilerOptions: {
+        ...compilerOptionsBase,
+        outDir: 'vue2/lib',
+        module: 'CommonJS'
+      }
+    },
+    basePath
   )
+  console.log('  copy cjs output to root')
+  const cjsDir = await fse.readdir(path.resolve(basePath, 'vue2/lib'))
   for (const file of cjsDir) {
     await fse.copy(
       path.resolve(basePath, 'vue2/lib', file),
@@ -348,16 +394,18 @@ async function generateVue2 (icons, names, basePath) {
     )
   }
   console.log('  tsc to vue2 (esm)')
-  await tsc({
-    include: ['_vue2/**/*'],
-    compilerOptions: {
-      ...compilerOptionsBase,
-      outDir: 'vue2/es',
-      module: 'ESNext'
-    }
-  }, basePath)
+  await tsc(
+    {
+      include: ['_vue2/**/*'],
+      compilerOptions: {
+        ...compilerOptionsBase,
+        outDir: 'vue2/es',
+        module: 'ESNext'
+      }
+    },
+    basePath
+  )
   // remove _vue2
   console.log('  remove _vue2')
   await fse.remove(tempPath)
 }
-
