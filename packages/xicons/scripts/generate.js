@@ -64,8 +64,8 @@ async function traverse(basePath, cb, depth = 0) {
         } else {
           nameSet.add(lowerName)
         }
-        let mergedWidth = width ?? generalWidth
-        let mergedHeight = height ?? generalHeight
+        let mergedWidth = width || generalWidth
+        let mergedHeight = height || generalHeight
         if (mergedWidth === undefined) {
           console.log('error width', iconSetName, iconKey)
         }
