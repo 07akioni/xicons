@@ -4,6 +4,10 @@ require('vue').version = null
 // only build vue3 esm
 const FOR_SITE = process.argv[2] === '--for-site'
 
+if (FOR_SITE) {
+  console.log('build icons for site')
+}
+
 const fs = require('fs').promises
 const fse = require('fs-extra')
 const execa = require('execa')
@@ -125,8 +129,6 @@ async function traverse(basePath, cb, depth = 0) {
       path.resolve(__dirname, '..', 'snapshots', `${iconSetName}.snap.txt`),
       snapshot
     )
-
-    await generateReact(icons, iconNames, outPath)
 
     if (FOR_SITE) {
       await generateVue3(icons, iconNames, outPath)
