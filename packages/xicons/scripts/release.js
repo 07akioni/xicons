@@ -2,7 +2,8 @@ const path = require('path')
 const fse = require('fs-extra')
 const execa = require('execa')
 const config = require('./config')
-const { version, repository } = require('../package.json')
+const { repository } = require('../package.json')
+const { version } = require('../version')
 
 const frameworks = [
   {
