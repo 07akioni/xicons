@@ -72,10 +72,11 @@ async function traverse(basePath, cb, depth = 0) {
         if (mergedHeight === undefined) {
           console.log('error width', iconSetName, iconKey)
         }
+        const clearedBody = body.replace(/class="[^"]*"/g, '')
         icons.push({
           name: normalizedName,
-          svg: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${mergedWidth} ${mergedHeight}">${body}</svg>`,
-          reactSvg: `<svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${mergedWidth} ${mergedHeight}">${body}</svg>`
+          svg: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${mergedWidth} ${mergedHeight}">${clearedBody}</svg>`,
+          reactSvg: `<svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${mergedWidth} ${mergedHeight}">${clearedBody}</svg>`
         })
       })
     } else {
@@ -124,6 +125,8 @@ async function traverse(basePath, cb, depth = 0) {
       path.resolve(__dirname, '..', 'snapshots', `${iconSetName}.snap.txt`),
       snapshot
     )
+
+    await generateReact(icons, iconNames, outPath)
 
     if (FOR_SITE) {
       await generateVue3(icons, iconNames, outPath)
