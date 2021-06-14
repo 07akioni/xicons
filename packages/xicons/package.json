@@ -12,6 +12,7 @@
     "build": "npm run clean && node scripts/generate.js && npm run format",
     "build:for-site": "npm run clean && node scripts/generate.js --for-site",
     "build:no-format": "npm run clean && node scripts/generate.js",
+    "test": "cd ../v2icons-utils && npm run test",
     "format": "pprettier --write dist/**/*.{js,vue} && prettier --parser html --write dist/**/*.svg",
     "release": "npm run build && node scripts/release.js",
     "release:no-build": "node scripts/release.js"

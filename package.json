@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "setup": "lerna bootstrap && lerna run init --scope=xicons --stream",
+    "test": "lerna run test --scope=@v2icons/utils",
     "build:vercel": "lerna run build:for-site --scope=xicons --stream && lerna run build --scope=xicons-site --stream",
     "release:utils": "lerna version --force-publish=@ricons/utils,@vicons/utils,@xicons/utils,@v2icons/utils && lerna run build --scope=@vicons/utils --scope=@ricons/utils --scope=@v2icons/utils --scope=@xicons/utils && lerna publish from-git"
   },
