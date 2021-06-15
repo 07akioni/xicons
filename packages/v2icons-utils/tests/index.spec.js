@@ -5,6 +5,7 @@ const { IosAdd } = require('../../xicons/dist/ionicons4/vue2/lib')
 const { Accessibility } = require('../../xicons/dist/ionicons5/vue2/lib')
 const { AB } = require('../../xicons/dist/tabler/vue2/lib')
 const { AccountBookFilled } = require('../../xicons/dist/antd/vue2/lib')
+const { AccessPoint } = require('../../xicons/dist/carbon/vue2/lib')
 const { mount } = require('@vue/test-utils')
 
 ;[
@@ -15,6 +16,7 @@ const { mount } = require('@vue/test-utils')
   ['ionicons5', Accessibility],
   ['tabler', AB],
   ['antd', AccountBookFilled],
+  ['carbon', AccessPoint]
 ].forEach(([ name, icon ]) => {
   describe(name,() => {
     it('works', () => {
