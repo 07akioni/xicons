@@ -61,7 +61,7 @@ const metaTemplate = {
       )
       const description = iconSetConfig.description(descriptionPrefix)
       const { iconify } = iconSetConfig
-      if (iconify && !iconify.license) {
+      if (iconify && !iconify.info.license.title) {
         throw Error('No license in iconify')
       }
       const meta = JSON.stringify(
@@ -71,7 +71,7 @@ const metaTemplate = {
           description,
           repository,
           ...metaTemplate,
-          license: (iconify ? iconify.license : metaTemplate.license)
+          license: iconify ? iconify.info.license.title : metaTemplate.license,
           keywords: metaTemplate.keywords
             .concat(keywords)
             .concat(iconSetConfig.keywords)

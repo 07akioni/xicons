@@ -35,7 +35,7 @@ module.exports = [
       const brands = require(locate('fa-solid'))
       ;[regular, solid, brands].forEach(appendSize)
       return {
-        license: solid.license,
+        info: solid.info,
         icons: {
           ...regular.icons,
           ...solid.icons,
