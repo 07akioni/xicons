@@ -35,6 +35,7 @@ module.exports = [
       const brands = require(locate('fa-solid'))
       ;[regular, solid, brands].forEach(appendSize)
       return {
+        license: solid.license,
         icons: {
           ...regular.icons,
           ...solid.icons,
@@ -125,5 +126,20 @@ module.exports = [
     },
     iconify: require(locate('tabler')),
     keywords: ['tabler-icons']
-  }
+  },
+  (() => {
+    const carbonIconify = require(locate('tabler'))
+    return {
+      name: 'carbon',
+      description: (prefix) =>
+        `${prefix} integrated from [\`Carbon\`](${carbonIconify.url})`,
+      normalizeName: (name) => {
+        const normalizedName = upperFirst(camelCase(name))
+        if (/^\d/.test(normalizedName)) return 'Carbon' + normalizedName
+        return normalizedName
+      },
+      iconify: carbonIconify,
+      keywords: ['carbon', 'carbon-icons']
+    }
+  })()
 ]

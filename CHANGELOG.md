@@ -1,3 +1,7 @@
+## 0.9.0 (2020-06-15)
+
+- Add [carbon](https://github.com/carbon-design-system/carbon/tree/main/packages/icons) icons.
+
 ## 0.9.0 (2020-06-14)
 
 - Change icon source to [iconify](https://github.com/iconify/collections-json).

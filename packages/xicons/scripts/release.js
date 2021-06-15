@@ -60,6 +60,10 @@ const metaTemplate = {
         frameworkDir
       )
       const description = iconSetConfig.description(descriptionPrefix)
+      const { iconify } = iconSetConfig
+      if (iconify && !iconify.license) {
+        throw Error('No license in iconify')
+      }
       const meta = JSON.stringify(
         {
           name: scopedPackageName,
@@ -67,6 +71,7 @@ const metaTemplate = {
           description,
           repository,
           ...metaTemplate,
+          license: (iconify ? iconify.license : metaTemplate.license)
           keywords: metaTemplate.keywords
             .concat(keywords)
             .concat(iconSetConfig.keywords)

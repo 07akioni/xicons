@@ -13,14 +13,16 @@ import * as antdIcons from 'xicons/dist/antd/vue3/es/async-index'
 import * as materialIcons from 'xicons/dist/material/vue3/es/async-index'
 import * as faIcons from 'xicons/dist/fa/vue3/es/async-index'
 import * as tablerIcons from 'xicons/dist/tabler/vue3/es/async-index'
+import * as carbonIcons from 'xicons/dist/carbon/vue3/es/async-index'
 
 const nsMap = new Map()
-nsMap.set(fluentIcons, 'fluent')
-nsMap.set(ionV5Icons, 'ionicons5')
-nsMap.set(ionV4Icons, 'ionicons4')
 nsMap.set(antdIcons, 'antd')
-nsMap.set(materialIcons, 'material')
+nsMap.set(carbonIcons, 'carbon')
 nsMap.set(faIcons, 'fa')
+nsMap.set(fluentIcons, 'fluent')
+nsMap.set(ionV4Icons, 'ionicons4')
+nsMap.set(ionV5Icons, 'ionicons5')
+nsMap.set(materialIcons, 'material')
 nsMap.set(tablerIcons, 'tabler')
 
 function createMergedEntries (...objs) {
@@ -57,7 +59,8 @@ const iconSets = {
     antdIcons,
     faIcons,
     materialIcons,
-    tablerIcons
+    tablerIcons,
+    carbonIcons
   ).sort((v1, v2) => {
     if (v1[2] > v2[2]) return 1
     if (v1[2] < v2[2]) return -1
@@ -69,7 +72,8 @@ const iconSets = {
   antd: createMergedEntries(antdIcons),
   fa: createMergedEntries(faIcons),
   material: createMergedEntries(materialIcons),
-  tabler: createMergedEntries(tablerIcons)
+  tabler: createMergedEntries(tablerIcons),
+  carbon: createMergedEntries(carbonIcons)
 }
 
 export default {
