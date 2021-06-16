@@ -4,7 +4,7 @@
 
 包含 `vicons`（vue3），`ricons`（react），`sicons`（svg）和 `v2icons`(vue2)。
 
-整合自 [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons)、[`ionicons`](https://github.com/ionic-team/ionicons)、[`ant-design-icons`](https://github.com/ant-design/ant-design-icons)、[`material-design-icons`](https://github.com/google/material-design-icons)、[`Font-Awesome`](https://github.com/FortAwesome/Font-Awesome) 和 [`tabler-icons`](https://github.com/tabler/tabler-icons) 的 SVG Vue/React 组件。
+整合自 [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons)、[`ionicons`](https://github.com/ionic-team/ionicons)、[`ant-design-icons`](https://github.com/ant-design/ant-design-icons)、[`material-design-icons`](https://github.com/google/material-design-icons)、[`Font-Awesome`](https://github.com/FortAwesome/Font-Awesome) [`tabler-icons`](https://github.com/tabler/tabler-icons) 和 [`carbon`](https://github.com/carbon-design-system/carbon/tree/main/packages/icons) 的 SVG Vue/React 组件。
 
 同时 xicons 提供了一些图标工具组件来自定义图标的颜色和尺寸。
 
@@ -26,6 +26,7 @@ npm i -D @ricons/antd
 npm i -D @ricons/material
 npm i -D @ricons/fa # font awesome
 npm i -D @ricons/tabler
+npm i -D @ricons/carbon
 # 适用于 vue3
 npm i -D @vicons/fluent
 npm i -D @vicons/ionicons4
@@ -34,6 +35,7 @@ npm i -D @vicons/antd
 npm i -D @vicons/material
 npm i -D @vicons/fa # font awesome
 npm i -D @vicons/tabler
+npm i -D @vicons/carbon
 # 适用于 vue2
 npm i -D @v2icons/fluent
 npm i -D @v2icons/ionicons4
@@ -42,6 +44,8 @@ npm i -D @v2icons/antd
 npm i -D @v2icons/material
 npm i -D @v2icons/fa # font awesome
 npm i -D @v2icons/tabler
+npm i -D @v2icons/carbon
+
 # 使用 SVG
 npm i -D @sicons/fluent
 npm i -D @sicons/ionicons4
@@ -50,6 +54,7 @@ npm i -D @sicons/antd
 npm i -D @sicons/material
 npm i -D @sicons/fa # font awesome
 npm i -D @sicons/tabler
+npm i -D @sicons/carbon
 ```
 
 ### 安装图标工具组件
@@ -237,6 +242,7 @@ import { IconConfigProvider, Icon } from '@v2icons/utils' // vue2
 | @vicons/material  | [![npm version](https://badge.fury.io/js/%40vicons%2Fmaterial.svg)](https://badge.fury.io/js/%40vicons%2Fmaterial)   |
 | @vicons/fa        | [![npm version](https://badge.fury.io/js/%40vicons%2Ffa.svg)](https://badge.fury.io/js/%40vicons%2Ffa)               |
 | @vicons/tabler    | [![npm version](https://badge.fury.io/js/%40vicons%2Ftabler.svg)](https://badge.fury.io/js/%40vicons%2Ftabler)       |
+| @vicons/carbon    | [![npm version](https://badge.fury.io/js/%40vicons%2Fcarbon.svg)](https://badge.fury.io/js/%40vicons%2Fcarbon)       |
 
 ### React
 
@@ -249,6 +255,7 @@ import { IconConfigProvider, Icon } from '@v2icons/utils' // vue2
 | @ricons/material  | [![npm version](https://badge.fury.io/js/%40ricons%2Fmaterial.svg)](https://badge.fury.io/js/%40ricons%2Fmaterial)   |
 | @ricons/fa        | [![npm version](https://badge.fury.io/js/%40ricons%2Ffa.svg)](https://badge.fury.io/js/%40ricons%2Ffa)               |
 | @ricons/tabler    | [![npm version](https://badge.fury.io/js/%40ricons%2Ftabler.svg)](https://badge.fury.io/js/%40ricons%2Ftabler)       |
+| @ricons/carbon    | [![npm version](https://badge.fury.io/js/%40ricons%2Fcarbon.svg)](https://badge.fury.io/js/%40ricons%2Fcarbon)       |
 
 ### Vue2
 
@@ -261,6 +268,7 @@ import { IconConfigProvider, Icon } from '@v2icons/utils' // vue2
 | @v2icons/material  | [![npm version](https://badge.fury.io/js/%40v2icons%2Fmaterial.svg)](https://badge.fury.io/js/%40v2icons%2Fmaterial)   |
 | @v2icons/fa        | [![npm version](https://badge.fury.io/js/%40v2icons%2Ffa.svg)](https://badge.fury.io/js/%40v2icons%2Ffa)               |
 | @v2icons/tabler    | [![npm version](https://badge.fury.io/js/%40v2icons%2Ftabler.svg)](https://badge.fury.io/js/%40v2icons%2Ftabler)       |
+| @v2icons/carbon    | [![npm version](https://badge.fury.io/js/%40v2icons%2Fcarbon.svg)](https://badge.fury.io/js/%40v2icons%2Fcarbon)       |
 
 ### SVG
 
@@ -273,14 +281,16 @@ import { IconConfigProvider, Icon } from '@v2icons/utils' // vue2
 | @sicons/material  | [![npm version](https://badge.fury.io/js/%40sicons%2Fmaterial.svg)](https://badge.fury.io/js/%40sicons%2Fmaterial)   |
 | @sicons/fa        | [![npm version](https://badge.fury.io/js/%40sicons%2Ffa.svg)](https://badge.fury.io/js/%40sicons%2Ffa)               |
 | @sicons/tabler    | [![npm version](https://badge.fury.io/js/%40sicons%2Ftabler.svg)](https://badge.fury.io/js/%40sicons%2Ftabler)       |
+| @sicons/carbon    | [![npm version](https://badge.fury.io/js/%40sicons%2Fcarbon.svg)](https://badge.fury.io/js/%40sicons%2Fcarbon)       |
 
 ## Credit
 
-| 图标库                                                                        | License                                                                         |
-| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| [`ant-design-icons`](https://github.com/ant-design/ant-design-icons)          | [MIT](https://opensource.org/licenses/MIT)                                      |
-| [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons) | [MIT](https://opensource.org/licenses/MIT)                                      |
-| [`Font-Awesome`](https://github.com/FortAwesome/Font-Awesome)                 | [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/)               |
-| [`ionicons`](https://github.com/ionic-team/ionicons)                          | [MIT](https://opensource.org/licenses/MIT)                                      |
-| [`material-design-icons`](https://github.com/google/material-design-icons)    | [Apache 2](https://github.com/google/material-design-icons/blob/master/LICENSE) |
-| [`tabler-icons`](https://github.com/tabler/tabler-icons)                      | [MIT](https://opensource.org/licenses/MIT)                                      |
+| Icon Set                                                                      | License                                                                             |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| [`ant-design-icons`](https://github.com/ant-design/ant-design-icons)          | [MIT](https://opensource.org/licenses/MIT)                                          |
+| [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons) | [MIT](https://opensource.org/licenses/MIT)                                          |
+| [`Font-Awesome`](https://github.com/FortAwesome/Font-Awesome)                 | [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/)                   |
+| [`ionicons`](https://github.com/ionic-team/ionicons)                          | [MIT](https://opensource.org/licenses/MIT)                                          |
+| [`material-design-icons`](https://github.com/google/material-design-icons)    | [Apache 2](https://github.com/google/material-design-icons/blob/master/LICENSE)     |
+| [`tabler-icons`](https://github.com/tabler/tabler-icons)                      | [MIT](https://opensource.org/licenses/MIT)                                          |
+| [`carbon`](https://github.com/tabler/tabler-icons)                            | [Apache 2](https://github.com/carbon-design-system/carbon/tree/main/packages/icons) |
