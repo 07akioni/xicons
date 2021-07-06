@@ -10,7 +10,7 @@
     "build": "npm run clean && esbuild src/index.js --bundle --splitting --minify --outdir=site --outbase=. --format=esm --define:process.env.NODE_ENV='\"production\"' --define:__VUE_PROD_DEVTOOLS__=false && cp index.html site && cp favicon.svg site"
   },
   "devDependencies": {
-    "esbuild": "^0.8.53",
+    "esbuild": "^0.12.15",
     "fs-extra": "^9.1.0",
     "lodash-es": "^4.17.21",
     "vite": "^2.0.4",
