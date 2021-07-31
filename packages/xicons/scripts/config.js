@@ -128,7 +128,7 @@ module.exports = [
     keywords: ['tabler-icons']
   },
   (() => {
-    const carbonIconify = require(locate('tabler'))
+    const carbonIconify = require(locate('carbon'))
     return {
       name: 'carbon',
       description: (prefix) =>
