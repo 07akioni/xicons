@@ -221,6 +221,20 @@ import { IconConfigProvider, Icon } from '@v2icons/utils' // vue2
 </IconConfigProvider>
 ```
 
+## 常见问题
+
+### `too many open files`
+
+这是由于打包时程序打开的文件超出了系统限制的数量。
+
+使用 `ulimit -n` 查看这个限制。
+
+你只能增加这个限制或者使用路径单个引入图标：
+
+```js
+import Money16Regular from '@ricons/fluent/Money16Regular'
+```
+
 ## 图标工具包
 
 | package        | version                                                                                                        | description                     |

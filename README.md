@@ -220,6 +220,21 @@ import { IconConfigProvider, Icon } from '@v2icons/utils' // vue2
 </IconConfigProvider>
 ```
 
+## Common Issues
+
+### `too many open files`
+
+
+This is because the count of opened files exceeds the limit of operation system.
+
+Use `ulimit -n` to check the limit.
+
+You can only increase the limit or import icons by path:
+
+```js
+import Money16Regular from '@ricons/fluent/Money16Regular'
+```
+
 ## Icon Utils Packages
 
 | package        | version                                                                                                        | description                     |
