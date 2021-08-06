@@ -26,7 +26,7 @@
     "typescript": "^4.2.2",
     "vite": "^2.0.4",
     "vue": "^3.0.6",
-    "xicons": "0.0.0"
+    "xicons": "1.0.0"
   },
   "dependencies": {
     "@xicons/utils": "^0.1.4"
