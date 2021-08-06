@@ -30,7 +30,7 @@
     "typescript": "^4.2.2",
     "vite": "^2.0.4",
     "vue": "2.6.14",
-    "xicons": "0.0.0"
+    "xicons": "1.0.0"
   },
   "dependencies": {
     "@xicons/utils": "^0.1.4"
