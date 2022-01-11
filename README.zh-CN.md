@@ -307,4 +307,4 @@ import Money16Regular from '@ricons/fluent/Money16Regular'
 | [`ionicons`](https://github.com/ionic-team/ionicons)                          | [MIT](https://opensource.org/licenses/MIT)                                          |
 | [`material-design-icons`](https://github.com/google/material-design-icons)    | [Apache 2](https://github.com/google/material-design-icons/blob/master/LICENSE)     |
 | [`tabler-icons`](https://github.com/tabler/tabler-icons)                      | [MIT](https://opensource.org/licenses/MIT)                                          |
-| [`carbon`](https://github.com/tabler/tabler-icons)                            | [Apache 2](https://github.com/carbon-design-system/carbon/tree/main/packages/icons) |
+| [`carbon`](https://github.com/carbon-design-system/carbon)                    | [Apache 2](https://github.com/carbon-design-system/carbon/tree/main/packages/icons) |
