@@ -5,7 +5,7 @@
     "setup": "pnpm i && pnpm run init --filter xicons --stream",
     "test": "pnpm run test --filter @v2icons/utils",
     "build:vercel": "pnpm run build:for-site --filter xicons --stream && pnpm run build --filter xicons-site --stream",
-    "release:utils": "lerna version --force-publish=@ricons/utils,@vicons/utils,@xicons/utils,@v2icons/utils && pnpm run build --filter @vicons/utils --filter @ricons/utils --filter @v2icons/utils --filter @xicons/utils && lerna publish from-git"
+    "release:utils": "./bump-utils-version.sh && pnpm run build --filter @vicons/utils --filter @ricons/utils --filter @v2icons/utils --filter @xicons/utils && pnpm publish -r"
   },
   "author": "07akioni",
   "license": "MIT",
