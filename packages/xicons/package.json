@@ -12,7 +12,7 @@
     "build": "pnpm run clean && node scripts/generate.js && pnpm run format",
     "build:for-site": "pnpm run clean && node scripts/generate.js --for-site",
     "build:no-format": "pnpm run clean && node scripts/generate.js",
-    "test": "cd ../v2icons-utils && pnpm run test",
+    "test": "pnpm run test --filter @v2icons/utils",
     "format": "pprettier --write dist/**/*.{js,vue} && prettier --parser html --write dist/**/*.svg",
     "release": "pnpm run build && node scripts/release.js",
     "release:no-build": "pnpm run test && node scripts/release.js"
