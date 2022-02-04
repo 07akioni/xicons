@@ -16,7 +16,7 @@
     "vite": "^2.0.4",
     "vooks": "^0.2.12",
     "vue-router": "^4.0.4",
-    "vueuc": "^0.4.25-4",
+    "vueuc": "^0.4.25",
     "xicons": "workspace:*"
   }
 }
