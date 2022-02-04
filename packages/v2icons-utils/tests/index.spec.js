@@ -1,12 +1,13 @@
-const { Accessibility16Regular } = require('../../xicons/dist/fluent/vue2/lib')
-const { AccessibleIcon } = require('../../xicons/dist/fa/vue2/lib')
-const { AcUnitFilled } = require('../../xicons/dist/material/vue2/lib')
-const { IosAdd } = require('../../xicons/dist/ionicons4/vue2/lib')
-const { Accessibility } = require('../../xicons/dist/ionicons5/vue2/lib')
-const { AB } = require('../../xicons/dist/tabler/vue2/lib')
-const { AccountBookFilled } = require('../../xicons/dist/antd/vue2/lib')
-const { AccessPoint } = require('../../xicons/dist/carbon/vue2/lib')
-const { mount } = require('@vue/test-utils')
+import { describe, expect, it } from'vitest'
+import { mount } from'@vue/test-utils'
+import { Accessibility16Regular } from'./xicons/fluent/vue2/es'
+import { AccessibleIcon } from'./xicons/fa/vue2/es'
+import { AcUnitFilled } from'./xicons/material/vue2/es'
+import { IosAdd } from'./xicons/ionicons4/vue2/es'
+import { Accessibility } from'./xicons/ionicons5/vue2/es'
+import { AB } from'./xicons/tabler/vue2/es'
+import { AccountBookFilled } from'./xicons/antd/vue2/es'
+import { Accessibility as AccessibilityCarbon } from'./xicons/carbon/vue2/es'
 
 ;[
   ['fluent', Accessibility16Regular],
@@ -16,7 +17,7 @@ const { mount } = require('@vue/test-utils')
   ['ionicons5', Accessibility],
   ['tabler', AB],
   ['antd', AccountBookFilled],
-  ['carbon', AccessPoint]
+  ['carbon', AccessibilityCarbon]
 ].forEach(([ name, icon ]) => {
   describe(name,() => {
     it('works', () => {
