@@ -395,6 +395,7 @@ HighlightFilled
 HighlightOutlined
 HighlightTwotone
 HistoryOutlined
+HolderOutlined
 HomeFilled
 HomeOutlined
 HomeTwotone

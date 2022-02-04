@@ -9,16 +9,16 @@
     "clean": "rm -rf dist",
     "init": "./init.sh && ./checkout.sh",
     "checkout": "./checkout.sh",
-    "build": "npm run clean && node scripts/generate.js && npm run format",
-    "build:for-site": "npm run clean && node scripts/generate.js --for-site",
-    "build:no-format": "npm run clean && node scripts/generate.js",
-    "test": "cd ../v2icons-utils && npm run test",
+    "build": "pnpm run clean && node scripts/generate.js && pnpm run format",
+    "build:for-site": "pnpm run clean && node scripts/generate.js --for-site",
+    "build:no-format": "pnpm run clean && node scripts/generate.js",
+    "test": "cd ../v2icons-utils && pnpm run test",
     "format": "pprettier --write dist/**/*.{js,vue} && prettier --parser html --write dist/**/*.svg",
-    "release": "npm run build && node scripts/release.js",
-    "release:no-build": "npm run test && node scripts/release.js"
+    "release": "pnpm run build && node scripts/release.js",
+    "release:no-build": "pnpm run test && node scripts/release.js"
   },
   "devDependencies": {
-    "@iconify/json": "1.1.355",
+    "@iconify/json": "2.0.33",
     "@mixer/parallel-prettier": "^2.0.1",
     "@types/fs-extra": "^9.0.7",
     "@types/react": "^17.0.2",

@@ -2,22 +2,18 @@
   "name": "xicons-workspace",
   "private": true,
   "scripts": {
-    "setup": "lerna bootstrap && lerna run init --scope=xicons --stream",
-    "test": "lerna run test --scope=@v2icons/utils",
-    "build:vercel": "lerna run build:for-site --scope=xicons --stream && lerna run build --scope=xicons-site --stream",
-    "release:utils": "lerna version --force-publish=@ricons/utils,@vicons/utils,@xicons/utils,@v2icons/utils && lerna run build --scope=@vicons/utils --scope=@ricons/utils --scope=@v2icons/utils --scope=@xicons/utils && lerna publish from-git"
+    "setup": "pnpm i && pnpm run init --filter xicons --stream",
+    "test": "pnpm run test --filter @v2icons/utils",
+    "build:vercel": "pnpm run build:for-site --filter xicons --stream && pnpm run build --filter xicons-site --stream",
+    "release:utils": "lerna version --force-publish=@ricons/utils,@vicons/utils,@xicons/utils,@v2icons/utils && pnpm run build --filter @vicons/utils --filter @ricons/utils --filter @v2icons/utils --filter @xicons/utils && lerna publish from-git"
   },
   "author": "07akioni",
   "license": "MIT",
   "devDependencies": {
     "eslint": "^7.21.0",
-    "lerna": "^3.22.1",
     "prettier": "^2.2.1"
   },
   "repository": {
     "url": "https://github.com/07akioni/xicons"
-  },
-  "dependencies": {
-    "@ricons/utils": "^0.1.3"
   }
 }
