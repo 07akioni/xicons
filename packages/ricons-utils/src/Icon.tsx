@@ -24,7 +24,7 @@ export function Icon ({ size, color, tag = 'span', children }: IconProps) {
   }, [])
   return (
     <MergedTag 
-      className="xicons"
+      className="xicon"
       style={{
         color: mergedColor,
         fontSize: mergedSize
