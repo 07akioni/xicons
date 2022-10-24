@@ -18,7 +18,7 @@
     "release:no-build": "pnpm run test && node scripts/release.js"
   },
   "devDependencies": {
-    "@iconify/json": "2.0.33",
+    "@iconify/json": "2.1.127",
     "@mixer/parallel-prettier": "^2.0.1",
     "@types/fs-extra": "^9.0.7",
     "@types/react": "^17.0.2",
