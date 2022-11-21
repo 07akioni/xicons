@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@vue/test-utils": "^1.2.1",
-    "jsdom": "^19.0.0",
+    "jsdom": "^20.0.3",
     "typescript": "^4.2.2",
     "vite": "^2.7.13",
     "vitest": "^0.2.7",
