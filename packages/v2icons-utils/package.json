@@ -22,7 +22,7 @@
     "test": "vitest run --environment=\"jsdom\" tests/*.js"
   },
   "peerDependencies": {
-    "vue": "^2.6.14"
+    "vue": "^2.7.16"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.2.1",
@@ -30,7 +30,7 @@
     "typescript": "^4.2.2",
     "vite": "^2.7.13",
     "vitest": "^0.2.7",
-    "vue": "2.6.14",
+    "vue": "2.7.16",
     "xicons": "workspace:*"
   },
   "dependencies": {

@@ -2,7 +2,7 @@
   "name": "xicons-workspace",
   "private": true,
   "scripts": {
-    "setup": "pnpm i && pnpm run init --filter xicons --stream",
+    "setup": "pnpm i && pnpm --filter xicons run init  --stream",
     "test": "pnpm run test --filter @v2icons/utils",
     "build:vercel": "pnpm run build:for-site --filter xicons --stream && pnpm run build --filter xicons-site --stream",
     "release:utils": "./bump-utils-version.sh && pnpm run build --filter @vicons/utils --filter @ricons/utils --filter @v2icons/utils --filter @xicons/utils && pnpm publish -r"
