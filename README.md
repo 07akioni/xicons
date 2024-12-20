@@ -12,6 +12,10 @@ Util icon component for customizing color & size is also provided.
 
 https://www.xicons.org
 
+## Changelog
+
+- `0.13.0` Fix vue3 icon memory leaking issue.
+
 ## Installation
 
 ### Icons Installation
@@ -223,7 +227,6 @@ import { IconConfigProvider, Icon } from '@v2icons/utils' // vue2
 ## Common Issues
 
 ### `too many open files`
-
 
 This is because the count of opened files exceeds the limit of operation system.
 
