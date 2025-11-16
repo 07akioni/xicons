@@ -4,7 +4,7 @@
   "scripts": {
     "setup": "pnpm i && pnpm --filter xicons run init  --stream",
     "test": "pnpm run test --filter @v2icons/utils",
-    "build:vercel": "pnpm run build:for-site --filter xicons --stream && pnpm run build --filter xicons-site --stream",
+    "build:vercel": "pnpm --filter xicons --stream run build:for-site && pnpm --filter xicons-site --stream run build",
     "release:utils": "./bump-utils-version.sh && pnpm run build --filter @vicons/utils --filter @ricons/utils --filter @v2icons/utils --filter @xicons/utils && pnpm publish -r"
   },
   "author": "07akioni",
