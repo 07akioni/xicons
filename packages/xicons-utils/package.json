@@ -19,7 +19,7 @@
     "build": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json"
   },
   "devDependencies": {
-    "typescript": "^4.2.2"
+    "typescript": "^5"
   },
   "dependencies": {
     "css-render": "^0.15.8"

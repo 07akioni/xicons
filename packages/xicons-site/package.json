@@ -17,6 +17,7 @@
     "vooks": "^0.2.12",
     "vue-router": "^4.0.4",
     "vueuc": "^0.4.25",
+    "vue": "^3",
     "xicons": "workspace:*"
   }
 }
