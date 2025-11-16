@@ -11,7 +11,8 @@
   "license": "MIT",
   "devDependencies": {
     "eslint": "^7.21.0",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "wrangler": "^4.47.0"
   },
   "repository": {
     "url": "https://github.com/07akioni/xicons"
