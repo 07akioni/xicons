@@ -1,0 +1,49 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  build-site:
+    name: Build Site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          submodules: recursive
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v5
+        with:
+          version: latest
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22.x
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm run setup
+
+      - name: Build xicons for site
+        run: pnpm --filter xicons --stream run build:for-site
+
+      - name: Build site
+        run: pnpm --filter xicons-site --stream run build
+
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: site
+          path: packages/xicons-site/site
+          retention-days: 7

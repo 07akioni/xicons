@@ -1,2 +1,8 @@
 packages:
   - 'packages/*'
+
+# pnpm >= 10 blocks dependency build scripts by default; pnpm 11 replaced
+# onlyBuiltDependencies with allowBuilds. esbuild 0.14.x needs its postinstall
+# to download the platform binary (required by xicons-site build).
+allowBuilds:
+  esbuild: true
