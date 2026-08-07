@@ -23,6 +23,7 @@ AndroidFilled
 AndroidOutlined
 AntCloudOutlined
 AntDesignOutlined
+AnthropicFilled
 ApartmentOutlined
 ApiFilled
 ApiOutlined
@@ -46,6 +47,7 @@ AudioTwotone
 AuditOutlined
 BackwardFilled
 BackwardOutlined
+BaiduOutlined
 BankFilled
 BankOutlined
 BankTwotone
@@ -60,6 +62,8 @@ BellFilled
 BellOutlined
 BellTwotone
 BgColorsOutlined
+BilibiliFilled
+BilibiliOutlined
 BlockOutlined
 BoldOutlined
 BookFilled
@@ -125,6 +129,7 @@ CiCircleOutlined
 CiCircleTwotone
 CiOutlined
 CiTwotone
+ClaudeFilled
 ClearOutlined
 ClockCircleFilled
 ClockCircleOutlined
@@ -196,6 +201,7 @@ DashboardTwotone
 DatabaseFilled
 DatabaseOutlined
 DatabaseTwotone
+DeepSeekFilled
 DeleteColumnOutlined
 DeleteFilled
 DeleteOutlined
@@ -212,15 +218,19 @@ DingtalkCircleFilled
 DingtalkOutlined
 DingtalkSquareFilled
 DisconnectOutlined
+DiscordFilled
+DiscordOutlined
 DislikeFilled
 DislikeOutlined
 DislikeTwotone
+DockerOutlined
 DollarCircleFilled
 DollarCircleOutlined
 DollarCircleTwotone
 DollarOutlined
 DollarTwotone
 DotChartOutlined
+DotNetOutlined
 DoubleLeftOutlined
 DoubleRightOutlined
 DownCircleFilled
@@ -242,6 +252,7 @@ DropboxSquareFilled
 EditFilled
 EditOutlined
 EditTwotone
+ElevenLabsFilled
 EllipsisOutlined
 EnterOutlined
 EnvironmentFilled
@@ -364,6 +375,7 @@ FunnelPlotFilled
 FunnelPlotOutlined
 FunnelPlotTwotone
 GatewayOutlined
+GeminiFilled
 GifOutlined
 GiftFilled
 GiftOutlined
@@ -384,6 +396,7 @@ GooglePlusOutlined
 GooglePlusSquareFilled
 GoogleSquareFilled
 GroupOutlined
+HarmonyOSOutlined
 HddFilled
 HddOutlined
 HddTwotone
@@ -405,6 +418,7 @@ HourglassTwotone
 Html5Filled
 Html5Outlined
 Html5Twotone
+HuggingFaceFilled
 IdcardFilled
 IdcardOutlined
 IdcardTwotone
@@ -431,7 +445,10 @@ InteractionOutlined
 InteractionTwotone
 IssuesCloseOutlined
 ItalicOutlined
+JavaOutlined
+JavaScriptOutlined
 KeyOutlined
+KubernetesOutlined
 LaptopOutlined
 LayoutFilled
 LayoutOutlined
@@ -452,6 +469,7 @@ LineOutlined
 LinkOutlined
 LinkedinFilled
 LinkedinOutlined
+LinuxOutlined
 Loading3QuartersOutlined
 LoadingOutlined
 LockFilled
@@ -465,6 +483,7 @@ MailFilled
 MailOutlined
 MailTwotone
 ManOutlined
+MastodonFilled
 MedicineBoxFilled
 MedicineBoxOutlined
 MedicineBoxTwotone
@@ -479,9 +498,12 @@ MenuFoldOutlined
 MenuOutlined
 MenuUnfoldOutlined
 MergeCellsOutlined
+MergeFilled
+MergeOutlined
 MessageFilled
 MessageOutlined
 MessageTwotone
+MetaFilled
 MinusCircleFilled
 MinusCircleOutlined
 MinusCircleTwotone
@@ -489,6 +511,7 @@ MinusOutlined
 MinusSquareFilled
 MinusSquareOutlined
 MinusSquareTwotone
+MistralFilled
 MobileFilled
 MobileOutlined
 MobileTwotone
@@ -496,7 +519,12 @@ MoneyCollectFilled
 MoneyCollectOutlined
 MoneyCollectTwotone
 MonitorOutlined
+MoonFilled
+MoonOutlined
 MoreOutlined
+MutedFilled
+MutedOutlined
+NetflixFilled
 NodeCollapseOutlined
 NodeExpandOutlined
 NodeIndexOutlined
@@ -504,7 +532,10 @@ NotificationFilled
 NotificationOutlined
 NotificationTwotone
 NumberOutlined
+OllamaFilled
 OneToOneOutlined
+OpenAIFilled
+OpenAIOutlined
 OrderedListOutlined
 PaperClipOutlined
 PartitionOutlined
@@ -515,6 +546,7 @@ PauseOutlined
 PayCircleFilled
 PayCircleOutlined
 PercentageOutlined
+PerplexityFilled
 PhoneFilled
 PhoneOutlined
 PhoneTwotone
@@ -527,6 +559,8 @@ PictureTwotone
 PieChartFilled
 PieChartOutlined
 PieChartTwotone
+PinterestFilled
+PinterestOutlined
 PlayCircleFilled
 PlayCircleOutlined
 PlayCircleTwotone
@@ -548,6 +582,8 @@ PoweroffOutlined
 PrinterFilled
 PrinterOutlined
 PrinterTwotone
+ProductFilled
+ProductOutlined
 ProfileFilled
 ProfileOutlined
 ProfileTwotone
@@ -561,6 +597,7 @@ PullRequestOutlined
 PushpinFilled
 PushpinOutlined
 PushpinTwotone
+PythonOutlined
 QqCircleFilled
 QqOutlined
 QqSquareFilled
@@ -569,6 +606,7 @@ QuestionCircleFilled
 QuestionCircleOutlined
 QuestionCircleTwotone
 QuestionOutlined
+QwenFilled
 RadarChartOutlined
 RadiusBottomleftOutlined
 RadiusBottomrightOutlined
@@ -588,6 +626,7 @@ RedditOutlined
 RedditSquareFilled
 RedoOutlined
 ReloadOutlined
+ReplicateFilled
 RestFilled
 RestOutlined
 RestTwotone
@@ -608,6 +647,7 @@ RocketTwotone
 RollbackOutlined
 RotateLeftOutlined
 RotateRightOutlined
+RubyOutlined
 SafetyCertificateFilled
 SafetyCertificateOutlined
 SafetyCertificateTwotone
@@ -640,6 +680,8 @@ ShoppingOutlined
 ShoppingTwotone
 ShrinkOutlined
 SignalFilled
+SignatureFilled
+SignatureOutlined
 SisternodeOutlined
 SketchCircleFilled
 SketchOutlined
@@ -660,6 +702,7 @@ SmallDashOutlined
 SmileFilled
 SmileOutlined
 SmileTwotone
+SnapchatFilled
 SnippetsFilled
 SnippetsOutlined
 SnippetsTwotone
@@ -670,6 +713,8 @@ SoundFilled
 SoundOutlined
 SoundTwotone
 SplitCellsOutlined
+SpotifyFilled
+SpotifyOutlined
 StarFilled
 StarOutlined
 StarTwotone
@@ -683,6 +728,8 @@ StopOutlined
 StopTwotone
 StrikethroughOutlined
 SubnodeOutlined
+SunFilled
+SunOutlined
 SwapLeftOutlined
 SwapOutlined
 SwapRightOutlined
@@ -705,9 +752,13 @@ TaobaoCircleOutlined
 TaobaoOutlined
 TaobaoSquareFilled
 TeamOutlined
+TelegramFilled
+ThreadsFilled
 ThunderboltFilled
 ThunderboltOutlined
 ThunderboltTwotone
+TikTokFilled
+TikTokOutlined
 ToTopOutlined
 ToolFilled
 ToolOutlined
@@ -721,6 +772,10 @@ TranslationOutlined
 TrophyFilled
 TrophyOutlined
 TrophyTwotone
+TruckFilled
+TruckOutlined
+TwitchFilled
+TwitchOutlined
 TwitterCircleFilled
 TwitterOutlined
 TwitterSquareFilled
@@ -766,6 +821,8 @@ WarningOutlined
 WarningTwotone
 WechatFilled
 WechatOutlined
+WechatWorkFilled
+WechatWorkOutlined
 WeiboCircleFilled
 WeiboCircleOutlined
 WeiboOutlined
@@ -776,6 +833,8 @@ WifiOutlined
 WindowsFilled
 WindowsOutlined
 WomanOutlined
+XFilled
+XOutlined
 YahooFilled
 YahooOutlined
 YoutubeFilled

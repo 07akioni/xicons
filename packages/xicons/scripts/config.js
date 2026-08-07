@@ -23,7 +23,7 @@ module.exports = [
           }
         })
       }
-      const regularIconify = require(locate('fa-regular'))
+      const regularIconify = require(locate('fa6-regular'))
       const regular = Object.keys(regularIconify.icons).reduce(
         (mockedIconify, key) => {
           mockedIconify.icons[key + '-regular'] = regularIconify.icons[key]
@@ -31,8 +31,8 @@ module.exports = [
         },
         { ...regularIconify, icons: {} }
       )
-      const solid = require(locate('fa-brands'))
-      const brands = require(locate('fa-solid'))
+      const solid = require(locate('fa6-brands'))
+      const brands = require(locate('fa6-solid'))
       ;[regular, solid, brands].forEach(appendSize)
       return {
         info: solid.info,

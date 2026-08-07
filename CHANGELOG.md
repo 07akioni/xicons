@@ -1,3 +1,34 @@
+## 0.14.0 (2026-08-07)
+
+- Upgrade `fa` icon source from Font Awesome 5 to Font Awesome 6 (1609 → 2058 icons, +449).
+- Refresh `tabler` icons to latest upstream (1518 → 6184 icons).
+- Other iconify sources (`material`, `antd`, `fluent`, `carbon`, `ionicons5`) refreshed alongside the `@iconify/json` upgrade.
+
+### Breaking Changes
+
+Font Awesome 6 renamed / removed several icons. If your app imports any of the following, migrate to the new names:
+
+| FA5 (old) | FA6 (new) |
+| --- | --- |
+| Home | House |
+| InfoCircle | CircleInfo |
+| ExclamationTriangle | TriangleExclamation |
+| Archive | BoxArchive |
+| CodeBranch | CodeFork (CodeBranch still available) |
+| Tools | ScrewdriverWrench / Hammer |
+| ThLarge | TableCellsLarge |
+| Edit | PenToSquare |
+| Search | MagnifyingGlass |
+| SortAmountDown | ArrowDownWideShort |
+| MapMarkedAlt | MapLocationDot |
+| Hdd | HardDrive |
+| Smile | FaceSmile |
+| TachometerAlt | GaugeHigh |
+| ProjectDiagram | DiagramProject |
+| CalendarAlt | CalendarDays |
+
+`Undo` is removed in FA6, use `RotateLeft` instead.
+
 ## 0.9.0 (2020-06-15)
 
 - Add [carbon](https://github.com/carbon-design-system/carbon/tree/main/packages/icons) icons.
