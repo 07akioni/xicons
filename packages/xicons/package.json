@@ -2,9 +2,13 @@
   "name": "xicons",
   "version": "0.0.0",
   "description": "> TODO: description",
-  "author": "07akioni <07akioni2@gmail.com>",
+  "author": "n1anchen",
   "license": "MIT",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/n1anchen/xicons.git"
+  },
   "scripts": {
     "clean": "rm -rf dist",
     "init": "./init.sh && ./checkout.sh",
