@@ -14,6 +14,7 @@ https://www.xicons.org
 
 ## Changelog
 
+- `0.14.0` Upgrade `fa` to Font Awesome 6 (1609 → 2058 icons) & refresh `tabler` (1518 → 6184 icons). Breaking: some icon names renamed, see [CHANGELOG.md](./CHANGELOG.md).
 - `0.13.0` Fix vue3 icon memory leaking issue.
 
 ## Installation

@@ -90,8 +90,8 @@ importers:
   packages/xicons:
     devDependencies:
       '@iconify/json':
-        specifier: 2.0.33
-        version: 2.0.33
+        specifier: 2.2.510
+        version: 2.2.510
       '@mixer/parallel-prettier':
         specifier: ^2.0.1
         version: 2.0.3(prettier@2.8.8)
@@ -238,8 +238,8 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     deprecated: Use @eslint/object-schema instead
 
-  '@iconify/json@2.0.33':
-    resolution: {integrity: sha512-fVSm3rjcUJUX45BIs+AzVXQopI7oWfuxKnHleJKR//bEUK5UfUGHUu7860Wz8z9FuHKVejq+VxJItjFRl96OAQ==}
+  '@iconify/json@2.2.510':
+    resolution: {integrity: sha512-/3+s6IFpyog7ZfdIHVGxgnnFleOlThkcjTIum3UBeqgoIykEILBRm6CevuAzJB/4jWqZBAekAfki4JKep/MbWw==}
 
   '@iconify/types@1.1.0':
     resolution: {integrity: sha512-Jh0llaK2LRXQoYsorIH8maClebsnzTcve+7U3rQUSnC11X4jtPnFuyatqFLvMxZ8MLG8dB4zfHsbPfuvxluONw==}
@@ -1237,8 +1237,8 @@ packages:
     resolution: {integrity: sha512-Xa4Nw17FS9ApQFJ9umLiJS4orGjm7ZzwUrwamcGQuHSzDyth9boKDaycYdDcZDuqYATXw4HFXgaqWTctW/v1HA==}
     engines: {node: '>=16 || 14 >=14.18'}
 
-  pathe@0.0.2:
-    resolution: {integrity: sha512-mmK20YtPb4yXHlaPuOD/uPIpRu7iIK45GA/GiRSlNpIdfWDG5aEQmFT1HHtBmJB+t/6DvFOtOsEipsPA8Bx2cw==}
+  pathe@2.0.3:
+    resolution: {integrity: sha512-WUjGcAqP1gQacoQe+OBJsFA7Ld4DyXuUIjZ5cc75cLHvJ7dtNsTugphxIADwspS+AraAUePCKrSVtPLFj/F88w==}
 
   pathval@1.1.1:
     resolution: {integrity: sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==}
@@ -1773,10 +1773,10 @@ snapshots:
 
   '@humanwhocodes/object-schema@1.2.1': {}
 
-  '@iconify/json@2.0.33':
+  '@iconify/json@2.2.510':
     dependencies:
       '@iconify/types': 1.1.0
-      pathe: 0.0.2
+      pathe: 2.0.3
 
   '@iconify/types@1.1.0': {}
 
@@ -2785,7 +2785,7 @@ snapshots:
       lru-cache: 10.4.3
       minipass: 7.1.2
 
-  pathe@0.0.2: {}
+  pathe@2.0.3: {}
 
   pathval@1.1.1: {}
 

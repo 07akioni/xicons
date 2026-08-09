@@ -2,9 +2,13 @@
   "name": "xicons",
   "version": "0.0.0",
   "description": "> TODO: description",
-  "author": "07akioni <07akioni2@gmail.com>",
+  "author": "n1anchen",
   "license": "MIT",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/n1anchen/xicons.git"
+  },
   "scripts": {
     "clean": "rm -rf dist",
     "init": "./init.sh && ./checkout.sh",
@@ -18,7 +22,7 @@
     "release:no-build": "pnpm run test && node scripts/release.js"
   },
   "devDependencies": {
-    "@iconify/json": "2.0.33",
+    "@iconify/json": "2.2.510",
     "@mixer/parallel-prettier": "^2.0.1",
     "@types/fs-extra": "^9.0.7",
     "@types/react": "^17.0.2",
