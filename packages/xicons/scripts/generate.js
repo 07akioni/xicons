@@ -16,7 +16,7 @@ const execa = require('execa')
 const v2s = require('v2s')
 const path = require('path')
 const config = require('./config')
-const { createSvgSanitizer } = require('./utils')
+const { createSvgSanitizer, reactifySvg } = require('./utils')
 
 const projectDir = path.resolve(__dirname, '..')
 
@@ -79,10 +79,11 @@ async function traverse(basePath, cb, depth = 0) {
           console.log('error width', iconSetName, iconKey)
         }
         const clearedBody = body.replace(/class="[^"]*"/g, '')
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${mergedWidth} ${mergedHeight}">${clearedBody}</svg>`
         icons.push({
           name: normalizedName,
-          svg: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${mergedWidth} ${mergedHeight}">${clearedBody}</svg>`,
-          reactSvg: `<svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${mergedWidth} ${mergedHeight}">${clearedBody}</svg>`
+          svg,
+          reactSvg: reactifySvg(svg)
         })
       })
     } else {
