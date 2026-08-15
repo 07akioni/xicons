@@ -26,7 +26,8 @@ export default {
     return h('div', {
       class: 'tab'
     }, this.options.map(value => {
-      return h('div', {
+      return h('button', {
+        type: 'button',
         class: [
           'tab-item',
           {
