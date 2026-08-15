@@ -85,9 +85,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 3px solid transparent;
   flex-shrink: 0;
   padding: 0 16px;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+}
+
+.tab .tab-item:focus {
+  outline: none;
+}
+
+.tab .tab-item:focus-visible {
+  box-shadow: inset 0 0 0 2px #606060;
 }
 
 .tab .tab-item:not(:last-child) {
