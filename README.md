@@ -220,7 +220,7 @@ import { IconConfigProvider, Icon } from '@v2icons/utils' // vue2
     <Icon>
       <SomeIcon />
     </Icon>
-  <App/>
+  </App>
 </IconConfigProvider>
 ```
 
