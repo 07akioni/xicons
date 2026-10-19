@@ -9,7 +9,7 @@ interface IconProps extends IconConfigProviderContext {
   children?: React.ReactNode
 }
 
-export function Icon ({ size, color, tag = 'span', children }: IconProps) {
+export function Icon ({ size, color, tag, children }: IconProps) {
   const iconConfig = useContext(iconConfigProviderContext)
   const mergedSize = useMemo(() => {
     const _size = size ?? iconConfig?.size
